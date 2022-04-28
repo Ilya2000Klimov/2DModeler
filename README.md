@@ -3,23 +3,23 @@ CS1C group project
 
 
 #### Sprint 1
-|Name|Email|Role|
-|----|-----|-------|
-|Ilya Klimov|Ilya2000Klimov@gmail.com|Coder|
-|Cynthia Martinez|Email@gmail.com|Coder|
-|Trazler McGrath|Email@gmail.com|Scrum Master|
-|Adam Ortiz|Email@gmail.com|Coder|
-|Chathuri Palanivelu|Email@gmail.com|Coder|
-|William Wood|Email@gmail.com|Product Owner|
-|Name|Email|Role|
+|Name|Email|Username|Role|
+|----|-----|--------|----|
+|Ilya Klimov|Ilya2000Klimov@gmail.com|[Ilya2000Klimov](https://github.com/Ilya2000Klimov)|Coder|
+|Cynthia Martinez|Email@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Coder|
+|Trazler McGrath|Email@gmail.com|[cree321](https://github.com/cree321)|Scrum Master|
+|Adam Ortiz|Email@gmail.com|[ortiz488](https://github.com/ortiz488)|Coder|
+|Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
+|William Wood|Email@gmail.com|[wrwood](https://github.com/wrwood)|Product Owner|
+//|Name|Email@gmail.com|Role|
 
 #### Sprint 2
-|Name|Email|Role|
-|----|-----|-------|
-|Ilya Klimov|Ilya2000Klimov@gmail.com|Scrum Master|
-|Cynthia Martinez|Email@gmail.com|Coder|
-|Trazler McGrath|Email@gmail.com|Coder|
-|Adam Ortiz|Email@gmail.com|Coder|
-|Chathuri Palanivelu|Email@gmail.com|Coder|
-|William Wood|Email@gmail.com|Coder|
-|Name|Email|Role|
+|Name|Email|Username|Role|
+|----|-----|--------|----|
+|Ilya Klimov|Ilya2000Klimov@gmail.com|[Ilya2000Klimov](https://github.com/Ilya2000Klimov)|Scrum Master|
+|Cynthia Martinez|Email@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Coder|
+|Trazler McGrath|Email@gmail.com|[cree321](https://github.com/cree321)|Coder|
+|Adam Ortiz|Email@gmail.com|[ortiz488](https://github.com/ortiz488)|Coder|
+|Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
+|William Wood|Email@gmail.com|[wrwood](https://github.com/wrwood)|Coder|
+//|Name|Email@gmail.com|Role|
