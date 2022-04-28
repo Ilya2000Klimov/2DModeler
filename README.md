@@ -18,7 +18,7 @@ CS1C group project
 |----|-----|--------|----|
 |Charlie Diaz|Email@gmail.com|[usename](https://github.com/)|Coder|
 |Ilya Klimov|Ilya2000Klimov@gmail.com|[Ilya2000Klimov](https://github.com/Ilya2000Klimov)|Scrum Master|
-|Cynthia Martinez|Email@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Coder|
+|Cynthia Martinez|Email@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Product Owner|
 |Trazler McGrath|Email@gmail.com|[cree321](https://github.com/cree321)|Coder|
 |Adam Ortiz|Email@gmail.com|[ortiz488](https://github.com/ortiz488)|Coder|
 |Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
