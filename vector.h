@@ -21,7 +21,7 @@ public:
  ~vector();      // destructor
  T& operator[](int n);    // access: return reference
 // change this line to T& operator[](int n); to not get compile error, but might cause issues in the future
- const T& operator[](int n);    // access: return reference
+T& operator[](int n) const;    // access: return reference
  int size() const;    // the current size
  int capacity() const;     // current available space
  void resize(int newsize);   // grow
@@ -100,8 +100,8 @@ T& vector<T>::operator[] (int n) // access: return reference
 return elem[n];
 }
 template <class T>
-//change this line to T& vector<T>::operator[](int n ) const 
-const T& vector<T>::operator[] (int n) // access: return reference
+// Ch: change this line to T& vector<T>::operator[](int n ) const 
+T& vector<T>::operator[] (int n) const // access: return reference
 {
 return elem[n];
 }
@@ -152,7 +152,7 @@ void vector<T>::reserve(int newalloc) // get more space
 }
 // ==== T
 // Similar to typedef
-/*
+
 template <class T>
 using iterator = T*;
 template <class T>
@@ -163,28 +163,28 @@ iterator vector<T>::begin() // points to first element
 {
         if (size_v == 0)
                    return nullptr;
-        return elem[0];
+        return &elem[0];
 }
 template <class T>
 const_iterator vector<T>::begin() const
 {
         if (size_v == 0)
                     return nullptr;
-        return elem[0];
+        return &elem[0];
 }
 template <class T>
 iterator vector<T>::end() // points to one beyond the last element
 {
         if (size_v == 0)
                     return nullptr;
-        return elem[size_v - 1];
+        return &elem[size_v];
 }
 template <class T>
 const_iterator vector<T>::end() const
 {
         if (size_v == 0)
                     return nullptr;
-        return elem[size_v - 1];
+        return &elem[size_v];
 }
 template <class T>
 iterator vector<T>::insert(iterator p, const T& v) // insert a new element v before p
@@ -213,5 +213,5 @@ iterator vector<T>::erase(iterator p) // remove element pointed to by p
   }
   return elem = erasedElem;
 }
-*/
+
 }
