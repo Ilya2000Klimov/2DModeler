@@ -11,7 +11,6 @@ CS1C group project
 |Adam Ortiz|Email@gmail.com|[ortiz488](https://github.com/ortiz488)|Coder|
 |Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
 |William Wood|Email@gmail.com|[wrwood](https://github.com/wrwood)|Product Owner|
-//|Name|Email@gmail.com|Role|
 
 #### Sprint 2
 |Name|Email|Username|Role|
@@ -22,4 +21,3 @@ CS1C group project
 |Adam Ortiz|Email@gmail.com|[ortiz488](https://github.com/ortiz488)|Coder|
 |Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
 |William Wood|Email@gmail.com|[wrwood](https://github.com/wrwood)|Coder|
-//|Name|Email@gmail.com|Role|
