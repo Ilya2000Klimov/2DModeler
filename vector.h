@@ -1,5 +1,4 @@
 #include <algorithm>
-#include "vector.h"
  
 namespace cs1c
 {
