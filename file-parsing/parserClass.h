@@ -16,12 +16,12 @@ namespace cs1c
     private:
         // QMetaEnum creation necessary for switching on
         // parsed ShapeType enum property via keyToValue func
-        QMetaEnum metaShapeTypeEnum = QMetaEnum::fromType<slp::ShapeType>();
+        //QMetaEnum metaShapeTypeEnum = QMetaEnum::fromType<slp::ShapeType>();
         bool validateFile(QFile&);
     public:
         // Register enum with qt meta type system
         //Q_ENUM(slp::ShapeType)
-        ShapeParser();
+        ShapeParser(QPainter*);
         // parseShape
         // Input: A valid QFile reference; validation required
         // Output: vector containing all shapes described in Input
