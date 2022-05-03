@@ -27,8 +27,8 @@ public:
     virtual ~Shape();
     virtual void draw(QPainter *paint) = 0;
     virtual void move(int x, int y) = 0;
-    virtual void perimeter() = 0;
-    virtual void area() = 0;
+    virtual double perimeter() = 0;
+    virtual double area() = 0;
     int getID() const;
     shapeType getShapeType() const;
     QPen& getPen();
