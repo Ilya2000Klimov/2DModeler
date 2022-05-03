@@ -17,6 +17,7 @@ private:
 
 public:
     Shape();
+    Shape(QPainter* pPainter);
     Shape(int shapeID, QPen pen, QBrush brush, shapeType shape);
     Shape (const Shape& copy) = delete; // copy constructor
     Shape& operator=(const Shape& copy) = delete; // assignment operator

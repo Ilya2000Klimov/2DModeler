@@ -1,5 +1,6 @@
 #ifndef TEXT_H
 #define TEXT_H
+#include <QString>
 #include <QFont>
 #include "shape.h"
 
@@ -13,11 +14,12 @@ private:
     
 public:
     Text();
+    Text(QPainter* pPainter);
     Text(QFont font);
     virtual ~Text();
-    void setFont();
+    void setFont(QFont font);
     QFont getFont() const;
-    void setText();
+    void setText(QString textString);
     QString getText() const;
     virtual void draw(QPaintDevice *device) override;
     virtual void move() override;
