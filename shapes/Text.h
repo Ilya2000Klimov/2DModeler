@@ -3,6 +3,8 @@
 #include <QFont>
 #include "shape.h"
 
+namespace cs1c
+{
 class Text : public Shape
 {
 private:
@@ -22,4 +24,5 @@ public:
     virtual void perimeter() override;
     virtual void area() override;
 };
+}
 #endif // TEXT_H

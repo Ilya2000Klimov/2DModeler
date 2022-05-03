@@ -4,7 +4,7 @@ namespace cs1c
 {
 // vector header
 // a vector which approximates the stl vector
-template<class T>
+template<typename T>
 class vector
 {
  int size_v;     // the size
@@ -40,25 +40,25 @@ T& operator[](int n) const;    // access: return reference
  
 // vector definitions
 // ==== C
-template <class T>
+template <typename T>
 vector<T>::vector() // default constructor
 : size_v{0}, elem{nullptr}, space{0} {}
  
-template <class T>
+template <typename T>
 vector<T>::vector(int s) // alternate constructor
 : size_v{s}, elem{new T[s]}, space{s}
 {
     for (int i = 0; i < size_v; i++)
         elem[ i ] = 0;
 }
-template <class T>
+template <typename T>
 vector<T>::vector(const vector& source) // copy constructor
 : size_v{source.size_v}, elem{new T[source.size_v]}, space{source.space}
 {
     // using copy algorithm to copy the contents of source array to this array
     std::copy(source.elem, source.elem + source.size_v, elem);
 }
-template <class T>
+template <typename T>
 vector<T>& vector<T>::operator=(const vector& source) // copy assignment
 {
     T* p = new T[source.size_v];  // create a pointer pointing to a dynamic array
@@ -68,14 +68,14 @@ vector<T>& vector<T>::operator=(const vector& source) // copy assignment
     size_v = source.size_v;
     return *this;
 }
-template <class T>
+template <typename T>
 vector<T>::vector(const vector&& source) noexcept // move constructor
 : size_v{source.size_v}, elem{source.elem}
 {
     source.elem = nullptr;
     source.size_v = 0;
 }
-template <class T>
+template <typename T>
 vector<T>& vector<T>::operator=(const vector&& source) noexcept // move assignment
 {
     if (this != &source)
@@ -87,34 +87,34 @@ vector<T>& vector<T>::operator=(const vector&& source) noexcept // move assignme
     }
     return *this;
 }
-template <class T>
+template <typename T>
 vector<T>::~vector() // destructor
 {
     delete[ ] elem;
 }
 // ===== I
-template <class T>
+template <typename T>
 T& vector<T>::operator[] (int n) // access: return reference
 {
 return elem[n];
 }
-template <class T>
+template <typename T>
 // Ch: change this line to T& vector<T>::operator[](int n ) const 
 T& vector<T>::operator[] (int n) const // access: return reference
 {
 return elem[n];
 }
-template <class T>
+template <typename T>
 int vector<T>::size() const // the current size
 {
     return size_v;
 }
-template <class T>
+template <typename T>
 int vector<T>::capacity() const // current available space
 {
     return space;
 }
-template <class T>
+template <typename T>
 void vector<T>::resize(int newsize) // grow
 {
 reserve(newsize);
@@ -123,7 +123,7 @@ for (int i = size_v; i < newsize; ++i)
 size_v = newsize;
  
 }
-template <class T>
+template <typename T>
 void vector<T>::push_back(T val) // add element
 {
     if (space == 0)
@@ -134,7 +134,7 @@ void vector<T>::push_back(T val) // add element
     ++size_v;                   // increase the size (size_v is the number of elements)
  
 }
-template <class T>
+template <typename T>
 void vector<T>::reserve(int newalloc) // get more space
 {
   T* newElem = new T[newalloc]();
@@ -152,41 +152,41 @@ void vector<T>::reserve(int newalloc) // get more space
 // ==== T
 // Similar to typedef
 
-template <class T>
+template <typename T>
 using iterator = T*;
-template <class T>
+template <typename T>
 using const_iterator = const T*;
  
-template <class T>
-iterator vector<T>::begin() // points to first element
+template <typename T>
+iterator<T> vector<T>::begin() // points to first element
 {
         if (size_v == 0)
                    return nullptr;
         return &elem[0];
 }
-template <class T>
-const_iterator vector<T>::begin() const
+template <typename T>
+const_iterator<T> vector<T>::begin() const
 {
         if (size_v == 0)
                     return nullptr;
         return &elem[0];
 }
-template <class T>
-iterator vector<T>::end() // points to one beyond the last element
+template <typename T>
+iterator<T> vector<T>::end() // points to one beyond the last element
 {
         if (size_v == 0)
                     return nullptr;
         return &elem[size_v];
 }
-template <class T>
-const_iterator vector<T>::end() const
+template <typename T>
+const_iterator<T> vector<T>::end() const
 {
         if (size_v == 0)
                     return nullptr;
         return &elem[size_v];
 }
-template <class T>
-iterator vector<T>::insert(iterator p, const T& v) // insert a new element v before p
+template <typename T>
+iterator<T> vector<T>::insert(iterator p, const T& v) // insert a new element v before p
 {
   // if the vector has NO free space
   if(!(space - size_v))
@@ -202,8 +202,8 @@ iterator vector<T>::insert(iterator p, const T& v) // insert a new element v bef
  
   return p;
 }
-template <class T>
-iterator vector<T>::erase(iterator p) // remove element pointed to by p
+template <typename T>
+iterator<T> vector<T>::erase(iterator p) // remove element pointed to by p
 {
   iterator erasedElem = new T[space];
   while(++p != this.end())
