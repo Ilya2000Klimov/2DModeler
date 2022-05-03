@@ -105,6 +105,9 @@ namespace slp
     {
         QHash<QString, cs1c::Shape> shapeTypeResolver;
         shapeTypeResolver.reserve(8);
+        // QHashes cannot receive input, so all concrete
+        // shapes must have constructors with non-variable input
+        // ex: pPainter does not differ between shapes
         shapeTypeResolver["Line"] = Line(pPainter);
         shapeTypeResolver["Polyline"] = Polyline(pPainter);
         shapeTypeResolver["Polygon"] = Polygone(pPainter);
