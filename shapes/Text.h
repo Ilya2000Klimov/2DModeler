@@ -30,6 +30,7 @@ public:
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;
+    friend QTextStream& operator<<(QTextStream& fileStream, Text& textShape);
 };
 }
 #endif // TEXT_H

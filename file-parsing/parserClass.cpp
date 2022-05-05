@@ -42,7 +42,7 @@ std::vector<Shape> cs1c::ShapeParser::parseShape(QFile& file)
     int* shapeDimensions;
 
     // so long as the file has not reached its end
-    while (!in.atEnd()) {
+    while (!in.valueEnd()) {
         // For each shape listed:
         in.readLine();
 
@@ -53,8 +53,8 @@ std::vector<Shape> cs1c::ShapeParser::parseShape(QFile& file)
         dimensionList = getPropertyData(in).split(", ");
 
         // Create new shape from file
-        auto currentShape = slp::shapeTypeResolver.at(shapeType);
-        //shapeList.push_back(slp::shapeTypeResolver.at(shapeType));
+        auto currentShape = slp::shapeTypeResolver.value(shapeType);
+        //shapeList.push_back(slp::shapeTypeResolver.value(shapeType));
         // Convenient access to working shape
         //Shape& currentShape = shapeList.back();
 
@@ -68,7 +68,7 @@ std::vector<Shape> cs1c::ShapeParser::parseShape(QFile& file)
         shapeDimensions = new int[dimensionList.size()]{};
         for(int i = 0; i < dimensionList.size(); i++)//QStringList::iterator itDimension = dimensionList.begin(); itDimension != dimensionList.end(); ++itDimension)
         {
-            shapeDimensions[i] = dimensionList.at(i).toInt();
+            shapeDimensions[i] = dimensionList.value(i).toInt();
         }
         currentShape.setDimensions(shapeDimensions);
 
@@ -78,14 +78,14 @@ std::vector<Shape> cs1c::ShapeParser::parseShape(QFile& file)
         if(shapeType.contains("Text"))
         {
             QString textString = getPropertyData(in);
-            QColor textColor = slp::globalColorResolver.at(getPropertyData(in));
-            Qt::AlignmentFlag textAlignment = slp::alignmentFlagResolver.at(getPropertyData(in));
+            QColor textColor = slp::globalColorResolver.value(getPropertyData(in));
+            Qt::AlignmentFlag textAlignment = slp::alignmentFlagResolver.value(getPropertyData(in));
             int textPointSize = getPropertyData(in).toInt();
             QString textFontFamily = getPropertyData(in);
 
             QFont textFont(textFontFamily);
-            textFont.setStyle(slp::globalColorResolver.at(getPropertyData(in)));
-            textFont.setWeight(slp::fontWeightResolver.at(getPropertyData(in)));
+            textFont.setStyle(slp::globalColorResolver.value(getPropertyData(in)));
+            textFont.setWeight(slp::fontWeightResolver.value(getPropertyData(in)));
 
             // Apply text properties from file
             currentShape.setText(textString);
@@ -97,11 +97,11 @@ std::vector<Shape> cs1c::ShapeParser::parseShape(QFile& file)
         // ============================
         else
         {
-            QColor penColor = slp::globalColorResolver.at(getPropertyData(in));
+            QColor penColor = slp::globalColorResolver.value(getPropertyData(in));
             int penWidth = getPropertyData(in).toInt();
-            Qt::PenStyle penStyle = slp::penStyleResolver.at(getPropertyData(in));
-            Qt::PenCapStyle penCapStyle = slp::penCapStyleResolver.at(getPropertyData(in));
-            Qt::PenJoinStyle penJoinStyle = slp::penJoinStyleResolver.at(getPropertyData(in));
+            Qt::PenStyle penStyle = slp::penStyleResolver.value(getPropertyData(in));
+            Qt::PenCapStyle penCapStyle = slp::penCapStyleResolver.value(getPropertyData(in));
+            Qt::PenJoinStyle penJoinStyle = slp::penJoinStyleResolver.value(getPropertyData(in));
 
             // Apply pen properties from file
             currentShape.setPen(
@@ -116,8 +116,8 @@ std::vector<Shape> cs1c::ShapeParser::parseShape(QFile& file)
             // ============================
             if(!shapeType.contains("Line"))
             {
-                QColor brushColor = slp::globalColorResolver.at(getPropertyData(in));
-                Qt::BrushStyle brushStyle = slp::brushStyleResolver.at(getPropertyData(in));
+                QColor brushColor = slp::globalColorResolver.value(getPropertyData(in));
+                Qt::BrushStyle brushStyle = slp::brushStyleResolver.value(getPropertyData(in));
 
                 // Apply brush properties from file
                 currentShape.setBrush(brushColor, brushStyle);

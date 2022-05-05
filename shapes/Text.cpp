@@ -66,3 +66,17 @@ double cs1c::Text::area() override
 {
     return textBounds.width() * textBounds.height();
 }
+QTextStream& operator<<(QTextStream& fileStream, Text& textShape)
+{
+    fileStream << "\nShapeId: " << textShape.id
+        << "\nShapeType: Text"
+        << "\nShapeDimensions: " << textShape.textBounds.x() << ", " << textShape.textBounds.y()
+            << ", " << textShape.textBounds.length() << ", " << textShape.textBounds.width()
+        << "\nTextString: " << textShape.textString
+        << "\nTextColor: blue" << slp::globalColorResolver.key(textShape.pen.color())
+        << "\nTextAlignment: " << slp::alignmentFlagResolver.key(textShape.textFormat.alignment())
+        << "\nTextPointSize: " << textShape.font.pointSize()
+        << "\nTextFontFamily: " << textShape.font.family()
+        << "\nTextFontStyle: " << slp::fontStyleResolver.key(textShape.font.style())
+        << "\nTextFontWeight: " << slp::fontWeightResolver.key(textShape.font.weight());
+}
