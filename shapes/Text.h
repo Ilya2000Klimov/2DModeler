@@ -2,6 +2,7 @@
 #define TEXT_H
 #include <QString>
 #include <QFont>
+#include <QTextOption>
 #include "shape.h"
 
 namespace cs1c
@@ -9,22 +10,26 @@ namespace cs1c
 class Text : public Shape
 {
 private:
+    QRect textBounds;
+    QTextOption textFormat;
     QFont font;
-    QString text;
+    QString textString;
     
 public:
     Text();
     Text(QPainter* pPainter);
     Text(QFont font);
     virtual ~Text();
+    void setAlignment(QAlignment textAlignment);
+    QAlignment getAlignment();
     void setFont(QFont font);
     QFont getFont() const;
     void setText(QString textString);
     QString getText() const;
-    virtual void draw(QPaintDevice *device) override;
-    virtual void move() override;
-    virtual void perimeter() override;
-    virtual void area() override;
+    virtual void draw() override;
+    virtual void move(int x, int y) override;
+    virtual double perimeter() override;
+    virtual double area() override;
 };
 }
 #endif // TEXT_H
