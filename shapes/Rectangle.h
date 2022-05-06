@@ -10,14 +10,17 @@ public:
     Rectangle();
     Rectangle(int x, int y, int width, int height);
     virtual ~Rectangle();
+    void setY(int y);
+    void setX(int x);
+    void setHeight(int h);
+    void setWidth(int w);
+    int getHeight() const;
+    int getWidth() const;
+    int getX() const;
+    int getY() const;
     virtual void draw(QPainter *paint) override;
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;
-    void setPoints(int w, int l);
-    int getPoints() const;
-private:
-    int length;
-    int width;
 };
 #endif // RECTANGLE_H
