@@ -2,66 +2,70 @@
 
 Line::Line()
 {
-    start.setX(10);
-    start.setY(10);
-    end.setX(100);
-    end.setY(100);
+    int x1 = 10;
+    int y1 = 10;
+    int x2 = 100;
+    int y2 = 100;
 }
 //----------------------------------------------------------------------
-Line::Line(QPoint start, QPoint end)
+Line::Line(int xStart, int yStart, int xEnd, int yEnd)
 {
-    this->start = start;
-    this->end = end;
+    x1 = xStart;
+    y1 = yStart;
+    x2 = xEnd;
+    y2 = yEnd;
 }
 //----------------------------------------------------------------------
 Line::~Line() {}
 //----------------------------------------------------------------------
 void Line::setStartPoint(int x, int y)
 {
-    start.setX(x);
-    start.setY(y);
+    x1 = x;
+    y1 = y;
 }
 //----------------------------------------------------------------------
 void Line::setEndPoint(int x, int y)
 {
-    end.setX(x);
-    end.setY(y);
+    x2 = x;
+    y2 = y;
 }
 //----------------------------------------------------------------------
-QPoint Line::getPointStart() const
+int Line::getStartX() const
 {
-    return start;
+    return x1;
 }
 //----------------------------------------------------------------------
-QPoint Line::getPointEnd() const
+int Line::getStartY() const
 {
-    return end;
+    return y1;
+}
+//----------------------------------------------------------------------
+int Line::getEndX() const
+{
+    return x2;
+}
+//----------------------------------------------------------------------
+int Line::getEndY() const
+{
+    return y2;
 }
 //----------------------------------------------------------------------
 void Line::draw(QPainter *paint)
 {
     paint->setPen(getPen());
     paint->setBrush(getBrush());
-    paint->drawLine(start, end);
+    paint->drawLine(x1, y1, x2, y2);
+
 }
 //----------------------------------------------------------------------
 void Line::move(int x, int y)
 {
-    // Give moveStart/moveEnd original coordinates
-    QPoint moveStart = getPointStart();
-    QPoint moveEnd = getPointEnd();
+    setStartPoint(x,y);
 
-    int newStartX = moveStart.x();
-    int newStartY = moveStart.y();
+    int newEndX = x2 + x;
+    int newEndY = y2 + y;
 
-    int newEndX = moveEnd.x();
-    int newEndY = moveEnd.y();
-
-    int endX = moveStart.x() + newEndX;
-    int endY = moveStart.y() + newEndY;
-
-    setStartPoint(newStartX, newStartY);
-    setEndPoint(endX, endY);
+    setEndPoint(newEndX, newEndY);
 }
 //----------------------------------------------------------------------
 double Line::perimeter()
