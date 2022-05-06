@@ -1,22 +1,22 @@
 #ifndef LINE_H
 #define LINE_H
-#include <QPoint>
 #include "shape.h"
 
 class Line : public Shape
 {
 private:
-    QPoint start;
-    QPoint end;
+    int x1, y1, x2, y2;
 
 public:
     Line();
-    Line(QPoint start, QPoint end);
+    Line(int, int, int, int);
     virtual ~Line();
     void setStartPoint(int, int);
     void setEndPoint(int, int);
-    QPoint getPointStart() const;
-    QPoint getPointEnd() const;
+    int getStartX() const;
+    int getStartY() const;
+    int getEndX() const;
+    int getEndY() const;
     virtual void draw(QPainter *paint) override;
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
