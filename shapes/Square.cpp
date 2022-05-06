@@ -1,80 +1,73 @@
-#include "Line.h"
+#include "square.h"
 
-Line::Line()
+Square::Square()
 {
-    int x1 = 10;
-    int y1 = 10;
-    int x2 = 100;
-    int y2 = 100;
+    x = 10;
+    y = 10;
+    width = 100;
 }
 //----------------------------------------------------------------------
-Line::Line(int xStart, int yStart, int xEnd, int yEnd)
+Square::Square(int x, int y, int w)
 {
-    x1 = xStart;
-    y1 = yStart;
-    x2 = xEnd;
-    y2 = yEnd;
+    this->x = x;
+    this->y = y;
+    width = w;
 }
 //----------------------------------------------------------------------
-Line::~Line() {}
+Square::~Square() {}
 //----------------------------------------------------------------------
-void Line::setStartPoint(int x, int y)
+void Square::setY(int y)
 {
-    x1 = x;
-    y1 = y;
+    this->y = y;
 }
 //----------------------------------------------------------------------
-void Line::setEndPoint(int x, int y)
+void Square::setX(int x)
 {
-    x2 = x;
-    y2 = y;
+    this->x = x;
 }
 //----------------------------------------------------------------------
-int Line::getStartX() const
+void Square::setWidth(int w)
 {
-    return x1;
+    width = w;
 }
 //----------------------------------------------------------------------
-int Line::getStartY() const
+int Square::getWidth() const
 {
-    return y1;
+    return width;
 }
 //----------------------------------------------------------------------
-int Line::getEndX() const
+int Square::getX() const
 {
-    return x2;
+    return x;
 }
 //----------------------------------------------------------------------
-int Line::getEndY() const
+int Square::getY() const
 {
-    return y2;
+    return y;
 }
 //----------------------------------------------------------------------
-void Line::draw(QPainter *paint)
+void Square::draw(QPainter *paint)
 {
     paint->setPen(getPen());
     paint->setBrush(getBrush());
-    paint->drawLine(x1, y1, x2, y2);
-
+    paint->drawRect(x, y, width, width);
 }
 //----------------------------------------------------------------------
-void Line::move(int x, int y)
+void Square::move(int x, int y)
 {
-    setStartPoint(x,y);
-
-    int newEndX = x2 + x;
-    int newEndY = y2 + y;
-
-    setEndPoint(newEndX, newEndY);
+    int newX = x;
+    int newY = y;
+    setX(newX);
+    setY(newY);
 }
 //----------------------------------------------------------------------
-double Line::perimeter()
+double Square::perimeter()
 {
-    return 0; // There is no perimeter for a line
+    return (4*width);
 }
 //----------------------------------------------------------------------
-double Line::area()
+double Square::area()
 {
-    return 0; // There is no area for a line
+    return (width * width);
 }
 //----------------------------------------------------------------------

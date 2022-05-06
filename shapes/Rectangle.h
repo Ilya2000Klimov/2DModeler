@@ -4,9 +4,11 @@
 
 class Rectangle : public Shape
 {
+private:
+    int x, y, width, height;
 public:
     Rectangle();
-    Rectangle(int length, int width);
+    Rectangle(int x, int y, int width, int height);
     virtual ~Rectangle();
     virtual void draw(QPainter *paint) override;
     virtual void move(int x, int y) override;

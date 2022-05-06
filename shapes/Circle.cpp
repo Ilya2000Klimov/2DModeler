@@ -1,80 +1,75 @@
-#include "Line.h"
+#include "Circle.h"
 
-Line::Line()
+const double PI = 3.14;
+
+Circle::Circle()
 {
-    int x1 = 10;
-    int y1 = 10;
-    int x2 = 100;
-    int y2 = 100;
+    x = 100;
+    y = 100;
+    radius = 300;
 }
 //----------------------------------------------------------------------
-Line::Line(int xStart, int yStart, int xEnd, int yEnd)
+Circle::Circle(int x, int y, int radius)
 {
-    x1 = xStart;
-    y1 = yStart;
-    x2 = xEnd;
-    y2 = yEnd;
+    this->x = x;
+    this->y = y;
+    this->radius = radius;
 }
 //----------------------------------------------------------------------
-Line::~Line() {}
+Circle::~Circle() {}
 //----------------------------------------------------------------------
-void Line::setStartPoint(int x, int y)
+void Circle::setRadius(int r)
 {
-    x1 = x;
-    y1 = y;
+    radius = r;
 }
 //----------------------------------------------------------------------
-void Line::setEndPoint(int x, int y)
+void Circle::setX(int x)
 {
-    x2 = x;
-    y2 = y;
+    this->x = x;
 }
 //----------------------------------------------------------------------
-int Line::getStartX() const
+void Circle::setY(int y)
 {
-    return x1;
+    this->y = y;
 }
 //----------------------------------------------------------------------
-int Line::getStartY() const
+int Circle::getRadius() const
 {
-    return y1;
+    return radius;
 }
 //----------------------------------------------------------------------
-int Line::getEndX() const
+int Circle::getX() const
 {
-    return x2;
+    return x;
 }
 //----------------------------------------------------------------------
-int Line::getEndY() const
+int Circle::getY() const
 {
-    return y2;
+    return y;
 }
 //----------------------------------------------------------------------
-void Line::draw(QPainter *paint)
+void Circle::draw(QPainter *paint)
 {
     paint->setPen(getPen());
     paint->setBrush(getBrush());
-    paint->drawLine(x1, y1, x2, y2);
-
+    paint->drawEllipse(x, y, radius, radius);
 }
 //----------------------------------------------------------------------
-void Line::move(int x, int y)
+void Circle::move(int x, int y)
 {
-    setStartPoint(x,y);
-
-    int newEndX = x2 + x;
-    int newEndY = y2 + y;
-
-    setEndPoint(newEndX, newEndY);
+    int newX = x;
+    int newY = y;
+    setX(newX);
+    setY(newY);
 }
 //----------------------------------------------------------------------
-double Line::perimeter()
+double Circle::perimeter()
 {
-    return 0; // There is no perimeter for a line
+    return (2 * PI* radius);
 }
 //----------------------------------------------------------------------
-double Line::area()
+double Circle::area()
 {
-    return 0; // There is no area for a line
+    return (PI * (radius * radius));
 }
 //----------------------------------------------------------------------
