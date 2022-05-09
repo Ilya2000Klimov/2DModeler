@@ -18,6 +18,8 @@ public:
     int getX(); //function to get the X coord
     int getY();
     void setPoints(int Xcoord[],int Ycoord[]);
+    int getPoints();
+    void setPoints(int );
 private:
     int numOfPoints; // will need to find total polygon points
     const QPointF points[DEFAULT_NUM_PTS];

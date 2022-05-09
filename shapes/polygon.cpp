@@ -37,6 +37,14 @@ int Polygon::getY()
     }
     return 0;
 }
+void Polygon::setPoints(int numOfPoints)
+{
+    this->numOfPoints=numOfPoints;
+}
+int Polygon::getPoints()
+{
+    return numOfPoints;
+}
 
 void Polygon::draw(QPainter *paint)
 {
