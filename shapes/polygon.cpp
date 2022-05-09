@@ -20,7 +20,7 @@ void Polygon::setPoints(int Xcoord[],int Ycoord[])
     }
 }
 
-int Polygon::getX()
+int Polygon::getX() const
 {
     for(int index=0;index<numOfPoints;index++)
     {
@@ -29,7 +29,7 @@ int Polygon::getX()
     return 0;
 }
 
-int Polygon::getY()
+int Polygon::getY() const
 {
     for(int index=0;index<numOfPoints;index++)
     {
@@ -41,7 +41,7 @@ void Polygon::setPoints(int numOfPoints)
 {
     this->numOfPoints=numOfPoints;
 }
-int Polygon::getPoints()
+int Polygon::getPoints() const
 {
     return numOfPoints;
 }
@@ -53,7 +53,7 @@ void Polygon::draw(QPainter *paint)
     paint->drawPolygon(points,numOfPoints);
 }
 
-void Polygon::move(int x, int y, int points)
+void Polygon::move(double x, double y, int points)
 {
     double moveX=0;
     double moveY=0;

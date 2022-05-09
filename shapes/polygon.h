@@ -11,14 +11,14 @@ public:
     Polygon(int numOfPoints,double x, double y);
     ~Polygon() override;
     virtual void draw(QPainter *paint) override;
-    virtual void move(int x, int y, int points); //might need to change int point
+    virtual void move(double x, double y, int points); 
     virtual double perimeter() override;
     virtual double area() override;
 
-    int getX(); //function to get the X coord
-    int getY();
+    int getX() const; //function to get the X coord
+    int getY() const;
     void setPoints(int Xcoord[],int Ycoord[]);
-    int getPoints();
+    int getPoints() const;
     void setPoints(int );
 private:
     int numOfPoints; // will need to find total polygon points
