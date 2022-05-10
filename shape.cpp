@@ -3,13 +3,17 @@
 Shape::Shape()
 {
     shapeID = 0;
-    shape = Line;
+    pen = Qt::SolidLine;
+    brush = Qt::SolidPattern;
+    shape = None;
 }
 //----------------------------------------------------------------------
 Shape::Shape(int shapeID, QPen pen, QBrush brush, shapeType shape)
 {
     this->shapeID = shapeID;
-    this->shape = shape;
+    this->pen = pen;
+    this->brush = brush;
+    this->shape = None;
 }
 //----------------------------------------------------------------------
 Shape::~Shape(){}
@@ -31,7 +35,6 @@ void Shape::setPen(QColor color, int width, Qt::PenStyle style, Qt::PenCapStyle 
     pen.setStyle(style);
     pen.setCapStyle(cap);
     pen.setJoinStyle(join);
-    // Pen color? pen default constructor has Qbrush parameter, Qcolor?
 }
 //----------------------------------------------------------------------
 void Shape::setBrush(QColor color, Qt::BrushStyle style)
@@ -45,7 +48,29 @@ int Shape::getID() const
     return shapeID;
 }
 //----------------------------------------------------------------------
+shapeType Shape::getShapeType() const
+{
+    return shape;
+}
+//----------------------------------------------------------------------
+QPen& Shape::getPen()
+{
+    return pen;
+}
+//----------------------------------------------------------------------
+QBrush& Shape::getBrush()
+{
+    return brush;
+}
+//----------------------------------------------------------------------
 // Overloaded operators
-bool operator==(const Shape& ID);
-bool operator<(const Shape& ID);
+bool Shape::operator==(const Shape& ID)
+{
+    return shapeID == ID.shapeID;
+}
+//----------------------------------------------------------------------
+bool Shape::operator<(const Shape& ID)
+{
+    return shapeID < ID.shapeID;
+}
 //----------------------------------------------------------------------
