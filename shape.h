@@ -3,7 +3,10 @@
 #include <QPainter>
 #include <QPen>
 #include <QBrush>
+#include <QPaintDevice>
+
 enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
+
 class Shape : public QPainter
 {
 private:
@@ -11,7 +14,9 @@ private:
     QPen pen;
     QBrush brush;
     shapeType shape;
+protected:
     QPainter *paint;
+
 public:
     Shape();
     Shape(int shapeID, QPen pen, QBrush brush, shapeType shape);
@@ -22,10 +27,8 @@ public:
     void setPen(QColor color, int width, Qt::PenStyle style, Qt::PenCapStyle cap, Qt::PenJoinStyle join);
     void setBrush(QColor color, Qt::BrushStyle style);
     virtual ~Shape();
-    virtual void draw(QPainter *paint) = 0;
+    virtual void draw(QPaintDevice *device) = 0;
     virtual void move(int x, int y) = 0;
-    virtual void perimeter() = 0;
-    virtual void area() = 0;
     virtual double perimeter() = 0;
     virtual double area() = 0;
     int getID() const;
@@ -37,3 +40,4 @@ public:
     bool operator<(const Shape& ID);
 };
 #endif // SHAPE_H
+
