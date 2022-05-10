@@ -18,7 +18,9 @@ SOURCES += \
     polygon.cpp \
     polyline.cpp \
     rectangle.cpp \
-    shape.cpp
+    shape.cpp \
+    Circle.cpp \
+    Square.cpp
 
 HEADERS += \
     canvas.h \
@@ -29,7 +31,9 @@ HEADERS += \
     polygon.h \
     polyline.h \
     rectangle.h \
-    shape.h
+    shape.h \
+    Square.h \
+    Circle.h
 
 FORMS += \
     login.ui \
