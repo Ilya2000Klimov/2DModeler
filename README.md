@@ -10,7 +10,7 @@ CS1C group project
 |Cynthia Martinez|Email@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Coder|
 |Trazler McGrath|trazmcg@gmail.com|[cree321](https://github.com/cree321)|Scrum Master|
 |Adam Ortiz|ortizadam488@yahoo.com|[ortiz488](https://github.com/ortiz488)|Coder|
-|Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
+|Chathuri Palanivelu|palschathuri@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
 |William Wood|Email@gmail.com|[wrwood](https://github.com/wrwood)|Product Owner|
 
 #### Sprint 2
@@ -21,7 +21,7 @@ CS1C group project
 |Cynthia Martinez|Email@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Product Owner|
 |Trazler McGrath|trazmcg@gmail.com|[cree321](https://github.com/cree321)|Coder|
 |Adam Ortiz|ortizadam488@yahoo.com|[ortiz488](https://github.com/ortiz488)|Coder|
-|Chathuri Palanivelu|Email@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
+|Chathuri Palanivelu|palschathuri@gmail.com|[palschathuri5](https://github.com/palschathuri5)|Coder|
 |William Wood|Email@gmail.com|[wrwood](https://github.com/wrwood)|Coder|
 
 #### Resources
