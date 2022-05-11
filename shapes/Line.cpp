@@ -1,6 +1,6 @@
 #include "Line.h"
 
-Line::Line()
+Line::Line() : Shape()
 {
     int x1 = 10;
     int y1 = 10;
@@ -8,7 +8,7 @@ Line::Line()
     int y2 = 100;
 }
 //----------------------------------------------------------------------
-Line::Line(int xStart, int yStart, int xEnd, int yEnd)
+Line::Line(int xStart, int yStart, int xEnd, int yEnd) : Shape()
 {
     x1 = xStart;
     y1 = yStart;
@@ -50,12 +50,14 @@ int Line::getEndY() const
     return y2;
 }
 //----------------------------------------------------------------------
-void Line::draw(QPainter *paint)
+void Line::draw(QPaintDevice *device)
 {
+    paint = this;
+    paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
     paint->drawLine(x1, y1, x2, y2);
-
+    paint->end();
 }
 //----------------------------------------------------------------------
 void Line::move(int x, int y)

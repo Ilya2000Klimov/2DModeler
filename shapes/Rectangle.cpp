@@ -53,11 +53,14 @@ int Rectangle::getY() const
     return y;
 }
 //----------------------------------------------------------------------
-void Rectangle::draw(QPainter *paint)
+void Rectangle::draw(QPaintDevice *device)
 {
+    paint = this;
+    paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
     paint->drawRect(x, y, width, height);
+    paint->end();
 }
 //----------------------------------------------------------------------
 void Rectangle::move(int x, int y)
