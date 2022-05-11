@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     *.cpp \
+    file-parsing/*.cpp \
     shapes/*.cpp
 
 HEADERS += \
     *.h \
+    file-parsing/*.h \
     shapes/*.h
 
 FORMS += \

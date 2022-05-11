@@ -1,6 +1,6 @@
 #ifndef PARSERCONSTANTS_H
 #define PARSERCONSTANTS_H
-#include "AllShapes.h"// Include all shape headers
+#include "../shapes/AllShapes.h"// Include all shape headers
 #include "QString"
 #include "QHash"
 #include "QPainter"

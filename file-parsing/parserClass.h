@@ -4,8 +4,7 @@
 #include "QMetaEnum"
 
 #include "ShapeListingSpecification.h"
-#include "Shape.h"
-#include "vector"
+#include "../vector.h"
 
 namespace cs1c
 {

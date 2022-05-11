@@ -3,7 +3,7 @@
 #include <QString>
 #include <QFont>
 #include <QTextOption>
-#include "shape.h"
+#include "Shape.h"
 
 namespace cs1c
 {
@@ -20,8 +20,8 @@ public:
     Text(QPainter* pPainter);
     Text(QFont font);
     virtual ~Text();
-    void setAlignment(QAlignment textAlignment);
-    QAlignment getAlignment();
+    void setAlignment(Qt::Alignment textAlignment);
+    Qt::Alignment getAlignment();
     void setFont(QFont font);
     QFont getFont() const;
     void setText(QString textString);
