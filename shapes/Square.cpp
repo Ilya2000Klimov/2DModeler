@@ -1,4 +1,4 @@
-#include "square.h"
+#include "Square.h"
 
 Square::Square()
 {
@@ -46,11 +46,14 @@ int Square::getY() const
     return y;
 }
 //----------------------------------------------------------------------
-void Square::draw(QPainter *paint)
+void Square::draw(QPaintDevice *device)
 {
+    paint = this;
+    paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
     paint->drawRect(x, y, width, width);
+    paint->end();
 }
 //----------------------------------------------------------------------
 void Square::move(int x, int y)
