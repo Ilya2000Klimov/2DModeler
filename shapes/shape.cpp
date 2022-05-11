@@ -8,15 +8,6 @@ Shape::Shape()
     shape = None;
 }
 //----------------------------------------------------------------------
-Shape::Shape(QPainter* pPainter)
-{
-    paint = pPainter;
-    shapeID = 0;
-    pen = Qt::SolidLine;
-    brush = Qt::SolidPattern;
-    shape = None;
-}
-//----------------------------------------------------------------------
 Shape::Shape(int shapeID, QPen pen, QBrush brush, shapeType shape)
 {
     this->shapeID = shapeID;
@@ -83,4 +74,3 @@ bool Shape::operator<(const Shape& ID)
     return shapeID < ID.shapeID;
 }
 //----------------------------------------------------------------------
-

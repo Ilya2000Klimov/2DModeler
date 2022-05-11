@@ -48,11 +48,14 @@ int Circle::getY() const
     return y;
 }
 //----------------------------------------------------------------------
-void Circle::draw(QPainter *paint)
+void Circle::draw(QPaintDevice *device)
 {
+    paint = this;
+    paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
     paint->drawEllipse(x, y, radius, radius);
+    paint->end();
 }
 //----------------------------------------------------------------------
 void Circle::move(int x, int y)
