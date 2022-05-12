@@ -1,10 +1,10 @@
-#include "Canvas.h"
-//#include "Shape.h"
+#include "canvas.h"
 
 Canvas::Canvas(QWidget *parent)
     : QWidget{parent}
 {
-
+    // QWidget function to set the width & height of widget
+    setFixedSize(1000,1000);
 }
 
 void Canvas::paintEvent(QPaintEvent *event)
@@ -61,5 +61,4 @@ void Canvas::paintEvent(QPaintEvent *event)
     myEllipse.draw(device);
 
 }
-
 

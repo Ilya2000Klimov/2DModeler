@@ -1,38 +1,30 @@
-#include "Polyline.h"
-#include "../file-parsing/ShapeListingSpecification.h"
+//#include "polyline.h"
 
-Polyline::Polyline(QPaintDevice* device, int ID)
-{
+//Polyline::Polyline(QPaintDevice* device, int ID)
+//{
 
-}
+//}
 
-Polyline::~Polyline()
-{}
+//Polyline::~Polyline()
+//{}
 
-void Polyline::draw(QPaintDevice* pDevice)
-{
-    paint->begin(pDevice);
-    paint->setPen(getPen());
-    paint->setBrush(getBrush());
-    paint->drawPolyline(arrOfPoints,numOfPoints);
-    paint->end();
-}
+//void Polyline::draw(QPainter *paint)
+//{
+//    paint->setPen(getPen());
+//    paint->setBrush(getBrush());
+//    paint->drawPolyline(arrOfPoints,numOfPoints);
+//}
 
-void Polyline::move(int x, int y)
-{
-    QPoint (x,y);
-}
-
-void Polyline::move(int x, int y, int points) const
-{
-    QPoint (x,y);
-}
+//void Polyline::move(int x, int y, int points) const
+//{
+//    QPoint (x,y);
+//}
 
 
-void Polyline::setPoints(QPoint* remPoints,int numOfPoints)
-{
- for(int index =0;index<numOfPoints;index++)
- {
-     arrOfPoints[index]=remPoints[index];
- }
-}
+//void Polyline::setPoints(QPoint* remPoints,int numOfPoints)
+//{
+// for(int index =0;index<numOfPoints;index++)
+// {
+//     arrOfPoints[index]=remPoints[index];
+// }
+//}
