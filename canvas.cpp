@@ -13,7 +13,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 
 
     //     LINE
-    class cs1c::Line myLine(20, 90, 100, 20);
+    cs1c::Line myLine(20, 90, 100, 20);
     myLine.setPen(Qt::green, 5, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
     myLine.draw(device);
 
@@ -22,7 +22,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 
 
     //     Circle
-    class cs1c::Circle myCircle(750, 150, 200);
+    cs1c::Circle myCircle(750, 150, 200);
     myCircle.setPen(Qt::black, 12, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
     myCircle.setBrush(Qt::magenta, Qt::SolidPattern);
     myCircle.draw(device);
@@ -32,7 +32,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 
 
     //     Rectangle
-    class cs1c::Rectangle myRect(20, 200, 170, 100);
+    cs1c::Rectangle myRect(20, 200, 170, 100);
     myRect.setPen(Qt::blue, 0, Qt::DashLine, Qt::RoundCap, Qt::RoundJoin);
     myRect.setBrush(Qt::red, Qt::VerPattern);
     myRect.draw(device);
@@ -42,7 +42,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 
 
     //     Square
-    class cs1c::Square mySquare(250, 150, 200);
+    cs1c::Square mySquare(250, 150, 200);
     mySquare.setPen(Qt::red, 0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
     mySquare.setBrush(Qt::blue, Qt::HorPattern);
     mySquare.draw(device);
@@ -52,7 +52,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 
 
     //     Ellipse
-    class cs1c::Ellipse myEllipse(520, 200, 170, 100);
+    cs1c::Ellipse myEllipse(520, 200, 170, 100);
     myEllipse.setPen(Qt::black, 12, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
     myEllipse.setBrush(Qt::white, Qt::NoBrush);
     myEllipse.draw(device);
