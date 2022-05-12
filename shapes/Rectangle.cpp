@@ -104,3 +104,11 @@ void cs1c::Rectangle::operator>>(QTextStream& fileStream)
         << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
 		<< "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
+
+void cs1c::Rectangle::setDimensions(int dimensions[],  int dementionsCount)
+{
+	x = dimensions[0];
+	y = dimensions[1];
+	width = dimensions[2];
+	height = dimensions[3];
+}
