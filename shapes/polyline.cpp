@@ -1,4 +1,5 @@
-#include "polyline.h"
+#include "Polyline.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 Polyline::Polyline(QPaintDevice* device, int ID)
 {
@@ -8,11 +9,18 @@ Polyline::Polyline(QPaintDevice* device, int ID)
 Polyline::~Polyline()
 {}
 
-void Polyline::draw(QPainter *paint)
+void Polyline::draw(QPaintDevice* pDevice)
 {
+    paint->begin(pDevice);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
     paint->drawPolyline(arrOfPoints,numOfPoints);
+    paint->end();
+}
+
+void Polyline::move(int x, int y)
+{
+    QPoint (x,y);
 }
 
 void Polyline::move(int x, int y, int points) const

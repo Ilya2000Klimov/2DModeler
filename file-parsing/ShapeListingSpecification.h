@@ -8,6 +8,7 @@
 #include "QPen"
 #include "QBrush"
 #include "QFont"
+#include "QFlags"
 
 
 // Shape Listing Profile (SLP) Specification
@@ -17,12 +18,12 @@
 namespace slp
 {
     QHash<QString, int> getShapeTypeResolver(QPainter*);
-    QHash<QString, Qt::GlobalColor> getGlobalColorResolver();
+    QHash<QString, QColor> getColorResolver();
     QHash<QString, Qt::PenStyle> getPenStyleResolver();
     QHash<QString, Qt::PenCapStyle> getPenCapStyleResolver();
     QHash<QString, Qt::PenJoinStyle> getPenJoinStyleResolver();
     QHash<QString, Qt::BrushStyle> getBrushStyleResolver();
-    QHash<QString, Qt::AlignmentFlag> getAlignmentFlagResolver();
+    QHash<QString, Qt::Alignment> getAlignmentFlagResolver();
     QHash<QString, QFont::Style> getFontStyleResolver();
     QHash<QString, QFont::Weight> getFontWeightResolver();
 
@@ -90,12 +91,12 @@ namespace slp
     };
     // Must be created after pPainter is instantiated (in main)
     QHash<QString, cs1c::Shape> shapeTypeResolver;// = getShapeTypeResolver(pPainter);
-    QHash<QString, Qt::GlobalColor> globalColorResolver = getGlobalColorResolver();
+    QHash<QString, QColor> colorResolver = getColorResolver();
     QHash<QString, Qt::PenStyle> penStyleResolver = getPenStyleResolver();
     QHash<QString, Qt::PenCapStyle> penCapStyleResolver = getPenCapStyleResolver();
     QHash<QString, Qt::PenJoinStyle> penJoinStyleResolver = getPenJoinStyleResolver();
     QHash<QString, Qt::BrushStyle> brushStyleResolver = getBrushStyleResolver();
-    QHash<QString, Qt::AlignmentFlag> alignmentFlagResolver = getAlignmentFlagResolver();
+    QHash<QString, Qt::Alignment> alignmentFlagResolver = getAlignmentFlagResolver();
     QHash<QString, QFont::Style> fontStyleResolver = getFontStyleResolver();
     QHash<QString, QFont::Weight> fontWeightResolver = getFontWeightResolver();
 
@@ -108,30 +109,30 @@ namespace slp
         // QHashes cannot receive input, so all concrete
         // shapes must have constructors with non-variable input
         // ex: pPainter does not differ between shapes
-        shapeTypeResolver["Line"] = Line(pPainter);
-        shapeTypeResolver["Polyline"] = Polyline(pPainter);
-        shapeTypeResolver["Polygon"] = Polygone(pPainter);
-        shapeTypeResolver["Rectangle"] = Rectangle(pPainter);
-        shapeTypeResolver["Square"] = Rectangle(pPainter);
-        shapeTypeResolver["Ellipse"] = Ellipse(pPainter);
-        shapeTypeResolver["Circle"] = Ellipse(pPainter);
-        shapeTypeResolver["Text"] = Text(pPainter);
+        shapeTypeResolver["Line"] = cs1c::Line(pPainter);
+        shapeTypeResolver["Polyline"] = cs1c::Polyline(pPainter);
+        shapeTypeResolver["Polygon"] = cs1c::Polygone(pPainter);
+        shapeTypeResolver["Rectangle"] = cs1c::Rectangle(pPainter);
+        shapeTypeResolver["Square"] = cs1c::Rectangle(pPainter);
+        shapeTypeResolver["Ellipse"] = cs1c::Ellipse(pPainter);
+        shapeTypeResolver["Circle"] = cs1c::Ellipse(pPainter);
+        shapeTypeResolver["Text"] = cs1c::Text(pPainter);
         return shapeTypeResolver;
     }
-    QHash<QString, Qt::GlobalColor> getGlobalColorResolver()
+    QHash<QString, QColor> getColorResolver()
     {
-        QHash<QString, Qt::GlobalColor> globalColorResolver;
+        QHash<QString, QColor> colorResolver;
         globalColorResolver.reserve(9);
-        globalColorResolver["white"] = Qt::GlobalColor::white;
-        globalColorResolver["black"] = Qt::GlobalColor::black;
-        globalColorResolver["red"] = Qt::GlobalColor::red;
-        globalColorResolver["green"] = Qt::GlobalColor::green;
-        globalColorResolver["blue"] = Qt::GlobalColor::blue;
-        globalColorResolver["cyan"] = Qt::GlobalColor::cyan;
-        globalColorResolver["magenta"] = Qt::GlobalColor::magenta;
-        globalColorResolver["yellow"] = Qt::GlobalColor::yellow;
-        globalColorResolver["gray"] = Qt::GlobalColor::gray;
-        return globalColorResolver;
+        globalColorResolver["white"] = QColor(Qt::white);
+        globalColorResolver["black"] = QColor(Qt::black);
+        globalColorResolver["red"] = QColor(Qt::red);
+        globalColorResolver["green"] = QColor(Qt::green);
+        globalColorResolver["blue"] = QColor(Qt::blue);
+        globalColorResolver["cyan"] = QColor(Qt::cyan);
+        globalColorResolver["magenta"] = QColor(Qt::magenta);
+        globalColorResolver["yellow"] = QColor(Qt::yellow);
+        globalColorResolver["gray"] = QColor(Qt::gray);
+        return colorResolver;
     }
     QHash<QString, Qt::PenStyle> getPenStyleResolver()
     {
@@ -173,9 +174,9 @@ namespace slp
         brushStyleResolver["NoBrush"] = Qt::BrushStyle::NoBrush;
         return brushStyleResolver;
     }
-    QHash<QString, Qt::AlignmentFlag> getAlignmentFlagResolver()
+    QHash<QString, Qt::Alignment> getAlignmentFlagResolver()
     {
-        QHash<QString, Qt::AlignmentFlag> alignmentFlagResolver;
+        QHash<QString, Qt::Alignment> alignmentFlagResolver;
         alignmentFlagResolver.reserve(5);
         alignmentFlagResolver["AlignLeft"] = Qt::AlignmentFlag::AlignLeft;
         alignmentFlagResolver["AlignRight"] = Qt::AlignmentFlag::AlignRight;

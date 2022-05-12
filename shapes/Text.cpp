@@ -1,4 +1,5 @@
 #include "Text.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 cs1c::Text::Text() : Shape()
 {
@@ -15,18 +16,18 @@ cs1c::Text::Text(QPainter* pPainter) : Shape(pPainter)
 cs1c::Text::Text(QFont font) : Shape()
 {
     textFormat = QTextOption();
-    font = font;
+    this->font = font;
     textString = "";
 }
 cs1c::Text::~Text()
 {
     
 }
-void cs1c::Text::setAlignment(QAlignment textAlignment)
+void cs1c::Text::setAlignment(Qt::Alignment textAlignment)
 {
     textFormat.setAlignment(textAlignment);
 }
-QAlignment cs1c::Text::getAlignment()
+Qt::Alignment cs1c::Text::getAlignment()
 {
     return textFormat.alignment();
 }
@@ -46,34 +47,36 @@ QString cs1c::Text::getText() const
 {
     return textString;
 }
-void cs1c::Text::draw() override
+void cs1c::Text::draw(QPaintDevice* pDevice) //override
 {
     // TODO: use consistent names
-    pPainter->setFont(font);
-    pPainter->setPen(pen)
-    pPainter->drawText(textBounds, textString, textFormat);
+    paint->begin(pDevice);
+    paint->setFont(font);
+    paint->setPen(getPen());
+    paint->drawText(textBounds, textString, textFormat);
+    paint->end();
 }
 
-void cs1c::Text::move(int x, int y) override
+void cs1c::Text::move(int x, int y) //override
 {
     textBounds.moveTo(x, y);
 }
-double cs1c::Text::perimeter() override
+double cs1c::Text::perimeter() //override
 {
     return 2* (textBounds.width() + textBounds.height());
 }
-double cs1c::Text::area() override
+double cs1c::Text::area() //override
 {
     return textBounds.width() * textBounds.height();
 }
-QTextStream& operator<<(QTextStream& fileStream, Text& textShape)
+QTextStream& cs1c::operator<<(QTextStream& fileStream, cs1c::Text& textShape)
 {
-    fileStream << "\nShapeId: " << textShape.id
+    fileStream << "\nShapeId: " << textShape.getID()
         << "\nShapeType: Text"
         << "\nShapeDimensions: " << textShape.textBounds.x() << ", " << textShape.textBounds.y()
-            << ", " << textShape.textBounds.length() << ", " << textShape.textBounds.width()
+            << ", " << textShape.textBounds.height() << ", " << textShape.textBounds.width()
         << "\nTextString: " << textShape.textString
-        << "\nTextColor: blue" << slp::globalColorResolver.key(textShape.pen.color())
+        << "\nTextColor: blue" << slp::colorResolver.key(textShape.getPen().color())
         << "\nTextAlignment: " << slp::alignmentFlagResolver.key(textShape.textFormat.alignment())
         << "\nTextPointSize: " << textShape.font.pointSize()
         << "\nTextFontFamily: " << textShape.font.family()

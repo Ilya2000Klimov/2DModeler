@@ -1,4 +1,5 @@
 #include "Ellipse.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 const double PI = 3.14;
 
@@ -57,7 +58,6 @@ int Ellipse::getWidth() const
 //----------------------------------------------------------------------
 void Ellipse::draw(QPaintDevice *device)
 {
-    paint = this;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

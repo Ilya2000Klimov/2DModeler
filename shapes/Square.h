@@ -1,6 +1,6 @@
 #ifndef SQUARE_H
 #define SQUARE_H
-#include "shape.h"
+#include "Shape.h"
 
 class Square : public Shape
 {
@@ -17,7 +17,7 @@ public:
     int getWidth() const;
     int getX() const;
     int getY() const;
-    virtual void draw(QPainter *paint) override;
+    virtual void draw(QPaintDevice* pDevice) override;
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;

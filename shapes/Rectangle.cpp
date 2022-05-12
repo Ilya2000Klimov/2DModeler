@@ -1,4 +1,5 @@
 #include "Rectangle.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 Rectangle::Rectangle()
 {
@@ -55,7 +56,6 @@ int Rectangle::getY() const
 //----------------------------------------------------------------------
 void Rectangle::draw(QPaintDevice *device)
 {
-    paint = this;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

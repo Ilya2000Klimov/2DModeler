@@ -1,4 +1,5 @@
-#include "polygon.h"
+#include "Polygon.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 Polygon::Polygon(int numOfPoints,double x, double y)
 {
@@ -46,14 +47,33 @@ int Polygon::getPoints() const
     return numOfPoints;
 }
 
-void Polygon::draw(QPainter *paint)
+void Polygon::draw(QPaintDevice* pDevice)
 {
+    paint->begin(pDevice);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
     paint->drawPolygon(points,numOfPoints);
+    paint->end();
 }
 
-void Polygon::move(double x, double y, int points)
+void Polygon::move(int x, int y)
+{
+    double moveX=0;
+    double moveY=0;
+    //difference between the first coordinate and the coordinate we are moving to
+    moveX = x-Xcoord[0];
+    moveY=y-Ycoord[0];
+
+    //setting the new coordinates as that particular point, ie the point has moved
+    //int points is the point that is being moved
+    for(QPointF& point : points)
+    {
+        point.rx() +=moveX;
+        point.ry() +=moveY;
+    }
+}
+
+void Polygon::move(int x, int y, int points)
 {
     double moveX=0;
     double moveY=0;

@@ -1,4 +1,5 @@
 #include "Circle.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 const double PI = 3.14;
 
@@ -50,7 +51,6 @@ int Circle::getY() const
 //----------------------------------------------------------------------
 void Circle::draw(QPaintDevice *device)
 {
-    paint = this;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

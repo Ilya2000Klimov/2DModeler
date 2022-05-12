@@ -18,7 +18,7 @@ public:
     int getStartY() const;
     int getEndX() const;
     int getEndY() const;
-    virtual void draw(QPaintDevice *device) override;
+    virtual void draw(QPaintDevice* pDevice) override;
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;

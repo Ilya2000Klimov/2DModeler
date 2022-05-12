@@ -1,4 +1,5 @@
 #include "Line.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 Line::Line() : Shape()
 {
@@ -52,7 +53,6 @@ int Line::getEndY() const
 //----------------------------------------------------------------------
 void Line::draw(QPaintDevice *device)
 {
-    paint = this;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

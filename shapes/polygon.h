@@ -1,17 +1,18 @@
 #ifndef POLYGON_H
 #define POLYGON_H
-#include "shape.h"
+#include "Shape.h"
 #include <QPointF>
 #include <iostream>
 #include <math.h>
-const int DEFAULT_NUM_PTS = 8;
-class Polygon:public Shape
+
+class Polygon: public Shape
 {
 public:
     Polygon(int numOfPoints,double x, double y);
     ~Polygon() override;
-    virtual void draw(QPainter *paint) override;
-    virtual void move(double x, double y, int points); 
+    virtual void draw(QPaintDevice* pDevice) override;
+    virtual void move(int x, int y) override;
+    void move(int x, int y, int points);
     virtual double perimeter() override;
     virtual double area() override;
 
@@ -21,8 +22,10 @@ public:
     int getPoints() const;
     void setPoints(int );
 private:
+    // Note: Don't place variables in global scope
+    static const int DEFAULT_NUM_PTS = 8;
     int numOfPoints; // will need to find total polygon points
-    const QPointF points[DEFAULT_NUM_PTS];
+    QPointF points[DEFAULT_NUM_PTS];
     double x;
     double y;
     double Xcoord[DEFAULT_NUM_PTS];

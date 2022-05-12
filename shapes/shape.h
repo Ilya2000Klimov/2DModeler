@@ -7,7 +7,7 @@
 
 enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
 
-class Shape : public QPainter
+class Shape
 {
 private:
     int shapeID;
@@ -27,7 +27,7 @@ public:
     void setPen(QColor color, int width, Qt::PenStyle style, Qt::PenCapStyle cap, Qt::PenJoinStyle join);
     void setBrush(QColor color, Qt::BrushStyle style);
     virtual ~Shape();
-    virtual void draw(QPaintDevice *device) = 0;
+    virtual void draw(QPaintDevice* pDevice) = 0;
     virtual void move(int x, int y) = 0;
     virtual double perimeter() = 0;
     virtual double area() = 0;

@@ -5,6 +5,7 @@
 
 #include "ShapeListingSpecification.h"
 #include "../vector.h"
+#include <memory>
 
 namespace cs1c
 {
@@ -16,7 +17,8 @@ namespace cs1c
         // QMetaEnum creation necessary for switching on
         // parsed ShapeType enum property via keyToValue func
         //QMetaEnum metaShapeTypeEnum = QMetaEnum::fromType<slp::ShapeType>();
-        bool validateFile(QFile&);
+        bool validateFile(QFile* file);
+        QFile* openFile;
     public:
         // Register enum with qt meta type system
         //Q_ENUM(slp::ShapeType)
@@ -24,7 +26,8 @@ namespace cs1c
         // parseShape
         // Input: A valid QFile reference; validation required
         // Output: vector containing all shapes described in Input
-        std::vector<Shape> parseShape(QFile&);
+        std::vector<Shape*> parseShape(QFile* file);
+        void serializeShapes(std::vector<Shape*>& shapeList);
         //void parseFile(std::vector<Shape>&);
     };
 }

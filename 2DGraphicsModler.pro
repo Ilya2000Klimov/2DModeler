@@ -10,13 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     *.cpp \
-    file-parsing/*.cpp \
-    shapes/*.cpp
+    shapes/*.cpp \
+    file-parsing/*.cpp
 
 HEADERS += \
     *.h \
-    file-parsing/*.h \
-    shapes/*.h
+    shapes/*.h \
+    file-parsing/ShapeListingSpecification.h \
+    file-parsing/*.h
 
 FORMS += \
     login.ui \

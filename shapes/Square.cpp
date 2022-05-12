@@ -1,4 +1,5 @@
 #include "Square.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 Square::Square()
 {
@@ -48,7 +49,6 @@ int Square::getY() const
 //----------------------------------------------------------------------
 void Square::draw(QPaintDevice *device)
 {
-    paint = this;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
