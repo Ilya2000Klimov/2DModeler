@@ -62,12 +62,9 @@ void Line::draw(QPaintDevice *device)
 //----------------------------------------------------------------------
 void Line::move(int x, int y)
 {
-    setStartPoint(x,y);
+    setStartPoint(getStartX()+x,getStartY()+y);
 
-    int newEndX = x2 + x;
-    int newEndY = y2 + y;
-
-    setEndPoint(newEndX, newEndY);
+    setEndPoint(getEndX() + x, getEndY() + y);
 }
 //----------------------------------------------------------------------
 double Line::perimeter()

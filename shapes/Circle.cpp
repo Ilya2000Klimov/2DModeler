@@ -60,10 +60,8 @@ void Circle::draw(QPaintDevice *device)
 //----------------------------------------------------------------------
 void Circle::move(int x, int y)
 {
-    int newX = x;
-    int newY = y;
-    setX(newX);
-    setY(newY);
+    setX(x);
+    setY(y);
 }
 //----------------------------------------------------------------------
 double Circle::perimeter()
