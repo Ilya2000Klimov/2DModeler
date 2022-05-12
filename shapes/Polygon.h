@@ -15,6 +15,7 @@ private:
 
 public:
     Polygon();
+    Polygon(QPainter* pPainter);
     Polygon(QPoint* p_point, int count);
     virtual ~Polygon();
     void setPoints(int, int);

@@ -7,6 +7,12 @@ Polygon::Polygon()
     p_point = nullptr;
 }
 //----------------------------------------------------------------------
+Polygon::Polygon(QPainter* pPainter) : Shape(pPainter)
+{
+    count = 0;
+    p_point = nullptr;
+}
+//----------------------------------------------------------------------
 Polygon::Polygon(QPoint* p_point, int count)
 {
     this->p_point = p_point;
