@@ -11,6 +11,7 @@ private:
 
 public:
     Square();
+    Square(QPainter* pPainter);
     Square(int x, int y, int w);
     virtual ~Square();
     void setY(int y);
