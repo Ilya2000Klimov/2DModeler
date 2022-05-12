@@ -90,10 +90,10 @@ std::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(QFile* file)
             textFont.setWeight(slp::fontWeightResolver.value(getPropertyData(openFileStream)));
 
             // Apply text properties from file
-            currentShape->setText(textString);
+            dynamic_cast<cs1c::Text*>(currentShape)->setText(textString);
             currentShape->setPen(textColor, textPointSize, Qt::PenStyle::NoPen, Qt::PenCapStyle::FlatCap, Qt::PenJoinStyle::RoundJoin);
-            currentShape->setAlignment(textAlignment);
-            currentShape->setFont(textFont);
+            dynamic_cast<cs1c::Text*>(currentShape)->setAlignment(textAlignment);
+            dynamic_cast<cs1c::Text*>(currentShape)->setFont(textFont);
         }
         // ============================
         // Surface and Line properties
@@ -136,7 +136,7 @@ void cs1c::ShapeParser::serializeShapes(std::vector<Shape*>& shapeList)
     QTextStream openFileStream(openFile);
     for(Shape* shape : shapeList)
     {
-        shape >> openFileStream;
+        *shape >> openFileStream;
     }
 }
 
