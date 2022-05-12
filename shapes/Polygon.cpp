@@ -1,5 +1,5 @@
 #include "Polygon.h"
-using namespace cs1c
+using namespace cs1c;
 
 Polygon::Polygon()
 {
@@ -28,7 +28,6 @@ QVector<QPoint>& Polygon::getPoints()
 //----------------------------------------------------------------------
 void Polygon::draw(QPaintDevice *device)
 {
-    paint = this;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
@@ -38,7 +37,11 @@ void Polygon::draw(QPaintDevice *device)
 //----------------------------------------------------------------------
 void Polygon::move(int x, int y)
 {
-
+    for(QPoint& point : myPoints)
+    {
+        point.rx() += x;
+        point.ry() += y;
+    }
 }
 //----------------------------------------------------------------------
 double Polygon::perimeter()
