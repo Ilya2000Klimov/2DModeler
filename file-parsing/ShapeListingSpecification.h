@@ -10,6 +10,17 @@
 #include "QFont"
 #include "QFlags"
 
+namespace cs1c
+{
+    class Line;
+    class Polyline;
+    class Polygon;
+    class Rectangle;
+    class Square;
+    class Ellipse;
+    class Circle;
+    class Text;
+}
 
 // Shape Listing Profile (SLP) Specification
 //

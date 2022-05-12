@@ -1,8 +1,8 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 #include <QPoint>
-#include "../vector.h"
 #include "Shape.h"
+#include "../vector.h"
 
 namespace cs1c
 {

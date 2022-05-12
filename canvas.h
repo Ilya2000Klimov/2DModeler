@@ -5,12 +5,12 @@
 #include <QPainter>
 #include <QPaintDevice>
 //#include <QtGui>
-#include "shapes/Shape.h"
-#include "shapes/Line.h"
-#include "shapes/Circle.h"
-#include "shapes/Rectangle.h"
-#include "shapes/Square.h"
-#include "shapes/Ellipse.h"
+#include "shapes/AllShapes.h"
+//#include "shapes/Line.h"
+//#include "shapes/Circle.h"
+//#include "shapes/Rectangle.h"
+//#include "shapes/Square.h"
+//#include "shapes/Ellipse.h"
 
 class QPaintEvent;
 
