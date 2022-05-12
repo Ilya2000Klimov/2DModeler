@@ -90,15 +90,15 @@ namespace slp
         Text
     };
     // Must be created after pPainter is instantiated (in main)
-    QHash<QString, cs1c::Shape*> shapeTypeResolver;// = getShapeTypeResolver(pPainter);
-    QHash<QString, QColor> colorResolver = getColorResolver();
-    QHash<QString, Qt::PenStyle> penStyleResolver = getPenStyleResolver();
-    QHash<QString, Qt::PenCapStyle> penCapStyleResolver = getPenCapStyleResolver();
-    QHash<QString, Qt::PenJoinStyle> penJoinStyleResolver = getPenJoinStyleResolver();
-    QHash<QString, Qt::BrushStyle> brushStyleResolver = getBrushStyleResolver();
-    QHash<QString, Qt::Alignment> alignmentFlagResolver = getAlignmentFlagResolver();
-    QHash<QString, QFont::Style> fontStyleResolver = getFontStyleResolver();
-    QHash<QString, QFont::Weight> fontWeightResolver = getFontWeightResolver();
+    extern QHash<QString, cs1c::Shape*> shapeTypeResolver;// = getShapeTypeResolver(pPainter);
+    const QHash<QString, QColor> colorResolver = getColorResolver();
+    const QHash<QString, Qt::PenStyle> penStyleResolver = getPenStyleResolver();
+    const QHash<QString, Qt::PenCapStyle> penCapStyleResolver = getPenCapStyleResolver();
+    const QHash<QString, Qt::PenJoinStyle> penJoinStyleResolver = getPenJoinStyleResolver();
+    const QHash<QString, Qt::BrushStyle> brushStyleResolver = getBrushStyleResolver();
+    const QHash<QString, Qt::Alignment> alignmentFlagResolver = getAlignmentFlagResolver();
+    const QHash<QString, QFont::Style> fontStyleResolver = getFontStyleResolver();
+    const QHash<QString, QFont::Weight> fontWeightResolver = getFontWeightResolver();
 
 
     // Instantiating QHashes for String Litteral to Named Type conversion
