@@ -1,6 +1,8 @@
 #include "Polygon.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 Polygon::Polygon(int numOfPoints,double x, double y)
 {
     this->numOfPoints=numOfPoints;

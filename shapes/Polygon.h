@@ -5,6 +5,8 @@
 #include <iostream>
 #include <math.h>
 
+namespace cs1c
+{
 class Polygon: public Shape
 {
 public:
@@ -33,5 +35,6 @@ private:
 
 
 };
+}
 
 #endif // POLYGON_H

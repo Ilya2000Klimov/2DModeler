@@ -1,6 +1,8 @@
 #include "Polyline.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 Polyline::Polyline(QPaintDevice* device, int ID)
 {
 

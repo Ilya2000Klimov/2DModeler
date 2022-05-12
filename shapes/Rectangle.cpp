@@ -1,6 +1,8 @@
 #include "Rectangle.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 Rectangle::Rectangle()
 {
     x = 10;

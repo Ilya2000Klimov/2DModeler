@@ -1,6 +1,8 @@
 #include "Text.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+
+
 cs1c::Text::Text() : Shape()
 {
     textFormat = QTextOption();

@@ -1,7 +1,8 @@
 #ifndef POLYLINE_H
 #define POLYLINE_H
 #include "Shape.h"
-
+namespace cs1c
+{
 class Polyline: public Shape
 {
 public:
@@ -21,4 +22,5 @@ private:
     int numOfPoints; // will need to find total polyline points
     QPoint arrOfPoints[DEFAULT_NUM_PTS];
 };
+}
 #endif // POLYLINE_H
