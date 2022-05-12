@@ -3,6 +3,13 @@
 
 using namespace cs1c;
 
+Polygon::Polygon(QPainter* pPainter) : Shape(pPainter)
+{
+    this->numOfPoints= 0;
+    this->x=0;
+    this->y=0;
+}
+
 Polygon::Polygon(int numOfPoints,double x, double y)
 {
     this->numOfPoints=numOfPoints;

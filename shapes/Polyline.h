@@ -6,7 +6,7 @@ namespace cs1c
 class Polyline: public Shape
 {
 public:
-    Polyline(QPaintDevice* device, int ID =-1);
+    Polyline(QPainter* pPainter, int ID =-1);
     ~Polyline() override;
     virtual void draw(QPaintDevice* pDevice) override;
     virtual void move(int x, int y) override;

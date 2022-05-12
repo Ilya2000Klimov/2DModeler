@@ -17,7 +17,7 @@
 
 namespace slp
 {
-    QHash<QString, int> getShapeTypeResolver(QPainter*);
+    QHash<QString, cs1c::Shape> getShapeTypeResolver(QPainter*);
     QHash<QString, QColor> getColorResolver();
     QHash<QString, Qt::PenStyle> getPenStyleResolver();
     QHash<QString, Qt::PenCapStyle> getPenCapStyleResolver();
@@ -111,7 +111,7 @@ namespace slp
         // ex: pPainter does not differ between shapes
         shapeTypeResolver["Line"] = cs1c::Line(pPainter);
         shapeTypeResolver["Polyline"] = cs1c::Polyline(pPainter);
-        shapeTypeResolver["Polygon"] = cs1c::Polygone(pPainter);
+        shapeTypeResolver["Polygon"] = cs1c::Polygon(pPainter);
         shapeTypeResolver["Rectangle"] = cs1c::Rectangle(pPainter);
         shapeTypeResolver["Square"] = cs1c::Rectangle(pPainter);
         shapeTypeResolver["Ellipse"] = cs1c::Ellipse(pPainter);

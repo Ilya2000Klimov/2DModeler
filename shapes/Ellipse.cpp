@@ -7,10 +7,18 @@ const double PI = 3.14;
 
 Ellipse::Ellipse()
 {
-    int x = 10;
-    int y = 10;
-    int height = 100;
-    int wieght = 100;
+    x = 10;
+    y = 10;
+    height = 100;
+    width = 100;
+}
+//----------------------------------------------------------------------
+Ellipse::Ellipse(QPainter* pPainter) : Shape(pPainter)
+{
+    x = 10;
+    y = 10;
+    height = 100;
+    width = 100;
 }
 //----------------------------------------------------------------------
 Ellipse::Ellipse(int x, int y, int width, int height)

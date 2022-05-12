@@ -12,6 +12,7 @@ private:
 
 public:
     Line();
+    Line(QPainter* pPainter);
     Line(int, int, int, int);
     virtual ~Line();
     void setStartPoint(int, int);

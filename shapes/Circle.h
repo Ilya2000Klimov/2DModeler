@@ -11,6 +11,7 @@ private:
 
 public:
     Circle();
+    Circle(QPainter* pPainter);
     Circle(int x, int y, int radius);
     virtual ~Circle();
     void setRadius(int r);

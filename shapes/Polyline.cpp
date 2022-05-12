@@ -3,9 +3,9 @@
 
 using namespace cs1c;
 
-Polyline::Polyline(QPaintDevice* device, int ID)
+Polyline::Polyline(QPainter* pPainter, int ID) : Shape(pPainter)
 {
-
+    setID(ID);
 }
 
 Polyline::~Polyline()

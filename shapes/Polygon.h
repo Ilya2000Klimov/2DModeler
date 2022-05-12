@@ -10,6 +10,7 @@ namespace cs1c
 class Polygon: public Shape
 {
 public:
+    Polygon(QPainter* pPainter);
     Polygon(int numOfPoints,double x, double y);
     ~Polygon() override;
     virtual void draw(QPaintDevice* pDevice) override;
