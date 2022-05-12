@@ -91,3 +91,16 @@ double Rectangle::area()
     return (height * width);
 }
 //----------------------------------------------------------------------
+void cs1c::Rectangle::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Rectangle"
+        << "\nShapeDimensions: " << this->getX() << ", " << this->getY() << ", " << this->getWidth() << ", "  << this->getHeight()
+        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyle.key(this->getPen().Style())
+        << "\nPenCapStyle: " << slp::penCapStyle.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyle.key(this->getPen().joinStyle())
+        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+		<< "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
+}
