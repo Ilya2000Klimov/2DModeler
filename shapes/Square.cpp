@@ -83,3 +83,16 @@ double Square::area()
     return (width * width);
 }
 //----------------------------------------------------------------------
+void cs1c::Square::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Square"
+        << "\nShapeDimensions: " << this->getX() << ", " << this->getY() << ", " <<this->getWidth()
+        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyle.key(this->getPen().Style())
+        << "\nPenCapStyle: " << slp::penCapStyle.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyle.key(this->getPen().joinStyle())
+        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+		<< "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
+}

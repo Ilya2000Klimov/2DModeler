@@ -8,8 +8,12 @@ Polyline::Polyline(QPainter* pPainter, int ID) : Shape(pPainter)
     setID(ID);
 }
 
-Polyline::~Polyline()
-{}
+Polyline::Polyline(int numOfPoints)
+{
+    this->numOfPoints=numOfPoints;
+}
+
+Polyline::~Polyline(){}
 
 void Polyline::draw(QPaintDevice* pDevice)
 {
@@ -23,20 +27,36 @@ void Polyline::draw(QPaintDevice* pDevice)
 void Polyline::move(int x, int y)
 {
     QPoint (x,y);
+    double moveX=0;
+    double moveY=0;
+    //difference between the first coordinate and the coordinate we are moving to
+    moveX = x-vPoint[0].x();
+    moveY=y-vPoint[0].y();
+
+    //setting the new coordinates as that particular point, ie the point has moved
+    //int points is the point that is being moved
+    for(QPointF& point : arrOfPoints)
+    {
+        point.rx() +=moveX;
+        point.ry() +=moveY;
+    }
 }
 
-void Polyline::move(int x, int y, int points) const
+double Polyline::area()
 {
-    QPoint (x,y);
+    return 0;
 }
-
+double Polyline::perimeter()
+{
+    return 0;
+}
 
 void Polyline::setPoints(QPoint* remPoints,int numOfPoints)
 {
- for(int index =0;index<numOfPoints;index++)
- {
-     arrOfPoints[index]=remPoints[index];
- }
+    for(QPointF& point : arrOfPoints)
+    {
+       vPoint.push_back(point);
+    }
 }
 
 void cs1c::Polyline::operator>>(QTextStream& fileStream)
