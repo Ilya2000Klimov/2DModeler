@@ -38,3 +38,23 @@ void Polyline::setPoints(QPoint* remPoints,int numOfPoints)
      arrOfPoints[index]=remPoints[index];
  }
 }
+
+void cs1c::Polyline::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Ellipse"
+        << "\nShapeDimensions: ";
+    // Repeat for all but last point
+    int i = 1;
+    while(i < numOfPoints)
+    {
+         fileStream << points[i - 1].x() << ", " << points[i - 1].y() << ", ";
+         i++;
+    }
+    fileStream << points[i - 1].x() << ", " << points[i - 1].y();
+    fileStream << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle());
+}

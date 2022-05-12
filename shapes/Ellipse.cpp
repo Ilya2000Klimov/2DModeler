@@ -98,3 +98,18 @@ double Ellipse::area()
     return (PI *(width/2) * (height/2));
 }
 //----------------------------------------------------------------------
+void cs1c::Ellipse::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Ellipse"
+        << "\nShapeDimensions: " << this->x << ", " << this->y
+            << ", " << this->width << ", " << this->height
+        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
+        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+        << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
+}
+//----------------------------------------------------------------------

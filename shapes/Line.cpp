@@ -87,3 +87,16 @@ double Line::area()
     return 0; // There is no area for a line
 }
 //----------------------------------------------------------------------
+void cs1c::Line::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Line"
+        << "\nShapeDimensions: " << this->x1 << ", " << this->y1
+            << ", " << this->x2 << ", " << this->y2
+        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle());
+}
+//----------------------------------------------------------------------

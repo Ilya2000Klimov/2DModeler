@@ -78,7 +78,7 @@ void cs1c::Text::operator>>(QTextStream& fileStream)
         << "\nShapeDimensions: " << this->textBounds.x() << ", " << this->textBounds.y()
             << ", " << this->textBounds.height() << ", " << this->textBounds.width()
         << "\nTextString: " << this->textString
-        << "\nTextColor: blue" << slp::colorResolver.key(this->getPen().color())
+        << "\nTextColor: " << slp::colorResolver.key(this->getPen().color())
         << "\nTextAlignment: " << slp::alignmentFlagResolver.key(this->textFormat.alignment())
         << "\nTextPointSize: " << this->font.pointSize()
         << "\nTextFontFamily: " << this->font.family()

@@ -87,13 +87,14 @@ void cs1c::Circle::operator>>(QTextStream& fileStream)
 {
     fileStream << "\nShapeId: " << this->getID()
         << "\nShapeType: Circle"
-        << "\nShapeDimensions: " << this->textBounds.x() << ", " << this->textBounds.y()
-            << ", " << this->textBounds.height() << ", " << this->textBounds.width()
-        << "\nTextString: " << this->textString
-        << "\nTextColor: blue" << slp::colorResolver.key(this->getPen().color())
-        << "\nTextAlignment: " << slp::alignmentFlagResolver.key(this->textFormat.alignment())
-        << "\nTextPointSize: " << this->font.pointSize()
-        << "\nTextFontFamily: " << this->font.family()
-        << "\nTextFontStyle: " << slp::fontStyleResolver.key(this->font.style())
-        << "\nTextFontWeight: " << slp::fontWeightResolver.key(this->font.weight());
+        << "\nShapeDimensions: " << this->x << ", " << this->y
+            << ", " << this->radius
+        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
+        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+        << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
+//----------------------------------------------------------------------

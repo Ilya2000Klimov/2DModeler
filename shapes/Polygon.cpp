@@ -142,3 +142,25 @@ double Polygon::perimeter()
      perimeter+=std::sqrt(pow(vPoint[numOfPoints-1].x()-vPoint[0].x(),2)+pow(vPoint[numOfPoints-1].y()-vPoint[0].y(),2));
 return perimeter;
 }
+
+void cs1c::Polygon::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Ellipse"
+        << "\nShapeDimensions: ";
+    // Repeat for all but last point
+    int i = 1;
+    while(i < numOfPoints)
+    {
+         fileStream << points[i - 1].x() << ", " << points[i - 1].y() << ", ";
+         i++;
+    }
+    fileStream << points[i - 1].x() << ", " << points[i - 1].y();
+    fileStream << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
+        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+        << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
+}
