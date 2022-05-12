@@ -8,6 +8,13 @@ Square::Square()
     width = 100;
 }
 //----------------------------------------------------------------------
+Square::Square(QPainter* pPainter) : Shape(pPainter)
+{
+    x = 10;
+    y = 10;
+    width = 100;
+}
+//---------------------------------------------------------------
 Square::Square(int x, int y, int w)
 {
     this->x = x;

@@ -8,6 +8,8 @@
 
 //enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
 
+namespace cs1c
+{
 class Shape
 {
 private:
@@ -43,6 +45,10 @@ public:
     bool operator<(const Shape& ID);
     virtual void operator>>(QTextStream& fileStream);
 };
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> 6966c11b1015314002617f386c7b626d99f0732a
 #endif // SHAPE_H
 

@@ -2,6 +2,8 @@
 #define RECTANGLE_H
 #include "Shape.h"
 
+namespace cs1c
+{
 class Rectangle : public Shape
 {
 private:
@@ -23,4 +25,5 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
 };
+}
 #endif // RECTANGLE_H

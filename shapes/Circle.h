@@ -2,6 +2,8 @@
 #define CIRCLE_H
 #include "shape.h"
 
+namespace cs1c
+{
 class Circle : public Shape
 {
 private:
@@ -22,4 +24,5 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
 };
+}
 #endif // CIRCLE_H

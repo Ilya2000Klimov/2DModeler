@@ -2,6 +2,8 @@
 #define SQUARE_H
 #include "Shape.h"
 
+namespace cs1c
+{
 class Square : public Shape
 {
 private:
@@ -9,6 +11,7 @@ private:
 
 public:
     Square();
+    Square(QPainter* pPainter);
     Square(int x, int y, int w);
     virtual ~Square();
     void setY(int y);
@@ -22,5 +25,5 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
 };
-
+}
 #endif // SQUARE_H

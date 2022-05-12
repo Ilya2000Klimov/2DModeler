@@ -3,6 +3,8 @@
 #include <QPoint>
 #include "Shape.h"
 
+namespace cs1c
+{
 class Line : public Shape
 {
 private:
@@ -23,4 +25,5 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
 };
+}
 #endif // LINE_H

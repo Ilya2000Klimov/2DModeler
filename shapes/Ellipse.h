@@ -3,6 +3,8 @@
 #include <QtMath>
 #include "Shape.h"
 
+namespace cs1c
+{
 class Ellipse : public Shape
 {
 private:
@@ -25,5 +27,6 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
 };
+}
 #endif // ELLIPSE_H
 
