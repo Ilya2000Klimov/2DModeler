@@ -100,3 +100,11 @@ void cs1c::Line::operator>>(QTextStream& fileStream)
         << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle());
 }
 //----------------------------------------------------------------------
+void cs1c::Line::setDimensions(int dimensions[], int dimensionCount)
+{
+    x1 = dimensions[0];
+    y1 = dimensions[1];
+    x2 = dimensions[2];
+    y2 = dimensions[3];
+}
+//----------------------------------------------------------------------

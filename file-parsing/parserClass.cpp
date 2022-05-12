@@ -72,7 +72,7 @@ std::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(QFile* file)
         {
             shapeDimensions[i] = dimensionList.value(i).toInt();
         }
-        currentShape->setDimensions(shapeDimensions);
+        currentShape->setDimensions(shapeDimensions, dimensionList.size());
 
         // =========================
         // For Text only properties

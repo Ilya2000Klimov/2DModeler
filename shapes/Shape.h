@@ -45,7 +45,7 @@ public:
     bool operator<(const Shape& ID);
     // SERIALIZE
     virtual void operator>>(QTextStream& fileStream) = 0;
-    virtual void setDimensions(int dimensions[]) = 0;
+    virtual void setDimensions(int dimensions[], int dimensionCount) = 0;
 };
 }
 #endif // SHAPE_H

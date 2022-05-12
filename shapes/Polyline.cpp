@@ -20,7 +20,7 @@ void Polyline::draw(QPaintDevice* pDevice)
     paint->begin(pDevice);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
-    paint->drawPolyline(arrOfPoints,numOfPoints);
+    paint->drawPolyline(points, numOfPoints);
     paint->end();
 }
 
@@ -77,4 +77,15 @@ void cs1c::Polyline::operator>>(QTextStream& fileStream)
         << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
         << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
         << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle());
+}
+
+void cs1c::Polyline::setDimensions(int dimensions[], int dimensionCount)
+{
+    points = new QPoint[dimensionCount];
+    numOfPoints = dimensionCount;
+    for(int i = 0; i < dimensionCount; i += 2)
+    {
+        points[i].setX(dimensions[i]);
+        points[i].setY(dimensions[i + 1]);
+    }
 }

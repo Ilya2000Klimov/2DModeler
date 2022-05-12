@@ -98,7 +98,10 @@ void cs1c::Circle::operator>>(QTextStream& fileStream)
         << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
 //----------------------------------------------------------------------
-void cs1c::Circle::setDimensions(int dimensions[])
+void cs1c::Circle::setDimensions(int dimensions[], int dimensionCount)
 {
     x = dimensions[0];
+    y = dimensions[1];
+    radius = dimensions[2];
 }
+//----------------------------------------------------------------------

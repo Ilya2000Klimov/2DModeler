@@ -113,3 +113,11 @@ void cs1c::Ellipse::operator>>(QTextStream& fileStream)
         << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
 //----------------------------------------------------------------------
+void cs1c::Ellipse::setDimensions(int dimensions[], int dimensionCount)
+{
+    x = dimensions[0];
+    y = dimensions[1];
+    width = dimensions[2];
+    height = dimensions[3];
+}
+//----------------------------------------------------------------------

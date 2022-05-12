@@ -164,3 +164,14 @@ void cs1c::Polygon::operator>>(QTextStream& fileStream)
         << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
         << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
+
+void cs1c::Polygon::setDimensions(int dimensions[], int dimensionCount)
+{
+    points = new QPoint[dimensionCount];
+    numOfPoints = dimensionCount;
+    for(int i = 0; i < dimensionCount; i += 2)
+    {
+        points[i].setX(dimensions[i]);
+        points[i].setY(dimensions[i + 1]);
+    }
+}
