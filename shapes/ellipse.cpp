@@ -67,10 +67,8 @@ void Ellipse::draw(QPaintDevice *device)
 //----------------------------------------------------------------------
 void Ellipse::move(int x, int y)
 {
-    int newX = x;
-    int newY = y;
-    setX(newX);
-    setY(newY);
+    setX(x);
+    setY(y);
 }
 //----------------------------------------------------------------------
 double Ellipse::perimeter()

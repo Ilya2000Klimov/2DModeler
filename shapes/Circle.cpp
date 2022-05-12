@@ -1,6 +1,8 @@
 #include "Circle.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 const double PI = 3.14;
 
 Circle::Circle()
@@ -60,10 +62,8 @@ void Circle::draw(QPaintDevice *device)
 //----------------------------------------------------------------------
 void Circle::move(int x, int y)
 {
-    int newX = x;
-    int newY = y;
-    setX(newX);
-    setY(newY);
+    setX(x);
+    setY(y);
 }
 //----------------------------------------------------------------------
 double Circle::perimeter()
