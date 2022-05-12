@@ -13,3 +13,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::login_clicked()
+{
+    auto* login = new Login(this);
+	login->show();
+}
