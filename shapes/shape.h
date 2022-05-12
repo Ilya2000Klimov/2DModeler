@@ -5,7 +5,7 @@
 #include <QBrush>
 #include <QPaintDevice>
 
-enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
+//enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
 
 class Shape
 {
@@ -13,7 +13,7 @@ private:
     int shapeID;
     QPen pen;
     QBrush brush;
-    shapeType shape;
+
 protected:
     QPainter *paint;
 

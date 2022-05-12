@@ -17,6 +17,7 @@ private:
     QString textString;
 
 public:
+    static const shapeType shape = shapeType::Text;
     Text();
     Text(QPainter* pPainter);
     Text(QFont font);
