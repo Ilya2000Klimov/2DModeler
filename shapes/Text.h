@@ -32,6 +32,7 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
     virtual void operator>>(QTextStream& fileStream) override;
+	virtual void setDimensions(int dimensions[]) override;
 };
 }
 #endif // TEXT_H

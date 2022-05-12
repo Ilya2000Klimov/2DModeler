@@ -96,3 +96,9 @@ void cs1c::Square::operator>>(QTextStream& fileStream)
         << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
 		<< "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
+
+void cs1c::Square::setDimensions(int dimensions[])
+{
+	for(int i = 0; i < 3; i++)
+		x = dimensions[i];
+}
