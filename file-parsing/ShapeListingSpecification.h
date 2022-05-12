@@ -122,16 +122,16 @@ namespace slp
     QHash<QString, QColor> getColorResolver()
     {
         QHash<QString, QColor> colorResolver;
-        globalColorResolver.reserve(9);
-        globalColorResolver["white"] = QColor(Qt::white);
-        globalColorResolver["black"] = QColor(Qt::black);
-        globalColorResolver["red"] = QColor(Qt::red);
-        globalColorResolver["green"] = QColor(Qt::green);
-        globalColorResolver["blue"] = QColor(Qt::blue);
-        globalColorResolver["cyan"] = QColor(Qt::cyan);
-        globalColorResolver["magenta"] = QColor(Qt::magenta);
-        globalColorResolver["yellow"] = QColor(Qt::yellow);
-        globalColorResolver["gray"] = QColor(Qt::gray);
+        colorResolver.reserve(9);
+        colorResolver["white"] = QColor(Qt::white);
+        colorResolver["black"] = QColor(Qt::black);
+        colorResolver["red"] = QColor(Qt::red);
+        colorResolver["green"] = QColor(Qt::green);
+        colorResolver["blue"] = QColor(Qt::blue);
+        colorResolver["cyan"] = QColor(Qt::cyan);
+        colorResolver["magenta"] = QColor(Qt::magenta);
+        colorResolver["yellow"] = QColor(Qt::yellow);
+        colorResolver["gray"] = QColor(Qt::gray);
         return colorResolver;
     }
     QHash<QString, Qt::PenStyle> getPenStyleResolver()
