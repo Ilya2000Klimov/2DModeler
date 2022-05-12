@@ -14,6 +14,7 @@ public:
     void move(int x, int y, int points) const; //might need to change int point
     virtual double perimeter() override;
     virtual double area() override;
+    virtual void operator>>(QTextStream& fileStream) override;
 
     int getPoints(); //function to get the remaining points of the polyline
     void setPoints(QPoint* remPoints,int numOfPoints);
