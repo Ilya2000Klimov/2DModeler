@@ -60,5 +60,16 @@ void Canvas::paintEvent(QPaintEvent *event)
     myEllipse.move(520,320);  // Testing Ellipse move
     myEllipse.draw(device);
 
+    //     Polygon
+    cs1c::Polygon myPolygon;
+
+    myPolygon.setPoints(900, 90);
+    myPolygon.setPoints(910, 20);
+    myPolygon.setPoints(970, 40);
+    myPolygon.setPoints(980, 80);
+    myPolygon.setPen(Qt::cyan, 6, Qt::DashDotDotLine, Qt::FlatCap, Qt::MiterJoin);
+    myPolygon.setBrush(Qt::yellow, Qt::SolidPattern);
+    myPolygon.draw(device);
+
 }
 
