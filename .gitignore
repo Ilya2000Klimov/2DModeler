@@ -46,7 +46,8 @@ Thumbs.db
 .*.swp
 
 # clang temporary files
-
+.qtc_clangd/
+.debug/
 
 # Visual Studio generated files
 *.ib_pdb_index

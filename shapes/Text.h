@@ -31,7 +31,7 @@ public:
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;
-    friend QTextStream& operator<<(QTextStream& fileStream, cs1c::Text& textShape);
+    virtual void operator>>(QTextStream& fileStream) override;
 };
 // Friend function prototype
 QTextStream& operator<<(QTextStream& fileStream, cs1c::Text& textShape);
