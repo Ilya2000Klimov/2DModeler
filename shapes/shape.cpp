@@ -1,21 +1,19 @@
 #include "Shape.h"
 
-using namespace cs1c;
-
 Shape::Shape()
 {
     shapeID = 0;
     pen = Qt::SolidLine;
     brush = Qt::SolidPattern;
-    shape = None;
+    //shape = None;
 }
 //----------------------------------------------------------------------
-Shape::Shape(int shapeID, QPen pen, QBrush brush, shapeType shape)
+Shape::Shape(int shapeID, QPen pen, QBrush brush) //shapeType shape)
 {
     this->shapeID = shapeID;
     this->pen = pen;
     this->brush = brush;
-    this->shape = None;
+    //this->shape = None;
 }
 //----------------------------------------------------------------------
 Shape::~Shape(){}
@@ -25,10 +23,10 @@ void Shape::setID(int ID)
     shapeID = ID;
 }
 //----------------------------------------------------------------------
-void Shape::setShape(shapeType s)
-{
-    shape = s;
-}
+//void Shape::setShape(shapeType s)
+//{
+//    shape = s;
+//}
 //----------------------------------------------------------------------
 void Shape::setPen(QColor color, int width, Qt::PenStyle style, Qt::PenCapStyle cap, Qt::PenJoinStyle join)
 {
@@ -50,10 +48,10 @@ int Shape::getID() const
     return shapeID;
 }
 //----------------------------------------------------------------------
-shapeType Shape::getShapeType() const
-{
-    return shape;
-}
+//shapeType Shape::getShapeType() const
+//{
+//    return shape;
+//}
 //----------------------------------------------------------------------
 QPen& Shape::getPen()
 {
