@@ -1,7 +1,7 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 #include <QPoint>
-#include <QVector>
+#include "../vector.h"
 #include "Shape.h"
 
 namespace cs1c
@@ -9,17 +9,15 @@ namespace cs1c
 class Polygon : public Shape
 {
 private:
-    QVector<QPoint> myPoints;
-    int count;
-    QPoint* p_point;
+    cs1c::vector<QPoint> vPoints;
 
 public:
     Polygon();
     Polygon(QPainter* pPainter);
-    Polygon(QPoint* p_point, int count);
+    Polygon(cs1c::vector<QPoint> vPoint, int count);
     virtual ~Polygon();
     void setPoints(int, int);
-    QVector<QPoint>& getPoints();
+    cs1c::vector<QPoint>& getPoints();
     virtual void operator>>(QTextStream& fileStream) override;
     virtual void setDimensions(int dimensions[], int dimensionCount) override;
     virtual void draw(QPaintDevice *device) override;

@@ -9,15 +9,40 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    *.cpp \
-    shapes/*.cpp \
-    file-parsing/*.cpp
+    canvas.cpp \
+    login.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    shapes/Circle.cpp \
+    shapes/Ellipse.cpp \
+    shapes/Line.cpp \
+    shapes/Polygon.cpp \
+    shapes/Polyline.cpp \
+    shapes/Rectangle.cpp \
+    shapes/Shape.cpp \
+    shapes/Square.cpp \
+    shapes/Text.cpp \
+    file-parsing/parserClass.cpp
 
 HEADERS += \
-    *.h \
-    shapes/*.h \
-    file-parsing/ShapeListingSpecification.h \
-    file-parsing/*.h
+    canvas.h \
+    login.h \
+    mainwindow.h \
+    ui_login.h \
+    ui_mainwindow.h \
+    vector.h \
+    shapes/AllShapes.h \
+    shapes/Circle.h \
+    shapes/Ellipse.h \
+    shapes/Line.h \
+    shapes/Polygon.h \
+    shapes/Polyline.h \
+    shapes/Rectangle.h \
+    shapes/Shape.h \
+    shapes/Square.h \
+    shapes/Text.h \
+    file-parsing/parserClass.h \
+    file-parsing/ShapeListingSpecification.h
 
 FORMS += \
     login.ui \

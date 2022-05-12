@@ -1,35 +1,28 @@
 #include "Polygon.h"
+#include "../file-parsing/ShapeListingSpecification.h"
+
 using namespace cs1c;
 
 Polygon::Polygon()
-{
-    count = 0;
-    p_point = nullptr;
-}
+{}
 //----------------------------------------------------------------------
 Polygon::Polygon(QPainter* pPainter) : Shape(pPainter)
-{
-    count = 0;
-    p_point = nullptr;
-}
+{}
 //----------------------------------------------------------------------
-Polygon::Polygon(QPoint* p_point, int count)
-{
-    this->p_point = p_point;
-    this->count = count;
-}
+Polygon::Polygon(cs1c::vector<QPoint> vPoints)
+    :vPoints{vPoints}
+{}
 //----------------------------------------------------------------------
 Polygon::~Polygon() {}
 //----------------------------------------------------------------------
 void Polygon::setPoints(int x, int y)
 {
-    myPoints.push_back(QPoint(x, y));
-    count++;
+    vPoints.push_back(QPoint(x, y));
 }
 //----------------------------------------------------------------------
-QVector<QPoint>& Polygon::getPoints()
+cs1c::vector<QPoint>& Polygon::getPoints()
 {
-    return myPoints;
+    return vPoints;
 }
 //----------------------------------------------------------------------
 void Polygon::draw(QPaintDevice *device)
@@ -37,13 +30,13 @@ void Polygon::draw(QPaintDevice *device)
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
-    paint->drawPolygon(myPoints.begin(), count);
+    paint->drawPolygon(vPoints.begin(), vPoints.size());
     paint->end();
 }
 //----------------------------------------------------------------------
 void Polygon::move(int x, int y)
 {
-    for(QPoint& point : myPoints)
+    for(QPoint& point : vPoints)
     {
         point.rx() += x;
         point.ry() += y;
@@ -67,12 +60,12 @@ void Polygon::operator>>(QTextStream& fileStream)
         << "\nShapeDimensions: ";
     // Repeat for all but last point
     int i = 0;
-    while(i < count)
+    while(i < vPoints.size())
     {
-         fileStream << points[i - 1].x() << ", " << points[i - 1].y() << ", ";
+         fileStream << vPoints[i - 1].x() << ", " << vPoints[i - 1].y() << ", ";
          i++;
     }
-    fileStream << points[i - 1].x() << ", " << points[i - 1].y();
+    fileStream << vPoints[i - 1].x() << ", " << vPoints[i - 1].y();
     fileStream << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
         << "\nPenWidth: " << this->getPen().width()
         << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
@@ -84,8 +77,7 @@ void Polygon::operator>>(QTextStream& fileStream)
 //----------------------------------------------------------------------
 void Polygon::setDimensions(int dimensions[], int dimensionCount)
 {
-    count = dimensionCount/2;
-
+    vPoints = cs1c::vector<QPoint>();
     for (int i = 0; i < dimensionCount; i += 2)
         {
             setPoints(dimensions[i], dimensions[i+1]);

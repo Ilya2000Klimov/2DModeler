@@ -10,7 +10,7 @@ Polyline::Polyline(QPainter* pPainter, int ID) : Shape(pPainter)
 
 Polyline::Polyline(int numOfPoints)
 {
-    this->numOfPoints=numOfPoints;
+    vPoints.resize(numOfPoints);
 }
 
 Polyline::~Polyline(){}
@@ -20,22 +20,21 @@ void Polyline::draw(QPaintDevice* pDevice)
     paint->begin(pDevice);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
-    paint->drawPolyline(points, numOfPoints);
+    paint->drawPolyline(vPoints.begin(), vPoints.size());
     paint->end();
 }
 
 void Polyline::move(int x, int y)
 {
-    QPoint (x,y);
-    double moveX=0;
-    double moveY=0;
+    int moveX=0;
+    int moveY=0;
     //difference between the first coordinate and the coordinate we are moving to
-    moveX = x-vPoint[0].x();
-    moveY=y-vPoint[0].y();
+    moveX = x-vPoints[0].x();
+    moveY=y-vPoints[0].y();
 
     //setting the new coordinates as that particular point, ie the point has moved
     //int points is the point that is being moved
-    for(QPointF& point : arrOfPoints)
+    for(QPoint& point : vPoints)
     {
         point.rx() +=moveX;
         point.ry() +=moveY;
@@ -51,12 +50,9 @@ double Polyline::perimeter()
     return 0;
 }
 
-void Polyline::setPoints(QPoint* remPoints,int numOfPoints)
+void Polyline::setPoints(int x, int y)
 {
-    for(QPointF& point : arrOfPoints)
-    {
-       vPoint.push_back(point);
-    }
+    vPoints.push_back(QPoint(x, y));
 }
 
 void cs1c::Polyline::operator>>(QTextStream& fileStream)
@@ -66,12 +62,12 @@ void cs1c::Polyline::operator>>(QTextStream& fileStream)
         << "\nShapeDimensions: ";
     // Repeat for all but last point
     int i = 1;
-    while(i < numOfPoints)
+    while(i < vPoints.size())
     {
-         fileStream << points[i - 1].x() << ", " << points[i - 1].y() << ", ";
+         fileStream << vPoints[i - 1].x() << ", " << vPoints[i - 1].y() << ", ";
          i++;
     }
-    fileStream << points[i - 1].x() << ", " << points[i - 1].y();
+    fileStream << vPoints[i - 1].x() << ", " << vPoints[i - 1].y();
     fileStream << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
         << "\nPenWidth: " << this->getPen().width()
         << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
@@ -81,11 +77,9 @@ void cs1c::Polyline::operator>>(QTextStream& fileStream)
 
 void cs1c::Polyline::setDimensions(int dimensions[], int dimensionCount)
 {
-    points = new QPoint[dimensionCount];
-    numOfPoints = dimensionCount;
+    vPoints = cs1c::vector<QPoint>();
     for(int i = 0; i < dimensionCount; i += 2)
     {
-        points[i].setX(dimensions[i]);
-        points[i].setY(dimensions[i + 1]);
+        setPoints(dimensions[i], dimensions[i + 1]);
     }
 }
