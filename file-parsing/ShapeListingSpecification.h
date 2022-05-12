@@ -90,16 +90,16 @@ namespace slp
     };
 
     // From file to object
-    enum ShapeType {
-        Line,
-        Polyline,
-        Polygon,
-        Rectangle,
-        Square,
-        Ellipse,
-        Circle,
-        Text
-    };
+//    enum ShapeType {
+//        Line,
+//        Polyline,
+//        Polygon,
+//        Rectangle,
+//        Square,
+//        Ellipse,
+//        Circle,
+//        Text
+//    };
     // Must be created after pPainter is instantiated (in main)
     QHash<QString, cs1c::Shape*> shapeTypeResolver;// = getShapeTypeResolver(pPainter);
     QHash<QString, QColor> colorResolver = getColorResolver();

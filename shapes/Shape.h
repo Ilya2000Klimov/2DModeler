@@ -6,10 +6,19 @@
 #include <QPaintDevice>
 #include <QTextStream>
 
-//enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
 
 namespace cs1c
 {
+    enum ShapeType {
+        Line,
+        Polyline,
+        Polygon,
+        Rectangle,
+        Square,
+        Ellipse,
+        Circle,
+        Text
+    };
 class Shape
 {
 private:
@@ -44,7 +53,8 @@ public:
     bool operator==(const Shape& ID);
     bool operator<(const Shape& ID);
     // SERIALIZE
-    virtual void operator>>(QTextStream& fileStream) = 0;
+    virtual ShapeType type() const = 0;
+//    virtual void operator>>(QTextStream& fileStream) = 0;
     virtual void setDimensions(int dimensions[], int dimensionCount) = 0;
 };
 }

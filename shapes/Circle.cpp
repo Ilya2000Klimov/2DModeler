@@ -1,5 +1,5 @@
 #include "Circle.h"
-#include "../file-parsing/ShapeListingSpecification.h"
+//#include "../file-parsing/ShapeListingSpecification.h"
 
 using namespace cs1c;
 
@@ -82,21 +82,25 @@ double Circle::area()
 {
     return (PI * (radius * radius));
 }
-//----------------------------------------------------------------------
-void cs1c::Circle::operator>>(QTextStream& fileStream)
+ShapeType Circle::type() const
 {
-    fileStream << "\nShapeId: " << this->getID()
-        << "\nShapeType: Circle"
-        << "\nShapeDimensions: " << this->x << ", " << this->y
-            << ", " << this->radius
-        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
-        << "\nPenWidth: " << this->getPen().width()
-        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
-        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
-        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
-        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
-        << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
+    return ShapeType::Circle;
 }
+//----------------------------------------------------------------------
+//void cs1c::Circle::operator>>(QTextStream& fileStream)
+//{
+//    fileStream << "\nShapeId: " << this->getID()
+//        << "\nShapeType: Circle"
+//        << "\nShapeDimensions: " << this->getX() << ", " << this->getY()
+//            << ", " << this->getRadius()
+//        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+//        << "\nPenWidth: " << this->getPen().width()
+//        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+//        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+//        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
+//        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+//        << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
+//}
 //----------------------------------------------------------------------
 void cs1c::Circle::setDimensions(int dimensions[], int dimensionCount)
 {

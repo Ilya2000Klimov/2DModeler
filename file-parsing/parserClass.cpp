@@ -1,8 +1,9 @@
 #include "parserClass.h"
 #include "ShapeListingSpecification.h"// include file format information
 
-
-#include "QMetaEnum"
+//#include "QMetaEnum"
+//#include "shapes/Circle.h"
+#include "shapes/AllShapes.h"
 
 // Helper function prototype
 QString getPropertyData(QTextStream&);
@@ -136,7 +137,42 @@ void cs1c::ShapeParser::serializeShapes(std::vector<Shape*>& shapeList)
     QTextStream openFileStream(openFile);
     for(Shape* shape : shapeList)
     {
-        *shape >> openFileStream;
+        switch(shape->type())
+        {
+        case Line:
+            break;
+        case Polyline:
+            break;
+        case Polygon:
+            break;
+        case Rectangle:
+            break;
+        case Square:
+            break;
+        case Ellipse:
+            break;
+        case Circle:
+            // Cast to specific derived shape
+            auto circle = dynamic_cast<cs1c::Circle*>(shape);
+            // Copy - paste from Circle.cpp operator>>
+            openFileStream << "\nShapeId: " << circle->getID()
+                << "\nShapeType: Circle"
+                << "\nShapeDimensions: " << circle->getX() << ", " << circle->getY()
+                    << ", " << circle->getRadius()
+                << "\nPenColor: " << slp::colorResolver.key(circle->getPen().color())
+                << "\nPenWidth: " << circle->getPen().width()
+                << "\nPenStyle: " << slp::penStyleResolver.key(circle->getPen().style())
+                << "\nPenCapStyle: " << slp::penCapStyleResolver.key(circle->getPen().capStyle())
+                << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(circle->getPen().joinStyle())
+                << "\nBrushColor: " << slp::colorResolver.key(circle->getBrush().color())
+                << "\nBrushStyle: " << slp::brushStyleResolver.key(circle->getBrush().style());
+            break;
+        case Text:
+            break;
+        default:
+            // Error handle
+        }
+        //*shape >> openFileStream;
     }
 }
 

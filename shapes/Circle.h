@@ -1,6 +1,6 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
-#include "shape.h"
+#include "Shape.h"
 
 namespace cs1c
 {
@@ -24,7 +24,8 @@ public:
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;
-    virtual void operator>>(QTextStream& fileStream) override;
+    virtual ShapeType type() const override;
+//    virtual void operator>>(QTextStream& fileStream) override;
     virtual void setDimensions(int dimensions[], int dimensionCount) override;
 };
 }
