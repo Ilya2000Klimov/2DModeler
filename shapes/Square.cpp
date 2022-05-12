@@ -97,8 +97,9 @@ void cs1c::Square::operator>>(QTextStream& fileStream)
 		<< "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
 
-void cs1c::Square::setDimensions(int dimensions[])
+void cs1c::Square::setDimensions(int dimensions[], int dementionsCount)
 {
-	for(int i = 0; i < 3; i++)
-		x = dimensions[i];
+	x = dimensions[0];
+	y = dimensions[1];
+	width = dimensions[2];
 }
