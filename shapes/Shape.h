@@ -21,6 +21,7 @@ protected:
 
 public:
     Shape();
+    Shape(QPainter* pPainter);
     Shape(int shapeID, QPen pen, QBrush brush);
     Shape (const Shape& copy) = delete; // copy constructor
     Shape& operator=(const Shape& copy) = delete; // assignment operator
@@ -42,5 +43,6 @@ public:
     bool operator<(const Shape& ID);
     virtual void operator>>(QTextStream& fileStream);
 };
+
 #endif // SHAPE_H
 

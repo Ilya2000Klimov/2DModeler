@@ -7,6 +7,12 @@ Shape::Shape()
     brush = Qt::SolidPattern;
     //shape = None;
 }
+Shape::Shape(QPainter* pPainter) : paint{pPainter}
+{
+    shapeID = 0;
+    pen = Qt::SolidLine;
+    brush = Qt::SolidPattern;
+}
 //----------------------------------------------------------------------
 Shape::Shape(int shapeID, QPen pen, QBrush brush) //shapeType shape)
 {
