@@ -69,17 +69,17 @@ double cs1c::Text::area() //override
 {
     return textBounds.width() * textBounds.height();
 }
-QTextStream& cs1c::operator<<(QTextStream& fileStream, cs1c::Text& textShape)
+void cs1c::Text::operator>>(QTextStream& fileStream)
 {
-    fileStream << "\nShapeId: " << textShape.getID()
+    fileStream << "\nShapeId: " << this->getID()
         << "\nShapeType: Text"
-        << "\nShapeDimensions: " << textShape.textBounds.x() << ", " << textShape.textBounds.y()
-            << ", " << textShape.textBounds.height() << ", " << textShape.textBounds.width()
-        << "\nTextString: " << textShape.textString
-        << "\nTextColor: blue" << slp::colorResolver.key(textShape.getPen().color())
-        << "\nTextAlignment: " << slp::alignmentFlagResolver.key(textShape.textFormat.alignment())
-        << "\nTextPointSize: " << textShape.font.pointSize()
-        << "\nTextFontFamily: " << textShape.font.family()
-        << "\nTextFontStyle: " << slp::fontStyleResolver.key(textShape.font.style())
-        << "\nTextFontWeight: " << slp::fontWeightResolver.key(textShape.font.weight());
+        << "\nShapeDimensions: " << this->textBounds.x() << ", " << this->textBounds.y()
+            << ", " << this->textBounds.height() << ", " << this->textBounds.width()
+        << "\nTextString: " << this->textString
+        << "\nTextColor: blue" << slp::colorResolver.key(this->getPen().color())
+        << "\nTextAlignment: " << slp::alignmentFlagResolver.key(this->textFormat.alignment())
+        << "\nTextPointSize: " << this->font.pointSize()
+        << "\nTextFontFamily: " << this->font.family()
+        << "\nTextFontStyle: " << slp::fontStyleResolver.key(this->font.style())
+        << "\nTextFontWeight: " << slp::fontWeightResolver.key(this->font.weight());
 }

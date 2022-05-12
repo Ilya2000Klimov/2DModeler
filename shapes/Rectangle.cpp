@@ -1,14 +1,12 @@
 #include "Rectangle.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
-using namespace cs1c;
-
 Rectangle::Rectangle()
 {
-    int x = 10;
-    int y = 10;
-    int height = 100;
-    int wieght = 100;
+    x = 10;
+    y = 10;
+    height = 100;
+    width = 100;
 }
 //----------------------------------------------------------------------
 Rectangle::Rectangle(int x, int y, int width, int height)

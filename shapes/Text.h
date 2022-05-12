@@ -17,7 +17,6 @@ private:
     QString textString;
 
 public:
-    static const shapeType shape = shapeType::Text;
     Text();
     Text(QPainter* pPainter);
     Text(QFont font);
@@ -32,7 +31,7 @@ public:
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;
-    friend QTextStream& operator<<(QTextStream& fileStream, cs1c::Text& textShape);
+    virtual void operator>>(QTextStream& fileStream) override;
 };
 // Friend function prototype
 QTextStream& operator<<(QTextStream& fileStream, cs1c::Text& textShape);
