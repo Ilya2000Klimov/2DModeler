@@ -85,11 +85,8 @@ void cs1c::Text::operator>>(QTextStream& fileStream)
         << "\nTextFontStyle: " << slp::fontStyleResolver.key(this->font.style())
         << "\nTextFontWeight: " << slp::fontWeightResolver.key(this->font.weight());
 }
-void cs1c::Text::setDimensions(int dimensions[], int dementionsCount)
+void cs1c::Text::setDimensions(int dimensions[], int dimensionsCount)
 {
-	x = dimensions[0];
-	y = dimensions[1];
-	width = dimensions[2];
-	height = dimensions[3];
+    textBounds.setRect(dimensions[0], dimensions[1], dimensions[2], dimensions[3]);
 }
 

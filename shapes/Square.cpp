@@ -90,14 +90,14 @@ void cs1c::Square::operator>>(QTextStream& fileStream)
         << "\nShapeDimensions: " << this->getX() << ", " << this->getY() << ", " <<this->getWidth()
         << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
         << "\nPenWidth: " << this->getPen().width()
-        << "\nPenStyle: " << slp::penStyle.key(this->getPen().Style())
-        << "\nPenCapStyle: " << slp::penCapStyle.key(this->getPen().capStyle())
-        << "\nPenJoinStyle: " << slp::penJoinStyle.key(this->getPen().joinStyle())
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().Style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
         << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
 		<< "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
 
-void cs1c::Square::setDimensions(int dimensions[], int dementionsCount)
+void cs1c::Square::setDimensions(int dimensions[], int dimensionsCount)
 {
 	x = dimensions[0];
 	y = dimensions[1];
