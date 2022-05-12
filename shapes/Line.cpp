@@ -1,6 +1,8 @@
 #include "Line.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 Line::Line() : Shape()
 {
     int x1 = 10;

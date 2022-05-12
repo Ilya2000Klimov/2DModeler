@@ -1,6 +1,8 @@
 #include "Square.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 Square::Square()
 {
     x = 10;

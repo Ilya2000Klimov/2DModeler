@@ -1,5 +1,7 @@
 #include "Shape.h"
 
+using namespace cs1c;
+
 Shape::Shape()
 {
     shapeID = 0;
