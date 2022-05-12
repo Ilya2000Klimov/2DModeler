@@ -43,6 +43,7 @@ public:
     // Overloaded operators
     bool operator==(const Shape& ID);
     bool operator<(const Shape& ID);
+    // SERIALIZE
     virtual void operator>>(QTextStream& fileStream) = 0;
 };
 }

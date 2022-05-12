@@ -10,6 +10,7 @@ public:
     ~Polyline() override;
     virtual void draw(QPaintDevice* pDevice) override;
     virtual void move(int x, int y) override;
+    virtual void operator>>(QTextStream& fileStream) override;
     void move(int x, int y, int points) const; //might need to change int point
     //virtual double perimeter() override; //area and perimeter probably do not apply in this case
    // virtual double area() override;

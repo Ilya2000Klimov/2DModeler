@@ -17,7 +17,7 @@
 
 namespace slp
 {
-    QHash<QString, cs1c::Shape> getShapeTypeResolver(QPainter*);
+    QHash<QString, cs1c::Shape*> getShapeTypeResolver(QPainter*);
     QHash<QString, QColor> getColorResolver();
     QHash<QString, Qt::PenStyle> getPenStyleResolver();
     QHash<QString, Qt::PenCapStyle> getPenCapStyleResolver();
@@ -90,7 +90,7 @@ namespace slp
         Text
     };
     // Must be created after pPainter is instantiated (in main)
-    QHash<QString, cs1c::Shape> shapeTypeResolver;// = getShapeTypeResolver(pPainter);
+    QHash<QString, cs1c::Shape*> shapeTypeResolver;// = getShapeTypeResolver(pPainter);
     QHash<QString, QColor> colorResolver = getColorResolver();
     QHash<QString, Qt::PenStyle> penStyleResolver = getPenStyleResolver();
     QHash<QString, Qt::PenCapStyle> penCapStyleResolver = getPenCapStyleResolver();
@@ -102,21 +102,21 @@ namespace slp
 
 
     // Instantiating QHashes for String Litteral to Named Type conversion
-    QHash<QString, cs1c::Shape> getShapeTypeResolver(QPainter* pPainter)
+    QHash<QString, cs1c::Shape*> getShapeTypeResolver(QPainter* pPainter)
     {
-        QHash<QString, cs1c::Shape> shapeTypeResolver;
+        QHash<QString, cs1c::Shape*> shapeTypeResolver;
         shapeTypeResolver.reserve(8);
         // QHashes cannot receive input, so all concrete
         // shapes must have constructors with non-variable input
         // ex: pPainter does not differ between shapes
-        shapeTypeResolver["Line"] = cs1c::Line(pPainter);
-        shapeTypeResolver["Polyline"] = cs1c::Polyline(pPainter);
-        shapeTypeResolver["Polygon"] = cs1c::Polygon(pPainter);
-        shapeTypeResolver["Rectangle"] = cs1c::Rectangle(pPainter);
-        shapeTypeResolver["Square"] = cs1c::Rectangle(pPainter);
-        shapeTypeResolver["Ellipse"] = cs1c::Ellipse(pPainter);
-        shapeTypeResolver["Circle"] = cs1c::Ellipse(pPainter);
-        shapeTypeResolver["Text"] = cs1c::Text(pPainter);
+        shapeTypeResolver["Line"] = new cs1c::Line(pPainter);
+        shapeTypeResolver["Polyline"] = new cs1c::Polyline(pPainter);
+        shapeTypeResolver["Polygon"] = new cs1c::Polygon(pPainter);
+        shapeTypeResolver["Rectangle"] = new cs1c::Rectangle(pPainter);
+        shapeTypeResolver["Square"] = new cs1c::Rectangle(pPainter);
+        shapeTypeResolver["Ellipse"] = new cs1c::Ellipse(pPainter);
+        shapeTypeResolver["Circle"] = new cs1c::Ellipse(pPainter);
+        shapeTypeResolver["Text"] = new cs1c::Text(pPainter);
         return shapeTypeResolver;
     }
     QHash<QString, QColor> getColorResolver()

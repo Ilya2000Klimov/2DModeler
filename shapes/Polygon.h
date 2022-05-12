@@ -18,6 +18,7 @@ public:
     void move(int x, int y, int points);
     virtual double perimeter() override;
     virtual double area() override;
+    virtual void operator>>(QTextStream& fileStream) override;
 
     int getX() const; //function to get the X coord
     int getY() const;

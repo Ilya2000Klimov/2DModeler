@@ -83,3 +83,17 @@ double Circle::area()
     return (PI * (radius * radius));
 }
 //----------------------------------------------------------------------
+void cs1c::Circle::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Circle"
+        << "\nShapeDimensions: " << this->textBounds.x() << ", " << this->textBounds.y()
+            << ", " << this->textBounds.height() << ", " << this->textBounds.width()
+        << "\nTextString: " << this->textString
+        << "\nTextColor: blue" << slp::colorResolver.key(this->getPen().color())
+        << "\nTextAlignment: " << slp::alignmentFlagResolver.key(this->textFormat.alignment())
+        << "\nTextPointSize: " << this->font.pointSize()
+        << "\nTextFontFamily: " << this->font.family()
+        << "\nTextFontStyle: " << slp::fontStyleResolver.key(this->font.style())
+        << "\nTextFontWeight: " << slp::fontWeightResolver.key(this->font.weight());
+}

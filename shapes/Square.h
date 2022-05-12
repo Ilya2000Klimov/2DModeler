@@ -24,6 +24,7 @@ public:
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;
+    virtual void operator>>(QTextStream& fileStream) override;
 };
 }
 #endif // SQUARE_H

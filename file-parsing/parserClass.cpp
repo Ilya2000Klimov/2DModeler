@@ -26,7 +26,7 @@ cs1c::ShapeParser::ShapeParser(QPainter* pPainter)
     slp::shapeTypeResolver = slp::getShapeTypeResolver(pPainter);
 }
 // parseShape
-std::vector<Shape*> cs1c::ShapeParser::parseShape(QFile* file)
+std::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(QFile* file)
 {
     openFile = file;
     // shape container to be returned
@@ -64,7 +64,7 @@ std::vector<Shape*> cs1c::ShapeParser::parseShape(QFile* file)
         // For all Shapes
         // ===============
         // ID
-        currentShape.setID(shapeId);
+        currentShape->setID(shapeId);
 
         // Dimensions
         shapeDimensions = new int[dimensionList.size()]{};
@@ -72,7 +72,7 @@ std::vector<Shape*> cs1c::ShapeParser::parseShape(QFile* file)
         {
             shapeDimensions[i] = dimensionList.value(i).toInt();
         }
-        currentShape.setDimensions(shapeDimensions);
+        currentShape->setDimensions(shapeDimensions);
 
         // =========================
         // For Text only properties
@@ -90,10 +90,10 @@ std::vector<Shape*> cs1c::ShapeParser::parseShape(QFile* file)
             textFont.setWeight(slp::fontWeightResolver.value(getPropertyData(openFileStream)));
 
             // Apply text properties from file
-            currentShape.setText(textString);
-            currentShape.setPen(textColor, textPointSize, Qt::PenStyle::NoPen, Qt::PenCapStyle::FlatCap, Qt::PenJoinStyle::RoundJoin);
-            currentShape.setAlignment(textAlignment);
-            currentShape.setFont(textFont);
+            currentShape->setText(textString);
+            currentShape->setPen(textColor, textPointSize, Qt::PenStyle::NoPen, Qt::PenCapStyle::FlatCap, Qt::PenJoinStyle::RoundJoin);
+            currentShape->setAlignment(textAlignment);
+            currentShape->setFont(textFont);
         }
         // ============================
         // Surface and Line properties
@@ -107,7 +107,7 @@ std::vector<Shape*> cs1c::ShapeParser::parseShape(QFile* file)
             Qt::PenJoinStyle penJoinStyle = slp::penJoinStyleResolver.value(getPropertyData(openFileStream));
 
             // Apply pen properties from file
-            currentShape.setPen(
+            currentShape->setPen(
                         penColor,
                         penWidth,
                         penStyle,
@@ -123,10 +123,10 @@ std::vector<Shape*> cs1c::ShapeParser::parseShape(QFile* file)
                 Qt::BrushStyle brushStyle = slp::brushStyleResolver.value(getPropertyData(openFileStream));
 
                 // Apply brush properties from file
-                currentShape.setBrush(brushColor, brushStyle);
+                currentShape->setBrush(brushColor, brushStyle);
             }
         }
-        shapeList.push_back(&currentShape);
+        shapeList.push_back(currentShape);
     }
     return shapeList;
 }
@@ -134,9 +134,9 @@ void cs1c::ShapeParser::serializeShapes(std::vector<Shape*>& shapeList)
 {
     // class for streaming data from a text file
     QTextStream openFileStream(openFile);
-    for(auto* shape : shapeList)
+    for(Shape* shape : shapeList)
     {
-        openFileStream << shape;
+        shape >> openFileStream;
     }
 }
 

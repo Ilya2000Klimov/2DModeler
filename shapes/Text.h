@@ -33,7 +33,5 @@ public:
     virtual double area() override;
     virtual void operator>>(QTextStream& fileStream) override;
 };
-// Friend function prototype
-QTextStream& operator<<(QTextStream& fileStream, cs1c::Text& textShape);
 }
 #endif // TEXT_H
