@@ -11,7 +11,7 @@ class Polygon: public Shape
 {
 public:
     Polygon(QPainter* pPainter);
-    Polygon(int numOfPoints,double x, double y);
+    Polygon(int numOfPoints,int x, int y);
     ~Polygon() override;
     virtual void draw(QPaintDevice* pDevice) override;
     virtual void move(int x, int y) override;
@@ -21,19 +21,21 @@ public:
 
     int getX() const; //function to get the X coord
     int getY() const;
-    void setPoints(int Xcoord[],int Ycoord[]);
+    void setPoints();
     int getPoints() const;
     void setPoints(int );
+    void setX(int x);
+    void setY(int y);
 private:
     // Note: Don't place variables in global scope
     static const int DEFAULT_NUM_PTS = 8;
-    int numOfPoints; // will need to find total polygon points
+    int numOfPoints; // variable to find total number of points in the polygon
+    std::vector<QPointF> vPoint; //vector to store the points of the polygon in
     QPointF points[DEFAULT_NUM_PTS];
     double x;
     double y;
     double Xcoord[DEFAULT_NUM_PTS];
     double Ycoord[DEFAULT_NUM_PTS];
-
 
 };
 }
