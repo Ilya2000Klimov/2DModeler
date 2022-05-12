@@ -1,6 +1,8 @@
 #include "Ellipse.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
+
 const double PI = 3.14;
 
 Ellipse::Ellipse()

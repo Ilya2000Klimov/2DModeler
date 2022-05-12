@@ -2,6 +2,8 @@
 #define SQUARE_H
 #include "Shape.h"
 
+namespace cs1c
+{
 class Square : public Shape
 {
 private:
@@ -22,5 +24,5 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
 };
-
+}
 #endif // SQUARE_H

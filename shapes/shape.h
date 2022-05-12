@@ -7,6 +7,8 @@
 
 enum shapeType { None, Line, Polyline, Polygon, Rectangle, Ellipse, Circle, Square, Text };
 
+namespace cs1c
+{
 class Shape
 {
 private:
@@ -39,5 +41,6 @@ public:
     bool operator==(const Shape& ID);
     bool operator<(const Shape& ID);
 };
+}
 #endif // SHAPE_H
 
