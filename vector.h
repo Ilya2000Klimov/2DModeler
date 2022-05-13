@@ -2,8 +2,9 @@
 
 namespace cs1c
 {
-	// vector header
-	// a vector which approximates the stl vector
+	//! vector header
+	/*! a vector which approximates the stl vector
+	*/
 	template<typename T>
 	class vector
 	{
