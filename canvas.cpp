@@ -72,19 +72,5 @@ void Canvas::paintEvent(QPaintEvent *event)
     myPolygon.setBrush(Qt::yellow, Qt::SolidPattern);
     myPolygon.draw(device);
 
-    //     Polyline
-   cs1c::Polyline myPolyline;
-
-   myPolyline.setPoints(460, 90);
-   myPolyline.setPoints(470, 20);
-   myPolyline.setPoints(530, 40);
-   myPolyline.setPoints(540, 80);
-
-   myPolyline.setPen(Qt::green, 6, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
-   myPolyline.draw(device);
-
-   myPolyline.move(100,40);  // Testing Polyline move
-   myPolyline.draw(device);
-
 }
 

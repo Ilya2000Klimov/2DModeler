@@ -1,67 +1,85 @@
 #include "Polyline.h"
-//#include "../file-parsing/ShapeListingSpecification.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 using namespace cs1c;
 
-Polyline::Polyline()
-{}
-//----------------------------------------------------------------------
-Polyline::Polyline(QPainter* pPainter) : Shape(pPainter)
-{}
-//----------------------------------------------------------------------
-Polyline::Polyline(cs1c::vector<QPoint> vPoints) : vPoints{vPoints}
-{}
-//----------------------------------------------------------------------
-Polyline::~Polyline() {}
-//----------------------------------------------------------------------
-void Polyline::setPoints(int x, int y)
+Polyline::Polyline(QPainter* pPainter, int ID) : Shape(pPainter)
 {
-    // Uses vector fucntion push_back to add QPoints to the vector
-    vPoints.push_back(QPoint(x, y));
+    setID(ID);
 }
-//----------------------------------------------------------------------
-QVector<QPoint>& Polyline::getPoints()
-{
-    return vPoints;
-}
-//----------------------------------------------------------------------
-void Polyline::setDimensions(int dimensions[], int dimensionCount)
-{
-    vPoints = cs1c::vector<QPoint>();
 
-    for (int i = 0; i < dimensionCount; i += 2)
-        {
-            setPoints(dimensions[i], dimensions[i+1]);
-        }
-}
-//----------------------------------------------------------------------
-void Polyline::draw(QPaintDevice *device)
+Polyline::Polyline(int numOfPoints)
 {
-    paint = this;
-    paint->begin(device); // Paint device begins to paint
-    paint->setPen(getPen()); // set pen calling shape function
-    paint->setBrush(getBrush()); // set brush calling shape function
-    // Calling QPainter's drawPolyline function
-    paint->drawPolyline(vPoints.begin(), vPoints.size());
-    paint->end(); // Ends painting
+    vPoints.resize(numOfPoints);
 }
-//----------------------------------------------------------------------
+
+Polyline::~Polyline(){}
+
+void Polyline::draw(QPaintDevice* pDevice)
+{
+    paint->begin(pDevice);
+    paint->setPen(getPen());
+    paint->setBrush(getBrush());
+    paint->drawPolyline(vPoints.begin(), vPoints.size());
+    paint->end();
+}
+
 void Polyline::move(int x, int y)
 {
+    int moveX=0;
+    int moveY=0;
+    //difference between the first coordinate and the coordinate we are moving to
+    moveX = x-vPoints[0].x();
+    moveY=y-vPoints[0].y();
+
+    //setting the new coordinates as that particular point, ie the point has moved
+    //int points is the point that is being moved
     for(QPoint& point : vPoints)
-        {
-            point.rx() += x;
-            point.ry() += y;
-        }
+    {
+        point.rx() +=moveX;
+        point.ry() +=moveY;
+    }
 }
-//----------------------------------------------------------------------
-double Polyline::perimeter()
-{
-    return 0; // Polyline does not have perimeter
-}
-//----------------------------------------------------------------------
+
 double Polyline::area()
 {
-    return 0; // Polyline does not have area
+    return 0;
 }
-//----------------------------------------------------------------------
+double Polyline::perimeter()
+{
+    return 0;
+}
+
+void Polyline::setPoints(int x, int y)
+{
+    vPoints.push_back(QPoint(x, y));
+}
+
+void cs1c::Polyline::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Ellipse"
+        << "\nShapeDimensions: ";
+    // Repeat for all but last point
+    int i = 1;
+    while(i < vPoints.size())
+    {
+         fileStream << vPoints[i - 1].x() << ", " << vPoints[i - 1].y() << ", ";
+         i++;
+    }
+    fileStream << vPoints[i - 1].x() << ", " << vPoints[i - 1].y();
+    fileStream << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle());
+}
+
+void cs1c::Polyline::setDimensions(int dimensions[], int dimensionCount)
+{
+    vPoints = cs1c::vector<QPoint>();
+    for(int i = 0; i < dimensionCount; i += 2)
+    {
+        setPoints(dimensions[i], dimensions[i + 1]);
+    }
+}
