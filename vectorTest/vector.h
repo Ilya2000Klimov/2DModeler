@@ -46,7 +46,7 @@ namespace cs1c
 
     template <typename T>
     vector<T>::vector(int s) // alternate constructor
-        : size_v{ s }, elem{ new T[s] }, space{ s } {}
+        : size_v{ 0 }, elem{ new T[s] }, space{ s } {}
 
     template <typename T>
     vector<T>::vector(const vector& source) // copy constructor
@@ -186,7 +186,7 @@ namespace cs1c
     typename vector<T>::iterator vector<T>::insert(iterator p, const T& v) // insert a new element v before p
     {
         // if the vector has NO free space
-        if (!(space - size_v))
+        if (space == size_v)
         {
             reserve(space * 2);
             *p = v;

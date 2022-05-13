@@ -11,16 +11,17 @@ int main()
 	{
 		myVector2.push_back(i);
 	}
-	for (int i = 11; i < 16; i++)
+	for (int i = 11; i < 20; i++)
 	{
 		myVector.push_back(i);
 	}
-	cout << myVector.size() << endl;
-	cout << myVector.capacity() << endl;
 
 	cout << "The vector elements are : ";
 	for (ptr = myVector.begin(); ptr < myVector.end(); ptr++)
 		cout << *ptr << " ";
+
+	cout <<endl << myVector.size() << endl;
+	cout << myVector.capacity() << endl;
 
 	ptr = myVector.begin();
 
@@ -28,9 +29,11 @@ int main()
 
 	myVector.erase(myVector.begin());
 
-	//myVector = myVector2;
+	cout << "The vector elements are : ";
+	for (ptr = myVector.begin(); ptr < myVector.end(); ptr++)
+		cout << *ptr << " ";
 
-	cout << endl << myVector.size() << endl;
+	cout <<endl << myVector.size() << endl;
 	cout << myVector.capacity() << endl;
 
 	ptr = myVector.begin();
@@ -41,16 +44,16 @@ int main()
 	for (ptr = myVector.begin(); ptr < myVector.end(); ptr++)
 		cout << *ptr << " ";
 
-	cout << endl << myVector.size() << endl;
+	cout <<endl << myVector.size() << endl;
 	cout << myVector.capacity() << endl;
-
-	cs1c::vector<string> stringVector;//20);
+	cs1c::vector<string> stringVector(11);
 	stringVector.push_back("1. Hello");
 	stringVector.push_back("2. String 0ne");
 	stringVector.push_back("3. Hello");
 	stringVector.push_back("4. Hello");
 	stringVector.push_back("5. Hello");
 	stringVector.push_back("6. Hello");
+
 
 	cs1c::vector<string> stringVector2 = stringVector;
 	cs1c::vector<string>::iterator ptrS;
@@ -60,9 +63,10 @@ int main()
 		cout << "["<< *ptrS << "] ";
 	cout << endl;
 
-	ptrS = stringVector2.begin();
-	advance(ptrS, 1);
-	stringVector2.insert(ptrS, stringVector[5]);
+	ptrS = &(stringVector2[1]);
+	//advance(ptrS, 1);
+	//stringVector2.insert(ptrS, stringVector[5]);
+	stringVector2.erase(stringVector2.begin());
 
 	cout << "The vector elements are : ";
 	for (ptrS = stringVector2.begin(); ptrS < stringVector2.end(); ptrS++)
