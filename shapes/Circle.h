@@ -25,7 +25,7 @@ public:
     virtual double perimeter() override;
     virtual double area() override;
     virtual ShapeType type() const override;
-//    virtual void operator>>(QTextStream& fileStream) override;
+    virtual void operator>>(QTextStream& fileStream) override;
     virtual void setDimensions(int dimensions[], int dimensionCount) override;
 };
 }
