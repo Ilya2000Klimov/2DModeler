@@ -189,11 +189,11 @@ namespace cs1c
         if (space == size_v)
         {
             reserve(space * 2);
-            *p = v;
+            //*p = v; //i THINK THIS WOULD CAUSE A PROBLEM
         }
-        for (vector<T>::iterator it = this->end(); it != p; it--)
+        for (vector<T>::iterator it = this->end(); it != p; --it)
         {
-            *(it) = *(it - 1);
+            *(it) = *(it - 1);  // <- malloc in here is causing a segfault
         }
         *p = v;
         size_v++;
