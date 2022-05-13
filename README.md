@@ -5,7 +5,7 @@ CS1C group project
 #### Sprint 1
 |Name|Email|Username|Role|
 |----|-----|--------|----|
-|Charlie Diaz|Email@gmail.com|[usename](https://github.com/)|Coder|
+|Charlie Diaz|-|[-](https://github.com/)|Coder|
 |Ilya Klimov|Ilya2000Klimov@gmail.com|[Ilya2000Klimov](https://github.com/Ilya2000Klimov)|Coder|
 |Cynthia Martinez|cynthiaemartinez00@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Coder|
 |Trazler McGrath|trazmcg@gmail.com|[cree321](https://github.com/cree321)|Scrum Master|
@@ -16,7 +16,7 @@ CS1C group project
 #### Sprint 2
 |Name|Email|Username|Role|
 |----|-----|--------|----|
-|Charlie Diaz|Email@gmail.com|[usename](https://github.com/)|Coder|
+|Charlie Diaz|-|[-](https://github.com/)|Coder|
 |Ilya Klimov|Ilya2000Klimov@gmail.com|[Ilya2000Klimov](https://github.com/Ilya2000Klimov)|Scrum Master|
 |Cynthia Martinez|cynthiaemartinez00@gmail.com|[Cynth1a-M](https://github.com/Cynth1a-M)|Product Owner|
 |Trazler McGrath|trazmcg@gmail.com|[cree321](https://github.com/cree321)|Coder|
