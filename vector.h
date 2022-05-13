@@ -8,9 +8,10 @@ namespace cs1c
 	template<typename T>
 	class vector
 	{
-		int size_v;	 // the size
-		T* elem;	 // a pointer to the elements
-		int space;	 // the size with the free space available
+
+		int size_v;	 /*!< the size */
+		T* elem;	 /*!< a pointer to the elements */
+		int space;	 /*!< the size with the free space available */
 	public:
 		//! A default constructor.
     	/*!
@@ -43,15 +44,40 @@ namespace cs1c
 		//! A destructor.
 		/*!
 		*/
-		~vector();	  // destructor
-		T& operator[](int n);	// access: return reference
-	   // change this line to T& operator[](int n); to not get compile error, but might cause issues in the future
-		T& operator[](int n) const;	// access: return reference
-		int size() const;	// the current size
-		int capacity() const;	 // current available space
-		void resize(int newsize);   // grow
-		void push_back(T val);   // add element
-		void reserve(int newalloc);	// get more space  
+		~vector();
+		
+		T& operator[](int n);
+	   	// change this line to T& operator[](int n); to not get compile error, but might cause issues in the future
+		//! Operator overloading.
+		/*!
+		access: return reference
+		*/
+		T& operator[](int n) const;	
+		//! An integer returning function.
+		/*!
+		Returns the current size
+		*/
+		int size() const;
+		//! An integer returning function.
+		/*!
+		Returns the current available space
+		*/
+		int capacity() const;
+		//! A function.
+		/*!
+		New size to replace the current size of the function is passed as a parameter
+		*/	 
+		void resize(int newsize); 
+		//! A function.
+		/*!
+		Elemented to be added is passed as a parameter
+		*/
+		void push_back(T val);
+		//! A function.
+		/*!
+		newalloc passed as a parameter to get more space
+		*/
+		void reserve(int newalloc);  
 
 		using iterator = T*;
 		using const_iterator = const T*;
