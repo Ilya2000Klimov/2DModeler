@@ -2,22 +2,47 @@
 
 namespace cs1c
 {
-	//! vector header
-	/*! a vector which approximates the stl vector
+	//! Class vector.
+	/*! a vector class which approximates the stl vector
 	*/
 	template<typename T>
 	class vector
 	{
 		int size_v;	 // the size
 		T* elem;	 // a pointer to the elements
-		int space;	 // size+free_space
+		int space;	 // the size with the free space available
 	public:
-		vector();	 // default constructor
-		explicit vector(int s);	// alternate constructor
-		vector(const vector&);	// copy constructor
-		vector& operator=(const vector&);  // copy assignment
-		vector(const vector&&) noexcept;	// move constructor
-		vector& operator=(const vector&&) noexcept; // move assignment
+		//! A default constructor.
+    	/*!
+     	 A default constructor to initiallize the private variables to zero
+    	*/
+		vector();
+		//! Alternate constructor.
+		/*!
+		Size of vector is passed in the constructor.
+		*/
+		explicit vector(int s);
+		//! Copy constructor.
+		/*!
+		A const reference to another object is passed as a parameter
+		*/
+		vector(const vector&);	
+		//! Copy assignment .
+		/*!
+		A const reference to another object is passed as a parameter
+		*/
+		vector& operator=(const vector&);
+		//! Move constructor.
+		/*!
+		*/
+		vector(const vector&&) noexcept;
+		//! Move assignment.
+		/*!
+		*/
+		vector& operator=(const vector&&) noexcept; 
+		//! A destructor.
+		/*!
+		*/
 		~vector();	  // destructor
 		T& operator[](int n);	// access: return reference
 	   // change this line to T& operator[](int n); to not get compile error, but might cause issues in the future
