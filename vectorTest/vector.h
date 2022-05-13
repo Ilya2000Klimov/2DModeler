@@ -46,11 +46,8 @@ namespace cs1c
 
     template <typename T>
     vector<T>::vector(int s) // alternate constructor
-        : size_v{ s }, elem{ new T[s] }, space{ s }
-    {
-        for (int i = 0; i < size_v; i++)
-            elem[i] = 0;
-    }
+        : size_v{ s }, elem{ new T[s] }, space{ s } {}
+
     template <typename T>
     vector<T>::vector(const vector& source) // copy constructor
         : size_v{ source.size_v }, elem{ new T[source.size_v] }, space{ source.space }

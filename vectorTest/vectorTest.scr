@@ -1,0 +1,38 @@
+Script started on 2022-05-12 23:50:16-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="235" LINES="23"]
+\ [?2004h[38;5;081miklimov[38;5;245m@[38;5;206mikk [38;5;245m~/Documents/CS1C/vectorTest [38;5;081m$ [0mgit pullshll[K[K[K[K[K[K[K[Kmake
+[?2004lg++ -std=c++14 -Wall -g test.cpp -o test vector.h
+[?2004h[38;5;081miklimov[38;5;245m@[38;5;206mikk [38;5;245m~/Documents/CS1C/vectorTest [38;5;081m$ [0mvalgrinf[Kd ./test 
+[?2004l==132199== Memcheck, a memory error detector
+==132199== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==132199== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==132199== Command: ./test
+==132199== 
+--132199-- WARNING: unhandled amd64-linux syscall: 334
+--132199-- You may be able to write your own handler.
+--132199-- Read the file README_MISSING_SYSCALL_OR_IOCTL.
+--132199-- Nevertheless we consider this a bug.  Please report
+--132199-- it at http://valgrind.org/support/bug_reports.html.
+The vector elements are : 11 12 13 14 15 16 17 18 19 
+9
+16
+The vector elements are : 12 13 14 15 16 17 18 19 
+8
+16
+The vector elements are : 12 0 13 14 15 16 17 18 19 
+9
+16
+The vector elements are : [1. Hello] [2. String 0ne] [3. Hello] [4. Hello] [5. Hello] [6. Hello] 
+The vector elements are : [2. String 0ne] [3. Hello] [4. Hello] [5. Hello] [6. Hello] 
+==132199== 
+==132199== HEAP SUMMARY:
+==132199==     in use at exit: 0 bytes in 0 blocks
+==132199==   total heap usage: 8 allocs, 8 frees, 74,864 bytes allocated
+==132199== 
+==132199== All heap blocks were freed -- no leaks are possible
+==132199== 
+==132199== For lists of detected and suppressed errors, rerun with: -s
+==132199== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+[?2004h[38;5;081miklimov[38;5;245m@[38;5;206mikk [38;5;245m~/Documents/CS1C/vectorTest [38;5;081m$ [0mexitr[K[Kt
+[?2004lexit
+
+Script done on 2022-05-12 23:50:54-07:00 [COMMAND_EXIT_CODE="0"]
