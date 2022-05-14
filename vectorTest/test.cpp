@@ -65,8 +65,8 @@ int main()
 
 	ptrS = &(stringVector2[1]);
 	//advance(ptrS, 1);
-	//stringVector2.insert(ptrS, stringVector[5]);
-	stringVector2.erase(stringVector2.begin());
+	stringVector2.insert(ptrS, stringVector[3]);
+	//stringVector2.erase(stringVector2.begin());
 
 	cout << "The vector elements are : ";
 	for (ptrS = stringVector2.begin(); ptrS < stringVector2.end(); ptrS++)
