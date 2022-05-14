@@ -1,6 +1,7 @@
 #ifndef POLYLINE_H
 #define POLYLINE_H
 #include <QPoint>
+#include <QVector>
 #include "Shape.h"
 
 namespace cs1c
@@ -8,15 +9,15 @@ namespace cs1c
 class Polyline : public Shape
 {
 private:
-    cs1c::QVector<QPoint> vPoints;
+    QVector<QPoint> vPoints;
 
 public:
     Polyline();
     Polyline(QPainter* pPainter);
-    Polyline(cs1c::vector<QPoint> vPoints);
+    Polyline(QVector<QPoint> vPoints);
     virtual ~Polyline();
     void setPoints(int, int);
-    cs1c::vector<QPoint>& getPoints();
+    QVector<QPoint>& getPoints();
     virtual void setDimensions(int dimensions[], int dimensionCount) override;
     virtual void draw(QPaintDevice *device) override;
     virtual void move(int x, int y) override;
@@ -24,3 +25,4 @@ public:
     virtual double area() override;
 };
 }
+#endif // POLYLINE_H

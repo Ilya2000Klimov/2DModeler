@@ -9,7 +9,7 @@ Polyline::Polyline()
 Polyline::Polyline(QPainter* pPainter) : Shape(pPainter)
 {}
 //----------------------------------------------------------------------
-Polyline::Polyline(cs1c::vector<QPoint> vPoints) : vPoints{vPoints}
+Polyline::Polyline(QVector<QPoint> vPoints) : vPoints{vPoints}
 {}
 //----------------------------------------------------------------------
 Polyline::~Polyline() {}
@@ -27,7 +27,7 @@ QVector<QPoint>& Polyline::getPoints()
 //----------------------------------------------------------------------
 void Polyline::setDimensions(int dimensions[], int dimensionCount)
 {
-    int count = dimensionCount/2;
+    vPoints = QVector<QPoint>();
 
     for (int i = 0; i < dimensionCount; i += 2)
         {
@@ -37,7 +37,8 @@ void Polyline::setDimensions(int dimensions[], int dimensionCount)
 //----------------------------------------------------------------------
 void Polyline::draw(QPaintDevice *device)
 {
-    paint = this;
+    //paint = this; // This might be needed for the canvas
+
     paint->begin(device); // Paint device begins to paint
     paint->setPen(getPen()); // set pen calling shape function
     paint->setBrush(getBrush()); // set brush calling shape function
