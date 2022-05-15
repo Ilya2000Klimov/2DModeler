@@ -10,6 +10,7 @@ namespace cs1c
         int size_v;     // the size
         T* elem;     // a pointer to the elements
         int space;     // size+free_space
+
     public:
         vector();     // default constructor
         explicit vector(int s);    // alternate constructor
@@ -50,25 +51,27 @@ namespace cs1c
 
     template <typename T>
     vector<T>::vector(const vector& source) // copy constructor
-        : size_v{ source.size_v }, elem{ new T[source.size_v] }, space{ source.space }
+        : size_v{ source.size_v }, elem{ new T[source.space] }, space{ source.space }
     {
         // using copy algorithm to copy the contents of source array to this array
-        std::copy(source.elem, source.elem + source.size_v, elem);
+        std::copy(source.begin(), source.end(), this->begin());
     }
     template <typename T>
     vector<T>& vector<T>::operator=(const vector& source) // copy assignment
     {
-        T* p = new T[source.size_v];  // create a pointer pointing to a dynamic array
-        std::copy(source.elem, source.elem + source.size_v, p); // copy all source data to "p"
-        delete[] elem;
-        elem = p;
+        if (elem != NULL)
+            delete[] elem;
+        elem = new T[source.space];
+        std::copy(source.begin(), source.end(), this->begin());
         size_v = source.size_v;
+        space = source.space;
         return *this;
     }
     template <typename T>
     vector<T>::vector(const vector&& source) noexcept // move constructor
-        : size_v{ source.size_v }, elem{ source.elem }
+        : size_v{ source.size_v }, elem{ source.elem }, space{ source.space}
     {
+
         source.elem = nullptr;
         source.size_v = 0;
     }
@@ -124,17 +127,20 @@ namespace cs1c
     void vector<T>::push_back(T val) // add element
     {
         if (space == 0)
-            reserve(8);             // start with space for 8 elements
+            reserve(3);             // start with space for 8 elements
         else if (size_v == space)
+        {
             reserve(2 * space);     // get more space
-        elem[size_v] = val;           // add val at end
+        }
+        this->elem[this->size_v] = val;           // add val at end
         ++size_v;                   // increase the size (size_v is the number of elements)
-
     }
     template <typename T>
     void vector<T>::reserve(int newalloc) // get more space
     {
-        T* newElem = new T[newalloc]();
+        if (newalloc < space)
+            newalloc = space;
+        T* newElem = new T[newalloc];
         for (int i = 0; i < size_v; i++)
         {
             newElem[i] = elem[i];
@@ -186,14 +192,13 @@ namespace cs1c
     typename vector<T>::iterator vector<T>::insert(iterator p, const T& v) // insert a new element v before p
     {
         // if the vector has NO free space
-        if (space == size_v)
+        if (this->space == this->size_v)
         {
             reserve(space * 2);
-            //*p = v; //i THINK THIS WOULD CAUSE A PROBLEM
         }
-        for (vector<T>::iterator it = this->end(); it != p;)
+        for (vector<T>::iterator it = this->end(); it != p;it--)
         {
-            *(it) = *(--it);  // <- malloc in here is causing a segfault
+            *it = *(it - 1);
         }
         *p = v;
         size_v++;
