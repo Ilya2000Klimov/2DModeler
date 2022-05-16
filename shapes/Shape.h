@@ -6,18 +6,25 @@
 #include <QPaintDevice>
 #include <QTextStream>
 
-
+//!  A shape class. 
+/*!
+  A class header file for the shape class. Other shapes are derived from this class
+*/
 namespace cs1c
 {
+    //! An enum
+    /*!
+        Contains the types of shapes
+    */
     enum ShapeType {
-        Line,
-        Polyline,
-        Polygon,
-        Rectangle,
-        Square,
-        Ellipse,
-        Circle,
-        Text
+        Line,       /*!< Enum value Line. */
+        Polyline,   /*!< Enum value Polyline. */
+        Polygon,    /*!< Enum value Polygon. */
+        Rectangle,  /*!< Enum value Rectangle. */
+        Square,     /*!< Enum value Square. */
+        Ellipse,    /*!< Enum value Ellipse. */
+        Circle,     /*!< Enum value Circle. */
+        Text        /*!< Enum value Text. */
     };
 class Shape
 {
@@ -31,10 +38,26 @@ protected:
     QPainter *paint;
 
 public:
+    //! A default constructor.
+    /*!
+    A default constructor to initiallize the private variables to zero
+    */
     Shape();
+    //! An alternate constructor.
+    /*!
+    An alternate constructor where QPainter pointer is passed as parameter
+    */
     Shape(QPainter* pPainter);
+    //! An alternate constructor.
+    /*!
+    An alternate constructor where the shape ID, and the QPen and QBrish objects are passed as parameter
+    */
     Shape(int shapeID, QPen pen, QBrush brush);
-    Shape (const Shape& copy) = delete; // copy constructor
+    //! An copy constructor.
+    /*!
+    An const reference of another object is passed as parameter
+    */
+    Shape (const Shape& copy) = delete;
     Shape& operator=(const Shape& copy) = delete; // assignment operator
     void setID(int ID);
     //void setShape(shapeType s);
