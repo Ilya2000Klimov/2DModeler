@@ -72,22 +72,27 @@ public:
     void setBrush(QColor color, Qt::BrushStyle style);
     //! A destructor
     /*!
+    Destroys shape
     */
     virtual ~Shape();
     //! A pure virtual function
     /*!
+    Used to draw shape object.
     */
     virtual void draw(QPaintDevice* pDevice) = 0;
     //! A pure virtual function
     /*!
+    Used to move shape object. 
     */
     virtual void move(int x, int y) = 0;
     //! A pure virtual function
     /*!
+    Used calculate perimeter of a shape object and returns perimeter
     */
     virtual double perimeter() = 0;
     //! A pure virtual function
     /*!
+    Used to calculate area of the shpae object and returns the area
     */
     virtual double area() = 0;
     int getID() const;
