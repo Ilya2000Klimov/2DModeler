@@ -58,22 +58,50 @@ public:
     An const reference of another object is passed as parameter
     */
     Shape (const Shape& copy) = delete;
-    Shape& operator=(const Shape& copy) = delete; // assignment operator
+    //!An assignment operator
+    /*!
+    */
+    Shape& operator=(const Shape& copy) = delete;
+    //! A setter function
+    /*!
+    ID is passed as parameter in the function
+    */
     void setID(int ID);
     //void setShape(shapeType s);
     void setPen(QColor color, int width, Qt::PenStyle style, Qt::PenCapStyle cap, Qt::PenJoinStyle join);
     void setBrush(QColor color, Qt::BrushStyle style);
+    //! A destructor
+    /*!
+    */
     virtual ~Shape();
+    //! A pure virtual function
+    /*!
+    */
     virtual void draw(QPaintDevice* pDevice) = 0;
+    //! A pure virtual function
+    /*!
+    */
     virtual void move(int x, int y) = 0;
+    //! A pure virtual function
+    /*!
+    */
     virtual double perimeter() = 0;
+    //! A pure virtual function
+    /*!
+    */
     virtual double area() = 0;
     int getID() const;
     //shapeType getShapeType() const;
     QPen& getPen();
     QBrush& getBrush();
     // Overloaded operators
+    //*! An overloaded equality operator
+    /*!
+    */
     bool operator==(const Shape& ID);
+    //*! An overloaded lesser than operator
+    /*!
+    */
     bool operator<(const Shape& ID);
     // SERIALIZE
     virtual ShapeType type() const = 0;
