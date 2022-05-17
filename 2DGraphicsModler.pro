@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     canvas.cpp \
+    circleserializer.cpp \
     dialog.cpp \
     file-parsing/ShapeListingSpecification.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    penandbrushserializer.cpp \
     serializepreview.cpp \
     shapes/Circle.cpp \
     shapes/Ellipse.cpp \
@@ -30,9 +32,11 @@ SOURCES += \
 
 HEADERS += \
     canvas.h \
+    circleserializer.h \
     dialog.h \
     login.h \
     mainwindow.h \
+    penandbrushserializer.h \
     serializepreview.h \
     ui_login.h \
     ui_mainwindow.h \
@@ -51,9 +55,11 @@ HEADERS += \
     file-parsing/ShapeListingSpecification.h
 
 FORMS += \
+    circleserializer.ui \
     dialog.ui \
     login.ui \
     mainwindow.ui \
+    penandbrushserializer.ui \
     serializepreview.ui
 
 # Default rules for deployment.
