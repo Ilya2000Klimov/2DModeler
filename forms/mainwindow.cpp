@@ -34,3 +34,15 @@ void MainWindow::on_actionLogin_triggered()
     uiLogin->show();
 }
 
+
+void MainWindow::on_actionSave_triggered()
+{
+
+}
+
+
+void MainWindow::on_actionLoad_triggered()
+{
+
+}
+

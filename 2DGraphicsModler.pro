@@ -9,15 +9,15 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    canvas.cpp \
-    circleserializer.cpp \
-    dialog.cpp \
+    forms/canvas.cpp \
+    forms/circleserializer.cpp \
+    forms/dialog.cpp \
     file-parsing/ShapeListingSpecification.cpp \
-    login.cpp \
+    forms/login.cpp \
     main.cpp \
-    mainwindow.cpp \
-    penandbrushserializer.cpp \
-    serializepreview.cpp \
+    forms/mainwindow.cpp \
+    forms/penandbrushserializer.cpp \
+    forms/serializepreview.cpp \
     shapes/Circle.cpp \
     shapes/Ellipse.cpp \
     shapes/Line.cpp \
@@ -31,13 +31,13 @@ SOURCES += \
     file-parsing/ShapeListingSpecification.cpp
 
 HEADERS += \
-    canvas.h \
-    circleserializer.h \
-    dialog.h \
-    login.h \
-    mainwindow.h \
-    penandbrushserializer.h \
-    serializepreview.h \
+    forms/canvas.h \
+    forms/circleserializer.h \
+    forms/dialog.h \
+    forms/login.h \
+    forms/mainwindow.h \
+    forms/penandbrushserializer.h \
+    forms/serializepreview.h \
     ui_login.h \
     ui_mainwindow.h \
     vector.h \
