@@ -89,7 +89,7 @@ void Canvas::paintEvent(QPaintEvent *event)
    //     Text
    cs1c::Text myText(&paint);
 
-   myText.setRect(250, 425, 500, 50);
+   myText.setRect(250, 25, 500, 50);
    myText.setText("Class Project 2 - 2D Graphics Modeler");
    myText.setAlignment(Qt::AlignCenter);
    myText.setTextPointSize(10);
