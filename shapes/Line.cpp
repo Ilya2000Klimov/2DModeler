@@ -5,18 +5,18 @@ using namespace cs1c;
 
 Line::Line() : Shape()
 {
-    int x1 = 10;
-    int y1 = 10;
-    int x2 = 100;
-    int y2 = 100;
+    x1 = 10;
+    y1 = 10;
+    x2 = 100;
+    y2 = 100;
 }
 //----------------------------------------------------------------------
 Line::Line(QPainter* pPainter) : Shape(pPainter)
 {
-    int x1 = 10;
-    int y1 = 10;
-    int x2 = 100;
-    int y2 = 100;
+    x1 = 10;
+    y1 = 10;
+    x2 = 100;
+    y2 = 100;
 }
 //----------------------------------------------------------------------
 Line::Line(int xStart, int yStart, int xEnd, int yEnd) : Shape()

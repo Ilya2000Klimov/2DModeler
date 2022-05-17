@@ -1,5 +1,5 @@
 #include "Polygon.h"
-//#include "../file-parsing/ShapeListingSpecification.h"
+#include "../file-parsing/ShapeListingSpecification.h"
 
 using namespace cs1c;
 
@@ -54,6 +54,27 @@ double Polygon::perimeter()
 double Polygon::area()
 {
     return 0;
+}
+//----------------------------------------------------------------------
+void cs1c::Polygon::operator>>(QTextStream& fileStream)
+{
+    fileStream << "\nShapeId: " << this->getID()
+        << "\nShapeType: Polyline"
+        << "\nShapeDimensions: ";
+    // Iterate until second-to-last element of vPoints
+    for(auto itPoints = vPoints.begin(); itPoints != vPoints.end(); itPoints++)
+    {
+        fileStream << itPoints->x() << ", " << itPoints->y() << ", ";
+    }
+    // for last element in vPoints
+    fileStream << vPoints.last().x() << ", " << vPoints.last().y()
+        << "\nPenColor: " << slp::colorResolver.key(this->getPen().color())
+        << "\nPenWidth: " << this->getPen().width()
+        << "\nPenStyle: " << slp::penStyleResolver.key(this->getPen().style())
+        << "\nPenCapStyle: " << slp::penCapStyleResolver.key(this->getPen().capStyle())
+        << "\nPenJoinStyle: " << slp::penJoinStyleResolver.key(this->getPen().joinStyle())
+        << "\nBrushColor: " << slp::colorResolver.key(this->getBrush().color())
+        << "\nBrushStyle: " << slp::brushStyleResolver.key(this->getBrush().style());
 }
 //----------------------------------------------------------------------
 void Polygon::setDimensions(int dimensions[], int dimensionCount)

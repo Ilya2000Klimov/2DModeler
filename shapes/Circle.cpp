@@ -82,10 +82,10 @@ double Circle::area()
 {
     return (PI * (radius * radius));
 }
-ShapeType Circle::type() const
-{
-    return ShapeType::Circle;
-}
+//ShapeType Circle::type() const
+//{
+//    return ShapeType::Circle;
+//}
 //----------------------------------------------------------------------
 void cs1c::Circle::operator>>(QTextStream& fileStream)
 {

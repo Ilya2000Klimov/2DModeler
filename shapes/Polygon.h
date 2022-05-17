@@ -44,6 +44,11 @@ public:
     Returns the coordinate points of the polygon
     */
     QVector<QPoint>& getPoints();
+    //! A print function
+    /*!
+    Function draws the polygon
+    */
+    void operator>>(QTextStream& fileStream) override;
     //! A mutator function
     /*!
     */

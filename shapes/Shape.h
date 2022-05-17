@@ -12,20 +12,20 @@
 */
 namespace cs1c
 {
-    //! An enum
-    /*!
-        Contains the types of shapes
-    */
-    enum ShapeType {
-        Line,       /*!< Enum value Line. */
-        Polyline,   /*!< Enum value Polyline. */
-        Polygon,    /*!< Enum value Polygon. */
-        Rectangle,  /*!< Enum value Rectangle. */
-        Square,     /*!< Enum value Square. */
-        Ellipse,    /*!< Enum value Ellipse. */
-        Circle,     /*!< Enum value Circle. */
-        Text        /*!< Enum value Text. */
-    };
+//    //! An enum
+//    /*!
+//        Contains the types of shapes
+//    */
+//    enum ShapeType {
+//        Line,       /*!< Enum value Line. */
+//        Polyline,   /*!< Enum value Polyline. */
+//        Polygon,    /*!< Enum value Polygon. */
+//        Rectangle,  /*!< Enum value Rectangle. */
+//        Square,     /*!< Enum value Square. */
+//        Ellipse,    /*!< Enum value Ellipse. */
+//        Circle,     /*!< Enum value Circle. */
+//        Text        /*!< Enum value Text. */
+//    };
 class Shape
 {
 private:
@@ -109,7 +109,7 @@ public:
     */
     bool operator<(const Shape& ID);
     // SERIALIZE
-    virtual ShapeType type() const = 0;
+//    virtual ShapeType type() const = 0;
     virtual void operator>>(QTextStream& fileStream) = 0;
     virtual void setDimensions(int dimensions[], int dimensionCount) = 0;
 };

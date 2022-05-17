@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     canvas.cpp \
+    file-parsing/ShapeListingSpecification.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     shapes/Square.cpp \
     shapes/Text.cpp \
     file-parsing/parserClass.cpp
+    file-parsing/ShapeListingSpecification.cpp
 
 HEADERS += \
     canvas.h \

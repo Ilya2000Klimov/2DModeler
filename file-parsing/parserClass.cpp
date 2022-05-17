@@ -24,7 +24,7 @@ bool cs1c::ShapeParser::validateFile(QFile* file)
 // Constructor
 cs1c::ShapeParser::ShapeParser(QPainter* pPainter)
 {
-    slp::shapeTypeResolver = slp::getShapeTypeResolver(pPainter);
+    slp::initShapeTypeResolver(pPainter);
 }
 // parseShape
 std::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(QFile* file)
