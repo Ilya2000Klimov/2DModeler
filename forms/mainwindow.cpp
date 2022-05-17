@@ -1,6 +1,8 @@
+#include <QFileDialog>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "login.h"
+#include "../file-parsing/parserClass.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),
@@ -43,6 +45,7 @@ void MainWindow::on_actionSave_triggered()
 
 void MainWindow::on_actionLoad_triggered()
 {
-
+    QFileDialog shapeListingDialogue;
+    shapeListingDialogue.exec();
 }
 
