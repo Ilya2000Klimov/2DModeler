@@ -19,7 +19,7 @@ Line::Line(QPainter* pPainter) : Shape(pPainter)
     y2 = 100;
 }
 //----------------------------------------------------------------------
-Line::Line(int xStart, int yStart, int xEnd, int yEnd) : Shape()
+Line::Line(QPainter* pPainter, int xStart, int yStart, int xEnd, int yEnd) : Shape(pPainter)
 {
     x1 = xStart;
     y1 = yStart;

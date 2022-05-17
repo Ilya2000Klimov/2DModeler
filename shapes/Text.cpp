@@ -15,7 +15,8 @@ cs1c::Text::Text(QPainter* pPainter) : Shape(pPainter)
     font = QFont();
     textString = "";
 }
-cs1c::Text::Text(QFont font) : Shape()
+cs1c::Text::Text(QPainter* pPainter, QFont font)
+    : Shape(pPainter)
 {
     textFormat = QTextOption();
     this->font = font;

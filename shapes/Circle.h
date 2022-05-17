@@ -27,7 +27,7 @@ public:
     /*!
     x, y corrdinates and the radius are passed as parameters of the constructors
     */
-    Circle(int x, int y, int radius);
+    Circle(QPainter* pPainter, int x, int y, int radius);
     //!A destructor
     /*!
     Circle object is detroyed.

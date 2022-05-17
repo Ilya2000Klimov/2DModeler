@@ -19,7 +19,8 @@ Circle::Circle(QPainter* pPainter) : Shape(pPainter)
     radius = 300;
 }
 //----------------------------------------------------------------------
-Circle::Circle(int x, int y, int radius)
+Circle::Circle(QPainter* pPainter, int x, int y, int radius)
+    : Shape(pPainter)
 {
     this->x = x;
     this->y = y;

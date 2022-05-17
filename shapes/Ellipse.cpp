@@ -21,8 +21,9 @@ Ellipse::Ellipse(QPainter* pPainter) : Shape(pPainter)
     width = 100;
 }
 //----------------------------------------------------------------------
-Ellipse::Ellipse(int x, int y, int width, int height)
-    : x(x), y(y), width(width), height(height) {}
+Ellipse::Ellipse(QPainter* pPainter, int x, int y, int width, int height)
+    : Shape(pPainter), x(x), y(y), width(width), height(height)
+{}
 //----------------------------------------------------------------------
 Ellipse::~Ellipse() {}
 //----------------------------------------------------------------------

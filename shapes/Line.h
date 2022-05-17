@@ -26,7 +26,7 @@ public:
     /*!
     The x,y coordinates of the start point, and the x,y coord. of the end point is passed as parmeter and initialized.
     */
-    Line(int, int, int, int);
+    Line(QPainter* pPainter, int, int, int, int);
     //!A destructor.
     /*!
     Line object destroyed

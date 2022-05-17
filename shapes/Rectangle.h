@@ -11,7 +11,7 @@ private:
 public:
     Rectangle();
     Rectangle(QPainter* pPainter);
-    Rectangle(int x, int y, int width, int height);
+    Rectangle(QPainter* pPainter, int x, int y, int width, int height);
     virtual ~Rectangle();
     void setY(int y);
     void setX(int x);

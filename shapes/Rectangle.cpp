@@ -19,8 +19,8 @@ Rectangle::Rectangle(QPainter* pPainter) : Shape(pPainter)
     width = 100;
 }
 //----------------------------------------------------------------------
-Rectangle::Rectangle(int x, int y, int width, int height)
-    : x(x), y(y), width(width), height(height) {}
+Rectangle::Rectangle(QPainter* pPainter, int x, int y, int width, int height)
+    : Shape(pPainter), x(x), y(y), width(width), height(height) {}
 //----------------------------------------------------------------------
 Rectangle::~Rectangle() {}
 //----------------------------------------------------------------------
