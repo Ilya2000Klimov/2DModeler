@@ -19,7 +19,7 @@ Text::Text(QPainter* pPainter) : Shape(pPainter)
     penColor = Qt::SolidLine; // penColor default
 }
 //----------------------------------------------------------------------
-Text::Text(QFont font, QPainter* pPainter) : Shape(pPainter)
+Text::Text(QPainter* pPainter, QFont font) : Shape(pPainter)
 {
     textFormat = QTextOption();
     this->font = font;

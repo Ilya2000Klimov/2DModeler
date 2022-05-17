@@ -87,7 +87,7 @@ void Canvas::paintEvent(QPaintEvent *event)
    myPolyline.draw(device);
 
    //     Text
-   cs1c::Text myText;
+   cs1c::Text myText(&paint);
 
    myText.setRect(250, 425, 500, 50);
    myText.setText("Class Project 2 - 2D Graphics Modeler");

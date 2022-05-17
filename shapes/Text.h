@@ -21,7 +21,7 @@ private:
 public:
     Text();
     Text(QPainter* pPainter);
-    Text(QFont font, QPainter* pPainter);
+    Text(QPainter* pPainter, QFont font);
     virtual ~Text();
     void setAlignment(Qt::Alignment textAlignment);
     Qt::Alignment getAlignment();
