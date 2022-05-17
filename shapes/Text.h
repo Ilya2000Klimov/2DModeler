@@ -22,7 +22,14 @@ private:
     QPen penColor;
 
 public:
+    //!A default constructor
+    /*!
+    A default constructor to initialize the variable
+    */
     Text();
+    //!An alternate constructor
+    /*!
+    */
     Text(QPainter* pPainter);
     Text(QPainter* pPainter, QFont font);
     virtual ~Text();
