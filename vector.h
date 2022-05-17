@@ -38,11 +38,11 @@ namespace cs1c
 		//! Move constructor.
 		/*!
 		*/
-        vector(const vector&&) noexcept;  
+        vector(vector&&) noexcept;  
 		//! Move assignment.
 		/*!
 		*/
-        vector& operator=(const vector&&) noexcept;
+        vector& operator=(vector&&) noexcept;
 		//! A destructor.
 		/*!
 		*/
@@ -121,7 +121,7 @@ namespace cs1c
         return *this;
     }
     template <typename T>
-    vector<T>::vector(const vector&& source) noexcept // move constructor
+    vector<T>::vector(vector&& source) noexcept // move constructor
         : size_v{ source.size_v }, elem{ source.elem }, space{ source.space}
     {
 
@@ -129,7 +129,7 @@ namespace cs1c
         source.size_v = 0;
     }
     template <typename T>
-    vector<T>& vector<T>::operator=(const vector&& source) noexcept // move assignment
+    vector<T>& vector<T>::operator=(vector&& source) noexcept // move assignment
     {
         if (this != &source)
         {
