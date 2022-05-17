@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "vector.h"
 #include "shapes/Shape.h"
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +20,9 @@ public:
     
 public slots:
     void login_clicked();
+private slots:
+    void on_actionAdd_Line_triggered();
+
 private:
     Ui::MainWindow *ui;
     cs1c::vector<cs1c::Shape*> vShapeList;

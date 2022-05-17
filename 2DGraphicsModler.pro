@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     canvas.cpp \
+    dialog.cpp \
     file-parsing/ShapeListingSpecification.cpp \
     login.cpp \
     main.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 
 HEADERS += \
     canvas.h \
+    dialog.h \
     login.h \
     mainwindow.h \
     serializepreview.h \
@@ -49,6 +51,7 @@ HEADERS += \
     file-parsing/ShapeListingSpecification.h
 
 FORMS += \
+    dialog.ui \
     login.ui \
     mainwindow.ui \
     serializepreview.ui

@@ -18,3 +18,11 @@ void MainWindow::login_clicked()
     auto* login = new Login(this);
     login->show();
 }
+
+void MainWindow::on_actionAdd_Line_triggered()
+{
+    Dialog myDialog;
+    myDialog.setModal(true);
+    myDialog.exec();
+}
+
