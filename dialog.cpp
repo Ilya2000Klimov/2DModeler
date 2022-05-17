@@ -1,6 +1,9 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include <QInputDialog>
+#include "shapes/Shape.h"
+#include "shapes/Line.h"
+
 
 ShapeDialog::ShapeDialog(QWidget *parent) :
     QDialog(parent),
@@ -31,5 +34,8 @@ void ShapeDialog::on_pushButton_clicked()
 
     int y2 = QInputDialog::getInt(this, "y2", "Enter y2");
     ui->label4->setText(QString::number(y2));
+
+    //Shape *dialogLine = new Line (x1, y1, x2, y2); // causes error
+
 }
 

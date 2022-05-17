@@ -23,6 +23,8 @@ public slots:
 private slots:
     void on_actionAdd_Line_triggered();
 
+    void on_actionAdd_Polyline_triggered();
+
 private:
     Ui::MainWindow *ui;
     cs1c::vector<cs1c::Shape*> vShapeList;

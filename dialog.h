@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include "shapes/Shape.h"
 
 namespace Ui {
 class ShapeDialog;

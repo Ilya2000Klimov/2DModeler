@@ -26,3 +26,10 @@ void MainWindow::on_actionAdd_Line_triggered()
     myDialog.exec();
 }
 
+void MainWindow::on_actionAdd_Polyline_triggered()
+{
+    ShapeDialog myDialog1;
+    myDialog1.setModal(true);
+    myDialog1.exec();
+}
+

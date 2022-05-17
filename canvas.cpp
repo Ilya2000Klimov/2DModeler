@@ -72,6 +72,9 @@ void Canvas::paintEvent(QPaintEvent *event)
     myPolygon.setBrush(Qt::yellow, Qt::SolidPattern);
     myPolygon.draw(device);
 
+    myPolygon.move(25,80);  // Testing Polygon move
+    myPolygon.draw(device);
+
     //     Polyline
    cs1c::Polyline myPolyline(&paint);
 
@@ -99,8 +102,8 @@ void Canvas::paintEvent(QPaintEvent *event)
    myText.setColor("Yellow");
    myText.draw(device);
 
-//   myText.move(100,40);  // Testing Polyline move
-//   myText.draw(device);
+   myText.move(100,40);  // Testing Polyline move
+   myText.draw(device);
 
 }
 

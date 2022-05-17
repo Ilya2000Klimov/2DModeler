@@ -19,6 +19,14 @@ Line::Line(QPainter* pPainter) : Shape(pPainter)
     y2 = 100;
 }
 //----------------------------------------------------------------------
+//Line::Line(int, int, int, int) // used for dialog.cpp
+//{
+//    x1 = 10;
+//    y1 = 10;
+//    x2 = 100;
+//    y2 = 100;
+//}
+//----------------------------------------------------------------------
 Line::Line(QPainter* pPainter, int xStart, int yStart, int xEnd, int yEnd) : Shape(pPainter)
 {
     x1 = xStart;
