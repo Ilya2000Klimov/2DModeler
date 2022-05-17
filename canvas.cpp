@@ -86,5 +86,21 @@ void Canvas::paintEvent(QPaintEvent *event)
    myPolyline.move(100,40);  // Testing Polyline move
    myPolyline.draw(device);
 
+   //     Text
+   cs1c::Text myText;
+
+   myText.setRect(250, 425, 500, 50);
+   myText.setText("Class Project 2 - 2D Graphics Modeler");
+   myText.setAlignment(Qt::AlignCenter);
+   myText.setTextPointSize(10);
+   myText.setTextFontFamily("Comic Sans MS");
+   myText.setTextFontStyle("StyleItalic");
+   myText.setTextFontWeight("Normal");
+   myText.setColor("Yellow");
+   myText.draw(device);
+
+//   myText.move(100,40);  // Testing Polyline move
+//   myText.draw(device);
+
 }
 

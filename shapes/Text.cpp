@@ -1,78 +1,234 @@
 #include "Text.h"
 #include "../file-parsing/ShapeListingSpecification.h"
 
+using namespace cs1c;
 
-
-cs1c::Text::Text() : Shape()
+Text::Text() : Shape() // Default constructor
 {
     textFormat = QTextOption();
     font = QFont();
     textString = "";
+    penColor = Qt::SolidLine; // penColor default
 }
-cs1c::Text::Text(QPainter* pPainter) : Shape(pPainter)
+//----------------------------------------------------------------------
+Text::Text(QPainter* pPainter) : Shape(pPainter)
 {
     textFormat = QTextOption();
     font = QFont();
     textString = "";
+    penColor = Qt::SolidLine; // penColor default
 }
-cs1c::Text::Text(QPainter* pPainter, QFont font)
-    : Shape(pPainter)
+//----------------------------------------------------------------------
+Text::Text(QFont font, QPainter* pPainter) : Shape(pPainter)
 {
     textFormat = QTextOption();
     this->font = font;
     textString = "";
+    penColor = Qt::SolidLine; // penColor default
 }
-cs1c::Text::~Text()
-{
-    
-}
-void cs1c::Text::setAlignment(Qt::Alignment textAlignment)
+//----------------------------------------------------------------------
+Text::~Text() {}
+//----------------------------------------------------------------------
+void Text::setAlignment(Qt::Alignment textAlignment) // Align test on canvas
 {
     textFormat.setAlignment(textAlignment);
 }
-Qt::Alignment cs1c::Text::getAlignment()
+//----------------------------------------------------------------------
+Qt::Alignment Text::getAlignment()
 {
-    return textFormat.alignment();
+    return textFormat.alignment(); // Return Akignment
 }
-void cs1c::Text::setFont(QFont font)
+//----------------------------------------------------------------------
+void Text::setRect(int x, int y, int h, int w) // set rectangle for text bounds
+{
+    // Parameters for a rectangle
+    textBounds.setX(x);
+    textBounds.setY(y);
+    textBounds.setHeight(h);
+    textBounds.setWidth(w);
+}
+//----------------------------------------------------------------------
+QRect Text::getRect() const
+{
+    return textBounds; // return QRect
+}
+//----------------------------------------------------------------------
+void Text::setFont(QFont font)
 {
     this->font = font;
 }
-QFont cs1c::Text::getFont() const
+//----------------------------------------------------------------------
+QFont Text::getFont() const
 {
     return font;
 }
-void cs1c::Text::setText(QString text)
+//----------------------------------------------------------------------
+void Text::setText(QString text)
 {
     textString = text;
 }
-QString cs1c::Text::getText() const
+//----------------------------------------------------------------------
+QString Text::getText() const
 {
     return textString;
 }
-void cs1c::Text::draw(QPaintDevice* pDevice) //override
+//----------------------------------------------------------------------
+void Text::setTextPointSize(int size) // set text size
 {
-    // TODO: use consistent names
-    paint->begin(pDevice);
-    paint->setFont(font);
-    paint->setPen(getPen());
-    paint->drawText(textBounds, textString, textFormat);
-    paint->end();
+    font.setPointSize(size);
 }
-
-void cs1c::Text::move(int x, int y) //override
+//----------------------------------------------------------------------
+void Text::setTextFontFamily(QString fontFamily) // set font style
+{
+    if(fontFamily == "Comic Sans MS")
+    {
+        font.setFamily("Comic Sans MS");
+    }
+    else if(fontFamily == "AnyStyle")
+    {
+        font.setStyleHint(QFont::AnyStyle);
+    }
+    else if(fontFamily == "SansSerif")
+    {
+        font.setStyleHint(QFont::SansSerif);
+    }
+    else if(fontFamily == "Helvetica")
+    {
+        font.setStyleHint(QFont::Helvetica);
+    }
+    else if(fontFamily == "Serif")
+    {
+        font.setStyleHint(QFont::Serif);
+    }
+    else if(fontFamily == "Times")
+    {
+        font.setStyleHint(QFont::Times);
+    }
+    else if(fontFamily == "TypeWriter")
+    {
+        font.setStyleHint(QFont::TypeWriter);
+    }
+    else if(fontFamily == "Courier")
+    {
+        font.setStyleHint(QFont::Courier);
+    }
+    else if(fontFamily == "OldEnglish")
+    {
+        font.setStyleHint(QFont::OldEnglish);
+    }
+    else if(fontFamily == "Decorative")
+    {
+        font.setStyleHint(QFont::Decorative);
+    }
+    else if(fontFamily == "Monospace")
+    {
+        font.setStyleHint(QFont::Monospace);
+    }
+    else if(fontFamily == "Fantasy")
+    {
+        font.setStyleHint(QFont::Fantasy);
+    }
+    else if(fontFamily == "Cursive")
+    {
+        font.setStyleHint(QFont::Cursive);
+    }
+    else if(fontFamily == "System")
+    {
+        font.setStyleHint(QFont::System);
+    }
+    else
+    {
+        font.setFamily("Comic Sans MS");
+    }
+}
+//----------------------------------------------------------------------
+void Text::setTextFontStyle(QString fontStyle) // set font style
+{
+    if(fontStyle == "StyleNormal")
+    {
+        font.setStyle(QFont::StyleNormal);
+    }
+    else if(fontStyle == "StyleItalic")
+    {
+        font.setStyle(QFont::StyleItalic);
+    }
+    else if(fontStyle == "StyleOblique")
+    {
+        font.setStyle(QFont::StyleOblique);
+    }
+}
+//----------------------------------------------------------------------
+void Text::setTextFontWeight(QString weight) // set font weight
+{
+    if(weight == "Thin")
+    {
+        font.setWeight(QFont::Thin);
+    }
+    else if(weight == "ExtraLight")
+    {
+        font.setWeight(QFont::ExtraLight);
+    }
+    else if(weight == "Light")
+    {
+        font.setWeight(QFont::Light);
+    }
+    else if(weight == "Normal")
+    {
+        font.setWeight(QFont::Normal);
+    }
+    else if(weight == "Medium")
+    {
+        font.setWeight(QFont::Medium);
+    }
+    else if(weight == "DemiBold")
+    {
+        font.setWeight(QFont::DemiBold);
+    }
+    else if(weight == "Bold")
+    {
+        font.setWeight(QFont::Bold);
+    }
+    else if(weight == "ExtraBold")
+    {
+        font.setWeight(QFont::ExtraBold);
+    }
+    else if(weight == "Black")
+    {
+        font.setWeight(QFont::Black);
+    }
+}
+//----------------------------------------------------------------------
+void Text::setColor(QString c) // set text color
+{
+    penColor.setColor(c);
+}
+//----------------------------------------------------------------------
+void Text::draw(QPaintDevice* pDevice) //override
+{
+    paint->begin(pDevice); // Paint device begins to paint
+    paint->setFont(font); // set font text
+    paint->setPen(penColor); // set color
+    // Calling QPainter's drawText function
+    paint->drawText(textBounds, textString, textFormat);
+    paint->end(); // Ends painting
+}
+//----------------------------------------------------------------------
+void Text::move(int x, int y) //override
 {
     textBounds.moveTo(x, y);
 }
-double cs1c::Text::perimeter() //override
+//----------------------------------------------------------------------
+double Text::perimeter() //override
 {
     return 2* (textBounds.width() + textBounds.height());
 }
-double cs1c::Text::area() //override
+//----------------------------------------------------------------------
+double Text::area() //override
 {
     return textBounds.width() * textBounds.height();
 }
-void cs1c::Text::operator>>(QTextStream& fileStream)
+//----------------------------------------------------------------------
+void Text::operator>>(QTextStream& fileStream)
 {
     fileStream << "\nShapeId: " << this->getID()
         << "\nShapeType: Text"
@@ -86,8 +242,7 @@ void cs1c::Text::operator>>(QTextStream& fileStream)
         << "\nTextFontStyle: " << slp::fontStyleResolver.key(this->font.style())
         << "\nTextFontWeight: " << slp::fontWeightResolver.key(this->font.weight());
 }
-void cs1c::Text::setDimensions(int dimensions[], int dimensionsCount)
+void Text::setDimensions(int dimensions[], int dimensionsCount)
 {
     textBounds.setRect(dimensions[0], dimensions[1], dimensions[2], dimensions[3]);
 }
-
