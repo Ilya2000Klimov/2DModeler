@@ -1,5 +1,4 @@
-#include "mainwindow.h"
-#include "login.h"
+#include "forms/mainwindow.h"
 
 #include <QApplication>
 
@@ -7,8 +6,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    Login w1;
-    w1.show();
     w.show();
+
     return a.exec();
 }

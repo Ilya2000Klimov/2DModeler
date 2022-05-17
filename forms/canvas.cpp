@@ -1,5 +1,5 @@
 #include "canvas.h"
-#include "shapes/AllShapes.h"
+#include "../shapes/AllShapes.h"
 
 Canvas::Canvas(QWidget *parent)
     : QWidget{parent}

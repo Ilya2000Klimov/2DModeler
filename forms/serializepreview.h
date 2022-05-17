@@ -15,6 +15,13 @@ public:
     explicit SerializePreview(QWidget *parent = nullptr);
     ~SerializePreview();
 
+private slots:
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
+
+    void on_comboBox_activated(int index);
+
 private:
     Ui::SerializePreview *ui;
 };

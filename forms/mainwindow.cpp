@@ -3,7 +3,8 @@
 #include "login.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), vShapeList(cs1c::vector<cs1c::Shape*>())
+    : QMainWindow(parent), ui(new Ui::MainWindow),
+      uiLogin(new Login(this)), uiCanvas(ui->canvas), vShapeList(cs1c::vector<cs1c::Shape*>())
 {
     ui->setupUi(this);
 }
@@ -11,12 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::login_clicked()
-{
-    auto* login = new Login(this);
-    login->show();
 }
 
 void MainWindow::on_actionAdd_Line_triggered()
@@ -31,5 +26,11 @@ void MainWindow::on_actionAdd_Polyline_triggered()
     ShapeDialog myDialog1;
     myDialog1.setModal(true);
     myDialog1.exec();
+}
+
+
+void MainWindow::on_actionLogin_triggered()
+{
+    uiLogin->show();
 }
 

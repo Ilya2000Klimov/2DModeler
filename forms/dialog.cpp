@@ -1,8 +1,8 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include <QInputDialog>
-#include "shapes/Shape.h"
-#include "shapes/Line.h"
+#include "../shapes/Shape.h"
+#include "../shapes/Line.h"
 
 
 ShapeDialog::ShapeDialog(QWidget *parent) :

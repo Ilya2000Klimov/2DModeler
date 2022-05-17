@@ -5,6 +5,8 @@
 #include "vector.h"
 #include "shapes/Shape.h"
 #include "dialog.h"
+#include "login.h"
+#include "canvas.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,16 +19,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    
-public slots:
-    void login_clicked();
+
 private slots:
     void on_actionAdd_Line_triggered();
 
     void on_actionAdd_Polyline_triggered();
 
+    void on_actionLogin_triggered();
+
 private:
     Ui::MainWindow *ui;
+    Login* uiLogin;
+    Canvas* uiCanvas;
     cs1c::vector<cs1c::Shape*> vShapeList;
 };
 #endif // MAINWINDOW_H
