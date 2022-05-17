@@ -1,5 +1,7 @@
 #include <algorithm>
 
+#ifndef VECTOR_H
+#define VECTOR_H
 namespace cs1c
 {
     //! Class vector.
@@ -271,3 +273,4 @@ namespace cs1c
         return p;
     }
 }
+#endif

@@ -14,6 +14,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    serializepreview.cpp \
     shapes/Circle.cpp \
     shapes/Ellipse.cpp \
     shapes/Line.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     canvas.h \
     login.h \
     mainwindow.h \
+    serializepreview.h \
     ui_login.h \
     ui_mainwindow.h \
     vector.h \
@@ -48,7 +50,8 @@ HEADERS += \
 
 FORMS += \
     login.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    serializepreview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

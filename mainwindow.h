@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "vector.h"
+#include "shapes/Shape.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,5 +21,6 @@ public slots:
     void login_clicked();
 private:
     Ui::MainWindow *ui;
+    cs1c::vector<cs1c::Shape*> vShapeList;
 };
 #endif // MAINWINDOW_H
