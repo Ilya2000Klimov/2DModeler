@@ -1,7 +1,10 @@
 #ifndef SQUARE_H
 #define SQUARE_H
 #include "Shape.h"
-
+//!A Square class
+/*!
+A class header file to construct a square
+*/
 namespace cs1c
 {
 class Square : public Shape

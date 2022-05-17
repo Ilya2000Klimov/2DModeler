@@ -1,7 +1,10 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 #include "Shape.h"
-
+//!A Rectangle class
+/*!
+A class header file to construct a rectangle
+*/
 namespace cs1c
 {
 class Rectangle : public Shape

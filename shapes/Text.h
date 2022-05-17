@@ -6,7 +6,10 @@
 #include <QTextStream>
 #include <QPen>
 #include "Shape.h"
-
+//!A Text class
+/*!
+A class header file to create Text
+*/
 namespace cs1c
 {
 class Text : public Shape
