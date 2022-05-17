@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>891</width>
+    <height>661</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="Canvas" name="canvas" native="true">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>-1</y>
+      <width>861</width>
+      <height>641</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>891</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLogin"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionLoad"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionInfo"/>
+   </widget>
+   <widget class="QMenu" name="menuAdd_Shapes">
+    <property name="title">
+     <string>Add Shapes</string>
+    </property>
+    <addaction name="actionAdd_Line"/>
+    <addaction name="actionAdd_Polyline"/>
+    <addaction name="actionAdd_Ellipse"/>
+    <addaction name="actionAdd_Circle"/>
+    <addaction name="actionAdd_Rectangle"/>
+    <addaction name="actionAdd_Square"/>
+    <addaction name="actionAdd_Polygon"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuAbout"/>
+   <addaction name="menuAdd_Shapes"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="actionLogin">
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </action>
+  <action name="actionAdd_Line">
+   <property name="text">
+    <string>Add Line</string>
+   </property>
+  </action>
+  <action name="actionAdd_Polyline">
+   <property name="text">
+    <string>Add Polyline</string>
+   </property>
+  </action>
+  <action name="actionAdd_Ellipse">
+   <property name="text">
+    <string>Add Ellipse</string>
+   </property>
+  </action>
+  <action name="actionAdd_Circle">
+   <property name="text">
+    <string>Add Circle</string>
+   </property>
+  </action>
+  <action name="actionAdd_Rectangle">
+   <property name="text">
+    <string>Add Rectangle</string>
+   </property>
+  </action>
+  <action name="actionAdd_Square">
+   <property name="text">
+    <string>Add Square</string>
+   </property>
+  </action>
+  <action name="actionAdd_Polygon">
+   <property name="text">
+    <string>Add Polygon</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Canvas</class>
+   <extends>QWidget</extends>
+   <header location="global">canvas.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

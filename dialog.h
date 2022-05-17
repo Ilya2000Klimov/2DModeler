@@ -4,22 +4,22 @@
 #include <QDialog>
 
 namespace Ui {
-class Dialog;
+class ShapeDialog;
 }
 
-class Dialog : public QDialog
+class ShapeDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = nullptr);
-    ~Dialog();
+    explicit ShapeDialog(QWidget *parent = nullptr);
+    ~ShapeDialog();
 
 private slots:
     void on_pushButton_clicked();
 
 private:
-    Ui::Dialog *ui;
+    Ui::ShapeDialog *ui;
 };
 
 #endif // DIALOG_H

@@ -3,7 +3,7 @@
 #include "login.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), vShapeList(cs1c::vector<cs1c::Shape*>())
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }
@@ -16,13 +16,5 @@ MainWindow::~MainWindow()
 void MainWindow::login_clicked()
 {
     auto* login = new Login(this);
-    login->show();
+	login->show();
 }
-
-void MainWindow::on_actionAdd_Line_triggered()
-{
-    ShapeDialog myDialog;
-    myDialog.setModal(true);
-    myDialog.exec();
-}
-
