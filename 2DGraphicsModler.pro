@@ -14,6 +14,7 @@ SOURCES += \
     forms/dialog.cpp \
     file-parsing/ShapeListingSpecification.cpp \
     forms/login.cpp \
+    forms/parsepreview.cpp \
     main.cpp \
     forms/mainwindow.cpp \
     forms/penandbrushserializer.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     forms/dialog.h \
     forms/login.h \
     forms/mainwindow.h \
+    forms/parsepreview.h \
     forms/penandbrushserializer.h \
     forms/serializepreview.h \
     ui_login.h \
@@ -57,6 +59,7 @@ HEADERS += \
 FORMS += \
     circleserializer.ui \
     dialog.ui \
+    parsepreview.ui \
     login.ui \
     mainwindow.ui \
     penandbrushserializer.ui \
