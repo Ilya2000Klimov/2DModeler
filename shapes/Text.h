@@ -6,7 +6,10 @@
 #include <QTextStream>
 #include <QPen>
 #include "Shape.h"
-
+//!A Text class
+/*!
+A class header file to create Text
+*/
 namespace cs1c
 {
 class Text : public Shape
@@ -19,7 +22,14 @@ private:
     QPen penColor;
 
 public:
+    //!A default constructor
+    /*!
+    A default constructor to initialize the variable
+    */
     Text();
+    //!An alternate constructor
+    /*!
+    */
     Text(QPainter* pPainter);
     Text(QPainter* pPainter, QFont font);
     virtual ~Text();
