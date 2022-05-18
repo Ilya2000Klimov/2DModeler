@@ -7,7 +7,7 @@
 #include "shapes/Shape.h"
 #include "dialog.h"
 #include "login.h"
-#include "canvas.h"
+//#include "canvas.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +20,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    //Test
+    //QPainter** p_pPaint;
 
 private slots:
     void on_actionAdd_Line_triggered();
@@ -35,9 +37,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Login* uiLogin;
-    Canvas* uiCanvas;
+    //Canvas* uiCanvas;
     QPainter** p_pPaint;
-    cs1c::ShapeParser shapeParser;
+    cs1c::ShapeParser* shapeParser;
     cs1c::vector<cs1c::Shape*>* pShapeList;
 };
 #endif // MAINWINDOW_H

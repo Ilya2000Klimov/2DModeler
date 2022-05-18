@@ -9,13 +9,15 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),
       uiLogin(new Login(this)),
-      uiCanvas(ui->canvas),
-      //pPaint(ui->canvas->pPaint),////dynamic_cast<QPainter*>(uiCanvas)),
+      //uiCanvas(ui->canvas),
+      //p_pPaint(ui->canvas->pPaint),////dynamic_cast<QPainter*>(uiCanvas)),
       // Pass address of changing QPainter* from Canvas to all parsed objects
-      shapeParser(cs1c::ShapeParser(&uiCanvas->pPaint)),
-      pShapeList(&uiCanvas->vShapeList)
+
+      pShapeList(&ui->canvas->vShapeList)
 {
     ui->setupUi(this);
+
+    shapeParser = new cs1c::ShapeParser(&(ui->canvas->pPaint));
 }
 
 MainWindow::~MainWindow()
@@ -46,7 +48,9 @@ void MainWindow::on_actionLogin_triggered()
 
 void MainWindow::on_actionSave_triggered()
 {
-
+    p_pPaint = &ui->canvas->pPaint;
+ui->canvas->vShapeList.push_back(new cs1c::Rectangle(p_pPaint));
+ui->canvas->updateGeometry();
 }
 
 
@@ -56,8 +60,10 @@ void MainWindow::on_actionLoad_triggered()
     shapeListingDialogue.setNameFilter("*.txt");
     if(shapeListingDialogue.exec())
     {
-        *pShapeList = shapeParser.parseShape(QString(shapeListingDialogue.selectedFiles().at(0)));
-        //uiCanvas->updateGeometry();
+        //*pShapeList == ui->canvas->vShapeList
+        ui->canvas->vShapeList = shapeParser->parseShape(QString(shapeListingDialogue.selectedFiles().at(0)));
+        //uiCanvas
+        ui->canvas->updateGeometry();
     }
 }
 

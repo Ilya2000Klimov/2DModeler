@@ -6,6 +6,8 @@
 #include <QPaintDevice>
 //#include <QtGui>
 #include "shapes/AllShapes.h"
+#include "vector.h"
+#include "mainwindow.h"
 //#include "shapes/Line.h"
 //#include "shapes/Circle.h"
 //#include "shapes/Rectangle.h"
@@ -22,6 +24,7 @@ public:
     void paintEvent(QPaintEvent *event) override;
     // ptr to new QPainter obj every paintEvent()
     QPainter* pPaint;
+    QPainter** p_pPaint;
     cs1c::vector<cs1c::Shape*> vShapeList;
 
 signals:
