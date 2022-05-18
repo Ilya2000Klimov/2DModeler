@@ -1,22 +1,19 @@
 #ifndef PARSEPREVIEW_H
 #define PARSEPREVIEW_H
 
-#include <QWidget>
+#include <QFileDialog>
 
 namespace Ui {
 class ParsePreview;
 }
 
-class ParsePreview : public QWidget
+class ParsePreview : public QFileDialog
 {
-    Q_OBJECT
+
 
 public:
     explicit ParsePreview(QWidget *parent = nullptr);
-    ~ParsePreview();
 
-private:
-    Ui::ParsePreview *ui;
 };
 
 #endif // PARSEPREVIEW_H

@@ -59,7 +59,6 @@ HEADERS += \
 FORMS += \
     circleserializer.ui \
     dialog.ui \
-    parsepreview.ui \
     login.ui \
     mainwindow.ui \
     penandbrushserializer.ui \

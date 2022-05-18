@@ -25,7 +25,7 @@ QVector<QPoint>& Polygon::getPoints()
     return vPoints;
 }
 //----------------------------------------------------------------------
-void Polygon::draw(QPaintDevice *device)
+void Polygon::draw(QPaintDevice *device) const
 {
     //paint = this; // This might be needed for the canvas
 

@@ -68,7 +68,7 @@ public:
     /*!
     Function to draw the line
     */
-    virtual void draw(QPaintDevice* pDevice) override;
+    virtual void draw(QPaintDevice* pDevice) const override;
     //!A move function
     /*!
     Function to move the line

@@ -79,7 +79,7 @@ public:
     /*!
     Used to draw shape object.
     */
-    virtual void draw(QPaintDevice* pDevice) = 0;
+    virtual void draw(QPaintDevice* pDevice) const = 0;
     //! A pure virtual function
     /*!
     Used to move shape object. 
@@ -97,8 +97,8 @@ public:
     virtual double area() = 0;
     int getID() const;
     //shapeType getShapeType() const;
-    QPen& getPen();
-    QBrush& getBrush();
+    const QPen& getPen() const;
+    const QBrush& getBrush() const;
     // Overloaded operators
     //*! An overloaded equality operator
     /*!

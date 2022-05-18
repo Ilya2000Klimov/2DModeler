@@ -26,8 +26,8 @@ namespace cs1c
         // parseShape
         // Input: A valid QFile reference; validation required
         // Output: vector containing all shapes described in Input
-        std::vector<Shape*> parseShape(QFile* file);
-        void serializeShapes(std::vector<Shape*>& shapeList);
+        cs1c::vector<Shape*> parseShape(const QString fileUrl);
+        void serializeShapes(cs1c::vector<Shape*>& shapeList);
         //void parseFile(std::vector<Shape>&);
     };
 }

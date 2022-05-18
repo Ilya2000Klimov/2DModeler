@@ -57,7 +57,7 @@ int Square::getY() const
     return y;
 }
 //----------------------------------------------------------------------
-void Square::draw(QPaintDevice *device)
+void Square::draw(QPaintDevice *device) const
 {
     paint->begin(device);
     paint->setPen(getPen());

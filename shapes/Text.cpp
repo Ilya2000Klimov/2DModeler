@@ -203,7 +203,7 @@ void Text::setColor(QString c) // set text color
     penColor.setColor(c);
 }
 //----------------------------------------------------------------------
-void Text::draw(QPaintDevice* pDevice) //override
+void Text::draw(QPaintDevice* pDevice) const //override
 {
     paint->begin(pDevice); // Paint device begins to paint
     paint->setFont(font); // set font text

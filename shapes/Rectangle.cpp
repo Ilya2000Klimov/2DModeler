@@ -64,7 +64,7 @@ int Rectangle::getY() const
     return y;
 }
 //----------------------------------------------------------------------
-void Rectangle::draw(QPaintDevice *device)
+void Rectangle::draw(QPaintDevice *device) const
 {
     paint->begin(device);
     paint->setPen(getPen());

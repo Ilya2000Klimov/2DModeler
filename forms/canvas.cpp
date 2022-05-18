@@ -2,17 +2,24 @@
 #include "../shapes/AllShapes.h"
 
 Canvas::Canvas(QWidget *parent)
-    : QWidget{parent}
+    : QWidget{parent}, vShapeList(cs1c::vector<cs1c::Shape*> ())
 {
     // QWidget function to set the width & height of widget
     setFixedSize(1000,1000);
+    pPaint = nullptr;
 }
 
 void Canvas::paintEvent(QPaintEvent *event)
 {
     QPaintDevice *device(this);
-    QPainter paint(this);
+    pPaint = new QPainter(this);
 
+    for(const cs1c::Shape* shape : vShapeList)
+    {
+        shape->draw(device);
+    }
+    delete pPaint;
+    /*
     //     LINE
     cs1c::Line myLine(&paint, 20, 90, 100, 20);
     myLine.setPen(Qt::green, 5, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin);
@@ -103,7 +110,7 @@ void Canvas::paintEvent(QPaintEvent *event)
    myText.draw(device);
 
    myText.move(100,40);  // Testing Polyline move
-   myText.draw(device);
+   myText.draw(device);*/
 
 }
 

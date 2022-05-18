@@ -20,6 +20,9 @@ class Canvas : public QWidget
 public:
     explicit Canvas(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event) override;
+    // ptr to ptr because
+    QPainter* pPaint;
+    cs1c::vector<cs1c::Shape*> vShapeList;
 
 signals:
 

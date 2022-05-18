@@ -57,7 +57,7 @@ public:
     /*!
     Function draws the polygon
     */
-    virtual void draw(QPaintDevice *device) override;
+    virtual void draw(QPaintDevice *device) const override;
     //! A move function
     /*!
     Function to move the polygon

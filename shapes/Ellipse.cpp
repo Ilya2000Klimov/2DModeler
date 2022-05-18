@@ -67,7 +67,7 @@ int Ellipse::getWidth() const
     return width;
 }
 //----------------------------------------------------------------------
-void Ellipse::draw(QPaintDevice *device)
+void Ellipse::draw(QPaintDevice *device) const
 {
     paint->begin(device);
     paint->setPen(getPen());

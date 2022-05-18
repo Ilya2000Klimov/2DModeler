@@ -1,12 +1,18 @@
 #include <QFileDialog>
 #include "mainwindow.h"
+#include "qevent.h"
 #include "ui_mainwindow.h"
 #include "login.h"
 #include "../file-parsing/parserClass.h"
+//#include "shapes/Shape.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),
-      uiLogin(new Login(this)), uiCanvas(ui->canvas), vShapeList(cs1c::vector<cs1c::Shape*>())
+      uiLogin(new Login(this)),
+      uiCanvas(ui->canvas),
+      //pPaint(ui->canvas->pPaint),////dynamic_cast<QPainter*>(uiCanvas)),
+      shapeParser(cs1c::ShapeParser(uiCanvas->pPaint)),
+      pShapeList(&uiCanvas->vShapeList)
 {
     ui->setupUi(this);
 }
@@ -46,6 +52,11 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionLoad_triggered()
 {
     QFileDialog shapeListingDialogue;
-    shapeListingDialogue.exec();
+    shapeListingDialogue.setNameFilter("*.txt");
+    if(shapeListingDialogue.exec())
+    {
+        *pShapeList = shapeParser.parseShape(shapeListingDialogue.selectedFiles().at(0));
+        //uiCanvas->updateGeometry();
+    }
 }
 

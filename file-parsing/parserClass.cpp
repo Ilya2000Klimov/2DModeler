@@ -27,11 +27,20 @@ cs1c::ShapeParser::ShapeParser(QPainter* pPainter)
     slp::initShapeTypeResolver(pPainter);
 }
 // parseShape
-std::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(QFile* file)
+cs1c::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(const QString fileUrl)
 {
-    openFile = file;
+    openFile = new QFile(fileUrl);
     // shape container to be returned
-    std::vector<Shape*> shapeList;
+    cs1c::vector<Shape*> shapeList;
+
+    // Gating function
+    // ensure file is opened correctly
+    if(validateFile(openFile))
+    {
+        delete openFile;
+        openFile = nullptr;
+        return shapeList;
+    }
     //Shape& currentShape;
     // class for streaming data from a text file
     QTextStream openFileStream(openFile);
@@ -131,7 +140,7 @@ std::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(QFile* file)
     }
     return shapeList;
 }
-void cs1c::ShapeParser::serializeShapes(std::vector<Shape*>& shapeList)
+void cs1c::ShapeParser::serializeShapes(cs1c::vector<Shape*>& shapeList)
 {
     // class for streaming data from a text file
     QTextStream openFileStream(openFile);

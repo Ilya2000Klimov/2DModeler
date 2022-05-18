@@ -56,7 +56,7 @@ public:
     /*!
     Function draws the polyline
     */
-    virtual void draw(QPaintDevice *device) override;
+    virtual void draw(QPaintDevice *device) const override;
     //! A move function
     /*!
     Function moves the polyline

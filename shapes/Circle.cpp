@@ -59,7 +59,7 @@ int Circle::getY() const
     return y;
 }
 //----------------------------------------------------------------------
-void Circle::draw(QPaintDevice *device)
+void Circle::draw(QPaintDevice *device) const
 {
     paint->begin(device);
     paint->setPen(getPen());

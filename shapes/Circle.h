@@ -67,7 +67,7 @@ public:
     /*!
     A function to draw the circle
     */
-    virtual void draw(QPaintDevice* pDevice) override;
+    virtual void draw(QPaintDevice* pDevice) const override;
     //! A move function
     /*!
     A function to move the circle

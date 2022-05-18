@@ -61,12 +61,12 @@ int Shape::getID() const
 //    return shape;
 //}
 //----------------------------------------------------------------------
-QPen& Shape::getPen()
+const QPen& Shape::getPen() const
 {
     return pen;
 }
 //----------------------------------------------------------------------
-QBrush& Shape::getBrush()
+const QBrush& Shape::getBrush() const
 {
     return brush;
 }

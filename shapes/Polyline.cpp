@@ -54,7 +54,7 @@ void Polyline::setDimensions(int dimensions[], int dimensionCount)
         }
 }
 //----------------------------------------------------------------------
-void Polyline::draw(QPaintDevice *device)
+void Polyline::draw(QPaintDevice *device) const
 {
     //paint = this; // This might be needed for the canvas
 

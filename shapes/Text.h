@@ -36,7 +36,7 @@ public:
     void setTextFontStyle(QString fontStyle);
     void setTextFontWeight(QString weight);
     void setColor(QString c);
-    virtual void draw(QPaintDevice* pDevice) override;
+    virtual void draw(QPaintDevice* pDevice) const override;
     virtual void move(int x, int y) override;
     virtual double perimeter() override;
     virtual double area() override;

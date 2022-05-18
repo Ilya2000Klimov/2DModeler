@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "vector.h"
+#include "file-parsing/parserClass.h"
 #include "shapes/Shape.h"
 #include "dialog.h"
 #include "login.h"
@@ -35,6 +36,8 @@ private:
     Ui::MainWindow *ui;
     Login* uiLogin;
     Canvas* uiCanvas;
-    cs1c::vector<cs1c::Shape*> vShapeList;
+    QPainter** p_pPaint;
+    cs1c::ShapeParser shapeParser;
+    cs1c::vector<cs1c::Shape*>* pShapeList;
 };
 #endif // MAINWINDOW_H

@@ -2,13 +2,7 @@
 #include "ui_parsepreview.h"
 
 ParsePreview::ParsePreview(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::ParsePreview)
+    QFileDialog(parent)
 {
-    ui->setupUi(this);
-}
-
-ParsePreview::~ParsePreview()
-{
-    delete ui;
+    this->setNameFilter(".txt");
 }

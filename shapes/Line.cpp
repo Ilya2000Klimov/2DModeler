@@ -69,7 +69,7 @@ int Line::getEndY() const
     return y2;
 }
 //----------------------------------------------------------------------
-void Line::draw(QPaintDevice *device)
+void Line::draw(QPaintDevice *device) const
 {
     paint->begin(device);
     paint->setPen(getPen());
