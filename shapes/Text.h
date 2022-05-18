@@ -30,8 +30,8 @@ public:
     //!An alternate constructor
     /*!
     */
-    Text(QPainter* pPainter);
-    Text(QPainter* pPainter, QFont font);
+    Text(QPainter** p_pPainter);
+    Text(QPainter** p_pPainter, QFont font);
     virtual ~Text();
     void setAlignment(Qt::Alignment textAlignment);
     Qt::Alignment getAlignment();

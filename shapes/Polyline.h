@@ -22,7 +22,7 @@ public:
     //! An alternate constructor.
     /*!
     */
-    Polyline(QPainter* pPainter);
+    Polyline(QPainter** p_pPainter);
     //! An alternate constructor.
     /*!
     The points of the polyline is initialized in this constructor

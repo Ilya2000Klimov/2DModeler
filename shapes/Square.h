@@ -21,12 +21,12 @@ public:
     //!An alternate constructor
     /*!
     */
-    Square(QPainter* pPainter);
+    Square(QPainter** p_pPainter);
     //!An alternate constructor
     /*!
     x,y value and width is passed as parameters for the alternate contructor
     */
-    Square(QPainter* pPainter, int x, int y, int w);
+    Square(QPainter** p_pPainter, int x, int y, int w);
     //!An destructor
     /*!
     */

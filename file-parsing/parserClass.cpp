@@ -14,17 +14,17 @@ bool cs1c::ShapeParser::validateFile(QFile* file)
 {
     //QFile file(filePath);
     // is file NOT accessible for reading?
-    if (!file->open(QIODevice::ReadOnly | QIODevice::Text))
+    if (file->open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 // Constructor
-cs1c::ShapeParser::ShapeParser(QPainter* pPainter)
+cs1c::ShapeParser::ShapeParser(QPainter** p_pPainter)
 {
-    slp::initShapeTypeResolver(pPainter);
+    slp::initShapeTypeResolver(p_pPainter);
 }
 // parseShape
 cs1c::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(const QString fileUrl)
@@ -33,14 +33,16 @@ cs1c::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(const QString fileUrl)
     // shape container to be returned
     cs1c::vector<Shape*> shapeList;
 
+    qDebug() << "Parse Call!";
     // Gating function
     // ensure file is opened correctly
-    if(validateFile(openFile))
+    if(!validateFile(openFile))
     {
         delete openFile;
         openFile = nullptr;
         return shapeList;
     }
+    qDebug() << "File opened!";
     //Shape& currentShape;
     // class for streaming data from a text file
     QTextStream openFileStream(openFile);
@@ -52,9 +54,11 @@ cs1c::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(const QString fileUrl)
     int shapeId = 0;
     int* shapeDimensions;
 
+
     // so long as the file has not reached its end
     while (!openFileStream.atEnd()) {
         // For each shape listed:
+        // Skip preceeding blankspace
         openFileStream.readLine();
         // alt: while(openFileStream.readLine())
 
@@ -127,7 +131,7 @@ cs1c::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(const QString fileUrl)
             // ============================
             // For Surface only properties
             // ============================
-            if(!shapeType.contains("Line"))
+            if(!shapeType.toUpper().contains("LINE"))
             {
                 QColor brushColor = slp::colorResolver.value(getPropertyData(openFileStream));
                 Qt::BrushStyle brushStyle = slp::brushStyleResolver.value(getPropertyData(openFileStream));
@@ -137,6 +141,7 @@ cs1c::vector<cs1c::Shape*> cs1c::ShapeParser::parseShape(const QString fileUrl)
             }
         }
         shapeList.push_back(currentShape);
+        qDebug() << "Shape added!";
     }
     return shapeList;
 }

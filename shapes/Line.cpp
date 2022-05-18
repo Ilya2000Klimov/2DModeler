@@ -11,7 +11,7 @@ Line::Line() : Shape()
     y2 = 100;
 }
 //----------------------------------------------------------------------
-Line::Line(QPainter* pPainter) : Shape(pPainter)
+Line::Line(QPainter** p_pPainter) : Shape(p_pPainter)
 {
     x1 = 10;
     y1 = 10;
@@ -27,7 +27,7 @@ Line::Line(QPainter* pPainter) : Shape(pPainter)
 //    y2 = 100;
 //}
 //----------------------------------------------------------------------
-Line::Line(QPainter* pPainter, int xStart, int yStart, int xEnd, int yEnd) : Shape(pPainter)
+Line::Line(QPainter** p_pPainter, int xStart, int yStart, int xEnd, int yEnd) : Shape(p_pPainter)
 {
     x1 = xStart;
     y1 = yStart;
@@ -71,6 +71,7 @@ int Line::getEndY() const
 //----------------------------------------------------------------------
 void Line::draw(QPaintDevice *device) const
 {
+    QPainter* paint = *p_pPaint;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

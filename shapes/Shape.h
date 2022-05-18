@@ -35,7 +35,7 @@ private:
     // shapeType shape;
 
 protected:
-    QPainter *paint;
+    QPainter** p_pPaint;
 
 public:
     //! A default constructor.
@@ -47,7 +47,7 @@ public:
     /*!
     An alternate constructor where QPainter pointer is passed as parameter
     */
-    Shape(QPainter* pPainter);
+    Shape(QPainter** p_pPainter);
     //! An alternate constructor.
     /*!
     An alternate constructor where the shape ID, and the QPen and QBrish objects are passed as parameter

@@ -22,7 +22,7 @@ namespace cs1c
     public:
         // Register enum with qt meta type system
         //Q_ENUM(slp::ShapeType)
-        ShapeParser(QPainter*);
+        ShapeParser(QPainter**);
         // parseShape
         // Input: A valid QFile reference; validation required
         // Output: vector containing all shapes described in Input

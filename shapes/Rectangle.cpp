@@ -11,7 +11,7 @@ Rectangle::Rectangle()
     width = 100;
 }
 //----------------------------------------------------------------------
-Rectangle::Rectangle(QPainter* pPainter) : Shape(pPainter)
+Rectangle::Rectangle(QPainter** p_pPainter) : Shape(p_pPainter)
 {
     x = 10;
     y = 10;
@@ -19,8 +19,8 @@ Rectangle::Rectangle(QPainter* pPainter) : Shape(pPainter)
     width = 100;
 }
 //----------------------------------------------------------------------
-Rectangle::Rectangle(QPainter* pPainter, int x, int y, int width, int height)
-    : Shape(pPainter), x(x), y(y), width(width), height(height) {}
+Rectangle::Rectangle(QPainter** p_pPainter, int x, int y, int width, int height)
+    : Shape(p_pPainter), x(x), y(y), width(width), height(height) {}
 //----------------------------------------------------------------------
 Rectangle::~Rectangle() {}
 //----------------------------------------------------------------------
@@ -66,6 +66,7 @@ int Rectangle::getY() const
 //----------------------------------------------------------------------
 void Rectangle::draw(QPaintDevice *device) const
 {
+    QPainter* paint = *p_pPaint;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

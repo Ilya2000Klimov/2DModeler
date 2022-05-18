@@ -11,7 +11,7 @@ Text::Text() : Shape() // Default constructor
     penColor = Qt::SolidLine; // penColor default
 }
 //----------------------------------------------------------------------
-Text::Text(QPainter* pPainter) : Shape(pPainter)
+Text::Text(QPainter** p_pPainter) : Shape(p_pPainter)
 {
     textFormat = QTextOption();
     font = QFont();
@@ -19,7 +19,7 @@ Text::Text(QPainter* pPainter) : Shape(pPainter)
     penColor = Qt::SolidLine; // penColor default
 }
 //----------------------------------------------------------------------
-Text::Text(QPainter* pPainter, QFont font) : Shape(pPainter)
+Text::Text(QPainter** p_pPainter, QFont font) : Shape(p_pPainter)
 {
     textFormat = QTextOption();
     this->font = font;
@@ -205,6 +205,7 @@ void Text::setColor(QString c) // set text color
 //----------------------------------------------------------------------
 void Text::draw(QPaintDevice* pDevice) const //override
 {
+    QPainter* paint = *p_pPaint;
     paint->begin(pDevice); // Paint device begins to paint
     paint->setFont(font); // set font text
     paint->setPen(penColor); // set color

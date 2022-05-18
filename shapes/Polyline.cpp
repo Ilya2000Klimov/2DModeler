@@ -6,7 +6,7 @@ using namespace cs1c;
 Polyline::Polyline()
 {}
 //----------------------------------------------------------------------
-Polyline::Polyline(QPainter* pPainter) : Shape(pPainter)
+Polyline::Polyline(QPainter** p_pPainter) : Shape(p_pPainter)
 {}
 //----------------------------------------------------------------------
 Polyline::Polyline(QVector<QPoint> vPoints) : vPoints{vPoints}
@@ -57,7 +57,7 @@ void Polyline::setDimensions(int dimensions[], int dimensionCount)
 void Polyline::draw(QPaintDevice *device) const
 {
     //paint = this; // This might be needed for the canvas
-
+    QPainter* paint = *p_pPaint;
     paint->begin(device); // Paint device begins to paint
     paint->setPen(getPen()); // set pen calling shape function
     paint->setBrush(getBrush()); // set brush calling shape function

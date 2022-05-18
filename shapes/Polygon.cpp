@@ -6,7 +6,7 @@ using namespace cs1c;
 Polygon::Polygon()
 {}
 //----------------------------------------------------------------------
-Polygon::Polygon(QPainter* pPainter) : Shape(pPainter)
+Polygon::Polygon(QPainter** p_pPainter) : Shape(p_pPainter)
 {}
 //----------------------------------------------------------------------
 Polygon::Polygon(QVector<QPoint> vPoints) :vPoints{vPoints}
@@ -28,7 +28,7 @@ QVector<QPoint>& Polygon::getPoints()
 void Polygon::draw(QPaintDevice *device) const
 {
     //paint = this; // This might be needed for the canvas
-
+    QPainter* paint = *p_pPaint;
     paint->begin(device); // Paint device begins to paint
     paint->setPen(getPen()); // set pen calling shape function
     paint->setBrush(getBrush()); // set brush calling shape function

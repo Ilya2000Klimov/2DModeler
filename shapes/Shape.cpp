@@ -9,7 +9,7 @@ Shape::Shape()
     brush = Qt::SolidPattern;
     //shape = None;
 }
-Shape::Shape(QPainter* pPainter) : paint{pPainter}
+Shape::Shape(QPainter** p_pPainter) : p_pPaint{p_pPainter}
 {
     shapeID = 0;
     pen = Qt::SolidLine;

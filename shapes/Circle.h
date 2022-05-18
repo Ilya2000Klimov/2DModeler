@@ -22,12 +22,12 @@ public:
     //!An alternate constructor
     /*!
     */
-    Circle(QPainter* pPainter);
+    Circle(QPainter** p_pPainter);
     //!An alternate constructor
     /*!
     x, y corrdinates and the radius are passed as parameters of the constructors
     */
-    Circle(QPainter* pPainter, int x, int y, int radius);
+    Circle(QPainter** p_pPainter, int x, int y, int radius);
     //!A destructor
     /*!
     Circle object is detroyed.

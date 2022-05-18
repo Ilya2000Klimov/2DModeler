@@ -19,7 +19,7 @@
 namespace slp
 {
 // External Function prototype
-inline void initShapeTypeResolver(QPainter*);
+inline void initShapeTypeResolver(QPainter** p_pPainter);
 // Helper Functions
 inline QHash<QString, QColor> getColorResolver();
 inline QHash<QString, Qt::PenStyle> getPenStyleResolver();
@@ -43,21 +43,21 @@ inline QHash<QString, QFont::Weight> fontWeightResolver = getFontWeightResolver(
 
 // Helper Function Definitions
 // Instantiating QHashes for String Litteral to Named Type conversion
-void initShapeTypeResolver(QPainter* pPainter)
+void initShapeTypeResolver(QPainter** p_pPainter)
 {
     QHash<QString, cs1c::Shape*> shapeTypeResolver;
     shapeTypeResolver.reserve(8);
     // QHashes cannot receive input, so all concrete
     // shapes must have constructors with non-variable input
     // ex: pPainter does not differ between shapes
-    shapeTypeResolver["Line"] = new cs1c::Line(pPainter);
-    shapeTypeResolver["Polyline"] = new cs1c::Polyline(pPainter);
-    shapeTypeResolver["Polygon"] = new cs1c::Polygon(pPainter);
-    shapeTypeResolver["Rectangle"] = new cs1c::Rectangle(pPainter);
-    shapeTypeResolver["Square"] = new cs1c::Rectangle(pPainter);
-    shapeTypeResolver["Ellipse"] = new cs1c::Ellipse(pPainter);
-    shapeTypeResolver["Circle"] = new cs1c::Ellipse(pPainter);
-    shapeTypeResolver["Text"] = new cs1c::Text(pPainter);
+    shapeTypeResolver["Line"] = new cs1c::Line(p_pPainter);
+    shapeTypeResolver["Polyline"] = new cs1c::Polyline(p_pPainter);
+    shapeTypeResolver["Polygon"] = new cs1c::Polygon(p_pPainter);
+    shapeTypeResolver["Rectangle"] = new cs1c::Rectangle(p_pPainter);
+    shapeTypeResolver["Square"] = new cs1c::Rectangle(p_pPainter);
+    shapeTypeResolver["Ellipse"] = new cs1c::Ellipse(p_pPainter);
+    shapeTypeResolver["Circle"] = new cs1c::Ellipse(p_pPainter);
+    shapeTypeResolver["Text"] = new cs1c::Text(p_pPainter);
     slp::shapeTypeResolver = shapeTypeResolver;
 }
 QHash<QString, QColor> getColorResolver()

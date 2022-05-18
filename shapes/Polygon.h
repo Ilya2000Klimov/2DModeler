@@ -23,7 +23,7 @@ public:
     //!An alternate constructor.
     /*!
     */
-    Polygon(QPainter* pPainter);
+    Polygon(QPainter** p_pPainter);
     //! An alternate constructor.
     /*!
     The points of the polygon is initialized with the constructor

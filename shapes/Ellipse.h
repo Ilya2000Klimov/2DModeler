@@ -23,12 +23,12 @@ public:
     //!An altenate constructor
     /*!
     */
-    Ellipse(QPainter* pPainter);
+    Ellipse(QPainter** p_pPainter);
     //!An alternate constructor
     /*!
     x,y value and width and height is passed as parameters for the alternate contructor
     */
-    Ellipse(QPainter* pPainter, int x, int y, int width, int height);
+    Ellipse(QPainter** p_pPainter, int x, int y, int width, int height);
     //! A destructor
     /*!
     Ellipse object destroyed

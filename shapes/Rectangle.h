@@ -20,12 +20,12 @@ public:
     //!An alternate constructor
     /*!
     */
-    Rectangle(QPainter* pPainter);
+    Rectangle(QPainter** p_pPainter);
     //!An alternate constructor
     /*!
     x,y value and width and height is passed as parameters for the alternate contructor
     */
-    Rectangle(QPainter* pPainter, int x, int y, int width, int height);
+    Rectangle(QPainter** p_pPainter, int x, int y, int width, int height);
     //! A destructor
     /*!
     Rectangle object destroyed

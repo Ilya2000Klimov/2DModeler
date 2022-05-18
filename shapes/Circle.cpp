@@ -12,15 +12,15 @@ Circle::Circle()
     radius = 300;
 }
 //----------------------------------------------------------------------
-Circle::Circle(QPainter* pPainter) : Shape(pPainter)
+Circle::Circle(QPainter** p_pPainter) : Shape(p_pPainter)
 {
     x = 100;
     y = 100;
     radius = 300;
 }
 //----------------------------------------------------------------------
-Circle::Circle(QPainter* pPainter, int x, int y, int radius)
-    : Shape(pPainter)
+Circle::Circle(QPainter** p_pPainter, int x, int y, int radius)
+    : Shape(p_pPainter)
 {
     this->x = x;
     this->y = y;
@@ -61,6 +61,7 @@ int Circle::getY() const
 //----------------------------------------------------------------------
 void Circle::draw(QPaintDevice *device) const
 {
+    QPainter* paint = *p_pPaint;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());

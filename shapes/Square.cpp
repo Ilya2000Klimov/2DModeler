@@ -10,15 +10,15 @@ Square::Square()
     width = 100;
 }
 //----------------------------------------------------------------------
-Square::Square(QPainter* pPainter) : Shape(pPainter)
+Square::Square(QPainter** p_pPainter) : Shape(p_pPainter)
 {
     x = 10;
     y = 10;
     width = 100;
 }
 //---------------------------------------------------------------
-Square::Square(QPainter* pPainter, int x, int y, int w)
-    : Shape(pPainter)
+Square::Square(QPainter** p_pPainter, int x, int y, int w)
+    : Shape(p_pPainter)
 {
     this->x = x;
     this->y = y;
@@ -59,6 +59,7 @@ int Square::getY() const
 //----------------------------------------------------------------------
 void Square::draw(QPaintDevice *device) const
 {
+    QPainter* paint = *p_pPaint;
     paint->begin(device);
     paint->setPen(getPen());
     paint->setBrush(getBrush());
